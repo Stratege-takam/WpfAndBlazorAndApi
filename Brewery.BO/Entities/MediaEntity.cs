@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using Elia.Core.BaseModel;
 
@@ -34,6 +35,11 @@ public class MediaEntity: Track
     /// 
     /// </summary>
     public double Size { get; set; }
-    
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public ObservableCollection<BeerEntity> Beers { get; set; }
     
 }

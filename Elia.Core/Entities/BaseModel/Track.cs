@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
     /// Base table to detecte and save all entries
     /// </summary>
     [Table("Tracks")]
-    public abstract partial class Track: ITrack, IValidatableObject
+    public abstract partial class Track: ITrack , IValidatableObject
     {
         #region Properties
 
@@ -42,6 +42,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
         #region Validators
 
+        [NotMapped]
         public virtual List<ValidationResult> ValidationResults { get; set; } = null;
         public  IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

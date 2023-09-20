@@ -25,7 +25,7 @@ public sealed class EliaAuthorizeAttribute : Attribute, IAuthorizationFilter
             context.Result = new UnauthorizedObjectResult(new BaseHttpResponse()
             {
                 ResultStatus = BaseResultStatus.Unauthorized,
-                Reason = "Not valid token"
+                Reason = "The token is not valid"
             });
             
             return;
