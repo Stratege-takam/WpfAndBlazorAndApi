@@ -9,7 +9,7 @@ namespace Elia.Share.ASP.Filters;
 /// 
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
-public class ValidationAttribute: ActionFilterAttribute
+public class ValidationModelAttribute: ActionFilterAttribute
 {
 
     /// <summary>

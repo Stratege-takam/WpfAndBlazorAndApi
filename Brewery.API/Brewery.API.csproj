@@ -8,7 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.11"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
@@ -17,5 +19,15 @@
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.BL\Brewery.BL.csproj" />
+      <ProjectReference Include="..\Brewery.BO\Brewery.BO.csproj" />
+      <ProjectReference Include="..\Brewery.Context\Brewery.Context.csproj" />
+      <ProjectReference Include="..\Brewery.DAL\Brewery.DAL.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+      <ProjectReference Include="..\Elia.Share.ASP\Elia.Share.ASP.csproj" />
+    </ItemGroup>
+
 
 </Project>

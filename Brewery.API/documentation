@@ -1,0 +1,8 @@
+dotnet ef migrations add Initial --context BreweryContext -o Database/Migrations --project Brewery.API --configuration Debug
+dotnet ef database update  --context BreweryContext --configuration Debug --project Brewery.API
+
+
+~/.dotnet/tools/livingdoc test-assembly Brewery.Spec.dll --test-execution-json TestExecution.json --output report.html --title "Brewery Report"
+
+livingdoc test-assembly Brewery.Spec.dll -t TestExecution.json --output report.html --title "Brewery Report"
+ 
