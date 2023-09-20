@@ -28,4 +28,17 @@
         <PackageReference Include="FluentAssertions" Version="6.2.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Features\Calculator.feature" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckBuild Remove="Features\Calculator.feature.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.BL\Brewery.BL.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+    </ItemGroup>
+
 </Project>
