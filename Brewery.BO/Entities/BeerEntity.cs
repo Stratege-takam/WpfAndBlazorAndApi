@@ -11,15 +11,6 @@ namespace Brewery.BO.Entities;
 [Table("Beers")]
 public class BeerEntity: Track
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public Guid MediaId { get; set; }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    public MediaEntity Media { get; set; }
     
     /// <summary>
     /// Name of beer
@@ -59,6 +50,22 @@ public class BeerEntity: Track
     /// </summary>
     [Required]
     public Guid OwnerId { get; set; }
+    
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid MediaId { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public MediaEntity Media { get; set; }
+    
+    /// <summary>
+    /// Description of beer
+    /// </summary>
+    public string Description { get; set; }
 
 
     /// <summary>
