@@ -7,4 +7,13 @@
         <LangVersion>11</LangVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.38" />
+      <PackageReference Include="Microsoft.Identity.Web" Version="2.13.4" />
+    </ItemGroup>
+
 </Project>
