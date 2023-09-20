@@ -7,4 +7,15 @@
         <LangVersion>11</LangVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.BO\Brewery.BO.csproj" />
+      <ProjectReference Include="..\Brewery.Context\Brewery.Context.csproj" />
+      <ProjectReference Include="..\Brewery.DAL\Brewery.DAL.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    </ItemGroup>
+
 </Project>
