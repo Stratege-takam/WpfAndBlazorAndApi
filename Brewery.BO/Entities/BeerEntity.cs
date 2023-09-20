@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using Elia.Core.BaseModel;
 
 namespace Brewery.BO.Entities;
@@ -55,7 +56,7 @@ public class BeerEntity: Track
     /// <summary>
     /// 
     /// </summary>
-    public Guid MediaId { get; set; }
+    public Guid?  MediaId { get; set; }
     
     /// <summary>
     /// 
