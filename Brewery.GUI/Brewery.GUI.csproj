@@ -14,4 +14,18 @@
       <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.ViewModel\Brewery.ViewModel.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+      <ProjectReference Include="..\Elia.Share.WPF\Elia.Share.WPF.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+    </ItemGroup>
+
 </Project>
