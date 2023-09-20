@@ -6,7 +6,7 @@ using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
-using AppSettings = Brewery.Bl.Utils.AppSettings;
+using AppSettings = Elia.Core.Utils.AppSettings;
 
 namespace Brewery.BL.Business.Mock;
 

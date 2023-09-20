@@ -9,7 +9,7 @@ using Elia.Core.Extensions;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using AppSettings = Brewery.Bl.Utils.AppSettings;
+using AppSettings = Elia.Core.Utils.AppSettings;
 
 namespace Brewery.BL.Business.Users;
 

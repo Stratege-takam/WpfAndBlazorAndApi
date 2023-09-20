@@ -1,50 +1,34 @@
-﻿using Brewery.BL.Business.OrderBeers;
-using Brewery.BL.Contracts.Requests.Orders;
-using Brewery.BL.Contracts.Responses.Orders;
+﻿using Brewery.BL.Client.Contracts.Inputs.Orders;
+using Brewery.BL.Client.Contracts.Outputs.Orders;
+using Elia.Core.Attributes;
+using Elia.Core.Enums;
+using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
-using Elia.Share.ASP.Filters;
-using Microsoft.AspNetCore.Mvc;
-namespace Brewery.API.Controllers;
+using Microsoft.Extensions.Options;
+
+namespace Brewery.BL.Client.Business.OrderBeers;
 
 
-
-     /// <summary>
-    /// OrderBeer Controller class
+    /// <summary>
+    ///     <para>
+    ///         This class implements the methods concerning the management 
+    ///         of order Beer.
+    ///     </para>
     /// </summary>
-    [Route("api/[controller]"), 
-     EliaAuthorize,
-     ApiController]
-    public class OrderBeerController : BaseController<OrderBeerController>
+    [Injectable()]
+    public class OrderBeerBl : FormatResult
     {
-        #region Properties (Private)
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private readonly ILogger<OrderBeerController> _logger;
-
-        /// <summary>
-        /// Represents the business logic of the beer that will be injected in this controller
-        /// </summary>
-        private readonly OrderBeerBl _bl;
-
-        #endregion
-
         #region Constructor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="bl">Represents the injection of the CommentLikes business logic</param>
-        public OrderBeerController(ILogger<OrderBeerController> logger, OrderBeerBl bl) : base(logger)
+       
+        public OrderBeerBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
         {
-            _logger = logger;
-            _bl = bl;
         }
-        #endregion
 
-        #region Public methods
+        #endregion
+        
+        
+         #region Public methods
 
         
         /// <summary>
@@ -98,9 +82,8 @@ namespace Brewery.API.Controllers;
         /// </response>
         /// <param name="request">The model that allow to ask estimation</param>
         /// <returns></returns>
-        [HttpPost("Estimations")]
-        public  Task<BaseHttpResponse<EstimateOrderResponse>> GetEstimation([FromBody] EstimationOrderRequest request)
-            => ExecuteBlAsync(() => _bl.GetEstimation(request));
+        public  Task<BaseHttpResponse<EstimateOrderOutput>> GetEstimation(EstimationOrderInput request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderOutput>>($"{BaseUrl}/OrderBeer/Estimations", Verb.POST, request));
         
         
         /// <summary>
@@ -155,9 +138,8 @@ namespace Brewery.API.Controllers;
         /// </response>
         /// <param name="request">The model that allow to create order beer</param>
         /// <returns></returns>
-        [HttpPost]
-        public  Task<BaseHttpResponse<EstimateOrderResponse>> PostAsync([FromBody] CreateOrderRequest request)
-            => ExecuteBlAsync(() => _bl.CreateAsync(request));
+        public  Task<BaseHttpResponse<EstimateOrderOutput>> PostAsync(CreateOrderInput request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderOutput>>($"{BaseUrl}/OrderBeer", Verb.POST, request));
 
         #endregion
     }
