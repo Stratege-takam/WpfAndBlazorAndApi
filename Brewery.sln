@@ -1,8 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{76C80933-2C34-47C5-A94F-13FBDA6C9177}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{7EF81727-B8F7-4C48-B9D3-CA15015C4CD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E1D21A43-7CFF-4A3B-BC47-84108E783966}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{CFC93025-0120-45E5-85D5-991131165E59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{420E3765-BA26-4812-A8F7-98F5FD976CF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{837DC6CE-35DF-41B2-ABEA-DEC5FA501461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{420E3765-BA26-4812-A8F7-98F5FD976CF3} = {7EF81727-B8F7-4C48-B9D3-CA15015C4CD5}
+		{837DC6CE-35DF-41B2-ABEA-DEC5FA501461} = {7EF81727-B8F7-4C48-B9D3-CA15015C4CD5}
 	EndGlobalSection
 EndGlobal
