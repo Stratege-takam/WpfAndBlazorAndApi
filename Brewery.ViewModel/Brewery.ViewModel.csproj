@@ -19,4 +19,6 @@
       <ProjectReference Include="..\Elia.Share.WPF\Elia.Share.WPF.csproj" />
     </ItemGroup>
 
+
+
 </Project>

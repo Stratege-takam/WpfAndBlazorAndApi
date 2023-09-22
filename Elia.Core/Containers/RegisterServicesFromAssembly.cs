@@ -12,13 +12,12 @@ using Microsoft.Extensions.DependencyInjection;
     /// </summary>
   public static class RegisterServicesFromAssembly
     {
-
-
         public static IList<string> getWPFControl() { 
             return new List<string>() {
                 "UserControl",
                 "Window",
                 "TabControl",
+                "WindowBase",
                 "DataGrid"
             }; 
         }
@@ -29,7 +28,6 @@ using Microsoft.Extensions.DependencyInjection;
         /// </summary>
         /// <param name="services"></param>
         /// <param name="assemblies"></param>
-        /// <param name="configuration"></param>
         public static void AutoInject(this IServiceCollection services,  IList<Assembly> assemblies)
         {
 
@@ -52,7 +50,7 @@ using Microsoft.Extensions.DependencyInjection;
                         injectAttributeData.ServiceLifetime));
                 }
                 else if (
-                getWPFControl().All(e =>  injectableType.BaseType?.Name != e) && 
+                getWPFControl().All(e =>  injectableType.BaseType?.Name != e) && injectableType.BaseType?.Name.StartsWith("Metro") != true && 
                 injectableType.ImplementedInterfaces.Any()
                          && (injectableType.ImplementedInterfaces.Count() > 1 || injectableType.ImplementedInterfaces.Count() == 1 
                              && !injectableType.ImplementedInterfaces.Any(i => i.Name.Contains("IBaseRepository") || i.Name.Contains("IBaseBl"))) 

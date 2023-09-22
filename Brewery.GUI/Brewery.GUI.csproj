@@ -21,11 +21,56 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0457" />
+      <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+      <PackageReference Include="MahApps.Metro.IconPacks.BootstrapIcons" Version="4.11.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+      <PackageReference Include="ModernWpfUI.MahApps" Version="0.9.5" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="Assets\beer1.png" />
+      <Content Include="Assets\beer1.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Assets\beer2.png" />
+      <Content Include="Assets\beer2.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\HomeTranslateResource.en.xaml">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>HomeTranslateResource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+
+
+
+    <ItemGroup>
+      <Page Update="Resources\Home\HomeTranslationResource.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Resources\Home\HomeTranslationResource.en.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+
+
+
+
 
 </Project>

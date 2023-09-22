@@ -2,10 +2,12 @@
 using System;
 using System.IO;
 using System.Windows;
+using Brewery.BL.Contracts.Responses.Users;
 using Brewery.GUI.Helpers;
 using Brewery.GUI.Views;
 using Elia.Core.Containers;
 using Elia.Core.Utils;
+using Elia.Share.WPF.BaseClasses;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,11 +16,11 @@ namespace Brewery.GUI
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : ApplicationBase<CreateUserOutput>
     {
 
         #region Properties
-
+        public static string CurrentLang { get;  set; }
         /// <summary>
         /// This properties is container services
         /// </summary>
@@ -30,8 +32,9 @@ namespace Brewery.GUI
         public IConfiguration Configuration { get; private set; }
 
         #endregion
-
+        
         #region Protected Methods
+        
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -50,8 +53,12 @@ namespace Brewery.GUI
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            SwitchLanguage();
+            ListernerChange();
+
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
+
         }
 
         #endregion
@@ -65,6 +72,41 @@ namespace Brewery.GUI
 
             services.AutoInject(SolutionAssembly.GetAllAssemblies);
         }
+        #endregion
+
+
+        #region Listener change
+
+        public enum Messages
+        {
+            MSG_LOGIN,
+            MSG_SIGN_UP_ACTION,
+            MSG_SIGN_UP,
+            MSG_LOGOUT,
+            MSG_SWITCH_LANG,
+            MSG_DISPLAY_ACCOUNT_DETAIL,
+        }
+
+
+        public void ListernerChange()
+        {
+            Register(this, Messages.MSG_SWITCH_LANG, (string lang) =>
+            {
+                SwitchLanguage(lang);
+            });
+        }
+        
+        
+        private void SwitchLanguage(string lang = null)
+        {
+            ApplicationRoot.CurrentLang = lang;
+            ResourceDictionary dictionary = new ResourceDictionary();
+            lang = string.IsNullOrEmpty(lang) || lang == "fr" ? "" : $"{lang}.";
+            dictionary.Source = new Uri($"..\\Resources\\Home\\HomeTranslationResource.{lang}xaml", UriKind.Relative);
+            
+            Resources.MergedDictionaries.Add(dictionary);
+        }
+
         #endregion
     }
 }

@@ -1,11 +1,11 @@
-﻿using Elia.Share.WPF.BaseClasses;
-using System;
+﻿using System;
 using System.ComponentModel;
-using System.Windows;
+using Elia.Share.WPF.BaseClasses;
+using MahApps.Metro.Controls;
 
-namespace Elia.Shares.Controls
+namespace Elia.Share.WPF.Controls
 {
-    public class WindowBase : Window, IDisposable {
+    public class WindowBase : MetroWindow, IDisposable {
         private bool _disposed;
 
         public virtual void Dispose() {

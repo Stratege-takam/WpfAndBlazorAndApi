@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
+using Elia.Share.WPF.Controls;
 
 namespace Elia.Share.WPF.BaseClasses {
     public enum ApplicationBaseMessages {
@@ -32,6 +33,7 @@ namespace Elia.Share.WPF.BaseClasses {
         protected static readonly Messenger messenger = new();
         protected static readonly Dictionary<object, List<Tuple<Enum, Guid>>> ids = new();
 
+        public static string CurrentLang { get;  set; }
 
         public static string IMAGE_PATH {
             get {
