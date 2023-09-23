@@ -126,15 +126,10 @@ namespace Elia.Core.Services.ServerRest;
             try
             {
                 var response = await GetResponseAsync(host, httpVerb, ob, type, token, authaurization);
-                string result = null;
-                if (response.IsSuccessStatusCode)
-                {
-                    result = await response.Content.ReadAsStringAsync();
+                
+                var result = await response.Content.ReadAsStringAsync();
 
-                    return new BaseResult<T>(JsonConvert.DeserializeObject<T>(result));
-                }
-           
-                return new BaseResult<T>(new Exception(response.ReasonPhrase));
+                return new BaseResult<T>(JsonConvert.DeserializeObject<T>(result));
             }
             catch (Exception e)
             {

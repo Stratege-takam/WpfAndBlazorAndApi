@@ -121,7 +121,7 @@ namespace Brewery.BL.Business.Users;
                 });
             }
             
-            return new BaseResult<CreateUserResponse>(entityData.Status, entityData.Exception);
+            return new BaseResult<CreateUserResponse>(entityData.Status, new Exception("Bad credential"));
         }
         
         #endregion

@@ -11,7 +11,7 @@
                           xmlns:helpers1="clr-namespace:Elia.Share.WPF.Helpers;assembly=Elia.Share.WPF"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.DataContext>
         <viewModels:LoginViewModel x:Name="viewModels"/>
     </UserControl.DataContext>
@@ -62,9 +62,19 @@
                            </controls1:ValidatedField>
                        </StackPanel>
         
-                       <WrapPanel Grid.Row="3">
-                           <Button  Content="{DynamicResource Submit}"></Button>
-                       </WrapPanel>
+                       <StackPanel Orientation="Horizontal" Grid.Row="3"
+                                   VerticalAlignment="Center">
+                           
+                           <Button  Content="{DynamicResource Submit}"
+                                    Command="{Binding OnSubmit}"/>
+                           
+                           <TextBlock TextWrapping="Wrap" Text="{Binding Loading}" 
+                                      VerticalAlignment="Center" Padding="10,0,0,0"/>
+                        
+                           <TextBlock TextWrapping="Wrap" Text="{Binding ErrorServer}" 
+                                      VerticalAlignment="Center"
+                                      Foreground="Red" Padding="10,0,0,0"/>
+                       </StackPanel>
                    </Grid>
                </StackPanel>
             </Border>

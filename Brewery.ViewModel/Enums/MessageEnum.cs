@@ -8,6 +8,6 @@ public enum MessageEnum
     MsgLogout,
     MsgSwitchLang,
     MsgDisplayAccountDetail,
-    MsgDisplayRightHomePage,
+    MsgNavigationPage,
     MsgDisplayBrewery
 }

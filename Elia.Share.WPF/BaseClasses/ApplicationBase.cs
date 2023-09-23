@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows;
 using Elia.Share.WPF.Controls;
 using Elia.Share.WPF.Helpers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Elia.Share.WPF.BaseClasses {
     public enum ApplicationBaseMessages {
@@ -80,10 +81,30 @@ namespace Elia.Share.WPF.BaseClasses {
         public static void NavigateTo<T, U>() where T : ViewModelBase<U> where U : class, new()
         {
             var win = Current.MainWindow;
-            Current.MainWindow = (WindowBase)Activator.CreateInstance(MapViewModelToView(typeof(T)));
-            Current.MainWindow.Show();
-            if (win != null)
-                win.Close();
+            var newWindow = (WindowBase)Activator.CreateInstance(MapViewModelToView(typeof(T)));
+
+            if (newWindow != win)
+            {
+                Current.MainWindow = newWindow;
+                    Current.MainWindow.Show();
+                if (win != null)
+                    win.Close();
+            }
+        }
+        
+        public static void NavigateTo<T>()
+            where T : WindowBase
+        {
+            var win = Current.MainWindow;
+            var newWindow = (WindowBase)ViewModelBase.ServiceProvider.GetRequiredService<T>();
+            
+            if (newWindow?.Name != win?.Name)
+            {
+                Current.MainWindow = newWindow;
+                Current.MainWindow.Show();
+                if (win != null)
+                    win.Close();
+            }
         }
 
         public static object ShowDialog<T, U>(params object[] args)

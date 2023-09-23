@@ -24,7 +24,8 @@ namespace Elia.Share.WPF.Controls
         public void Register(Enum message, Action callback) {
             ApplicationRoot.Register(this, message, callback);
         }
-
+        
+        
         public void Register<T>(Enum message, Action<T> callback) {
             ApplicationRoot.Register(this, message, callback);
         }

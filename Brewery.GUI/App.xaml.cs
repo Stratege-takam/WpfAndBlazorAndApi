@@ -5,6 +5,7 @@ using System.Windows;
 using Brewery.BL.Contracts.Responses.Users;
 using Brewery.GUI.Helpers;
 using Brewery.GUI.Views;
+using Brewery.GUI.Views.Containers;
 using Brewery.ViewModel.Enums;
 using Brewery.ViewModel.ViewModels;
 using Elia.Core.Containers;
@@ -31,7 +32,13 @@ namespace Brewery.GUI
         /// <summary>
         /// This properties represent the configuration
         /// </summary>
-        public IConfiguration Configuration { get; private set; }
+        public IConfiguration Configuration { get; private set; } 
+        /* install
+                Microsoft.Extensions.Configuration.Binder
+                 Microsoft.Extensions.Configuration.Json
+                Microsoft.Extensions.DependencyInjection
+                Microsoft.Extensions.Options.ConfigurationExtensions
+         */
 
         #endregion
         
@@ -41,28 +48,37 @@ namespace Brewery.GUI
         protected override void OnStartup(StartupEventArgs e)
         {
             var env = Environments.Current.ToString();
-            var appsettings = $"Appsettings/appsettings.{env}.json";
+            
+            try
+            {
+                var appsettings = $"Appsettings/appsettings.{env}.json";
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("Appsettings/appsettings.json", true, true)
-                .AddJsonFile(appsettings, true);
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("Appsettings/appsettings.json", false, true)
+                    .AddJsonFile(appsettings, true, true);
 
-            Configuration = builder.Build();
+                Configuration = builder.Build();
 
-            var serviceCollection = new ServiceCollection();
-            ConfigureServices(serviceCollection);
+                var serviceCollection = new ServiceCollection();
+                ConfigureServices(serviceCollection);
 
-            ServiceProvider = serviceCollection.BuildServiceProvider();
+                ServiceProvider = serviceCollection.BuildServiceProvider();
 
-            ViewModelCommon.ServiceProvider = ServiceProvider;
+                ViewModelCommon.ServiceProvider = ServiceProvider;
 
-            SwitchLanguage();
-            ListernerChange();
+                SwitchLanguage();
+                ListernerChange();
 
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+                var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+                mainWindow.Show();
 
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+           
         }
 
         #endregion
@@ -72,6 +88,7 @@ namespace Brewery.GUI
 
         private void ConfigureServices(IServiceCollection services)
         {
+           // var config = Configuration.GetSection("Server");
             services.Configure<AppSettings.Server>(Configuration.GetSection(nameof(AppSettings.Server)));
 
             services.AutoInject(SolutionAssembly.GetAllAssemblies);
@@ -97,8 +114,28 @@ namespace Brewery.GUI
                 if (user != null)
                 {
                     CurrentUser = user;
+                    NavigateTo<BreweryWindow>();
                 }
             });
+            
+            // Switch to home page
+            Register(this, MessageEnum.MsgNavigationPage, (PageEnum page) =>
+            {
+                switch (page)
+                {
+                    case PageEnum.BreweryPage:
+                        NavigateTo<MainWindow>();
+                        break;
+                    case PageEnum.HomePage:
+                    case PageEnum.LoginPage:
+                    case PageEnum.RegisterPage:
+                        NavigateTo<MainWindow>();
+                        break;
+                }
+              
+            });
+
+            
         }
         
         

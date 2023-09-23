@@ -19,7 +19,7 @@
                  <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Orange.xaml" />
                  
                  <!-- https://github.com/Kinnara/ModernWpf -->
-                 <ui:ThemeResources /><ui:XamlControlsResources />
+                 <!-- ui:ThemeResources /><ui:XamlControlsResources /-->
                  
                  <ResourceDictionary Source="pack://application:,,,/Elia.Share.WPF;component/Styles/EliaStyles.xaml"/>
                  <ResourceDictionary Source="Resources/Styles/BorderResource.xaml"></ResourceDictionary>

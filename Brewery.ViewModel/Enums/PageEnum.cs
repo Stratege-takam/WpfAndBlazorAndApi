@@ -4,5 +4,6 @@ public enum PageEnum
 {
     HomePage  = 1  ,
     LoginPage = 2,
-    RegisterPage = 3
+    RegisterPage = 3,
+    BreweryPage = 4,
 }

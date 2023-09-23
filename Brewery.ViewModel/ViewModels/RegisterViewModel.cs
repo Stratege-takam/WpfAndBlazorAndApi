@@ -1,6 +1,8 @@
 ﻿using Brewery.BL.Client.Business.Users;
+using Brewery.BL.Client.Contracts.Inputs.Users;
 using Brewery.ViewModel.Enums;
 using Elia.Core.Attributes;
+using Elia.Core.Utils;
 using Elia.Share.WPF.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,11 +18,11 @@ public class RegisterViewModel : LoginViewModel
     #endregion
     #region Properties Notify
 
-    private string _firstname;
+    private string _firstname = "test";
     public string Firstname
     {
         get => _firstname;
-        set => SetProperty(ref _firstname, value, () => Validate(nameof(Email)));
+        set => SetProperty(ref _firstname, value, () => Validate());
     }
     
     #endregion
@@ -29,17 +31,39 @@ public class RegisterViewModel : LoginViewModel
     public  RegisterViewModel(): base()
     {
         _bl = ServiceProvider.GetRequiredService<UserService>();
-        OnSubmit = new RelayCommand(() =>
+        OnSubmit = new RelayCommand(async () =>
         {
            
-            NotifyColleagues(MessageEnum.MsgDisplayBrewery, null);
+            if (Validate())
+            {
+                Loading = DefaultTextLoad;
+                var response = await  _bl.CreateuserAsync(new CreateUserInput()
+                {
+                    Email = Email,
+                    Firstname = Firstname,
+                    Password = Password
+                });
+               
+                // register success. Set token
+                if (response.ResultStatus == BaseResultStatus.Success)
+                {
+                    FormatResult.Token = response.Data.Token;
+                    NotifyColleagues(MessageEnum.MsgDisplayBrewery, response.Data);
+                   
+                    Loading = null;
+                    return;
+                }
+
+                Loading = null;
+                ErrorServer = response.Reason;
+            }
         });
     }
     
-    public override bool Validate(string currentField)
+    public override bool Validate()
     {
         base.Validate();
-        if ( nameof(Firstname) == currentField && string.IsNullOrEmpty(Firstname))
+        if ( string.IsNullOrEmpty(Firstname))
             AddError(nameof(Firstname), "Name is required");
         else if (Firstname.Length < 2)
             AddError(nameof(Firstname), "length must be at least 2");

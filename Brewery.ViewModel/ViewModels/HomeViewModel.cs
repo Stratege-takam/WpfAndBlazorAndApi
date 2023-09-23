@@ -14,7 +14,7 @@ public class HomeViewModel : ViewModelCommon
     public HomeViewModel()
     {
         // Update right page in home (home, login, register)
-        Register<PageEnum>(MessageEnum.MsgDisplayRightHomePage, (PageEnum page) =>
+        Register<PageEnum>(MessageEnum.MsgNavigationPage, (PageEnum page) =>
         {
             CurrentPage = page;
         });

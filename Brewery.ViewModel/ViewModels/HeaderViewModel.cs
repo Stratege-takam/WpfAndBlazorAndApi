@@ -10,6 +10,10 @@ public class HeaderViewModel : ViewModelCommon
     public ICommand OnSwitchLanguageCommand { get; set; }
     public ICommand OnDisplayPage { get; set; }
 
+    public PageEnum BreweryPage
+    {
+        get => PageEnum.BreweryPage;
+    }
     public PageEnum HomePage
     {
         get => PageEnum.HomePage;
@@ -35,7 +39,7 @@ public class HeaderViewModel : ViewModelCommon
         
         OnDisplayPage = new RelayCommand<PageEnum>(page =>
         {
-            NotifyColleagues(MessageEnum.MsgDisplayRightHomePage, page);
+            NotifyColleagues(MessageEnum.MsgNavigationPage, page);
         });
         
         

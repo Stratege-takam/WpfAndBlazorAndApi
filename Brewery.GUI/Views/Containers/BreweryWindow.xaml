@@ -1,0 +1,49 @@
+﻿<controls:WindowBase x:Class="Brewery.GUI.Views.Containers.BreweryWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:Brewery.GUI.Views.Containers"
+              xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+              xmlns:shared="clr-namespace:Brewery.GUI.Views.UserControls.Shared"
+              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+              xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
+              xmlns:viewModels="clr-namespace:Brewery.ViewModel.ViewModels;assembly=Brewery.ViewModel"
+              x:Name="BreweryWindow1"
+              Title="G-brewary"
+              Width="1200"
+              Height="850"
+              BorderThickness="0"
+              BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+              ResizeMode="CanResizeWithGrip"
+              WindowStartupLocation="CenterScreen"
+              ShowTitleBar="False">
+    
+    
+    <mah:MetroWindow.DataContext>
+        <viewModels:BreweryViewModel x:Name="viewModels"/>
+    </mah:MetroWindow.DataContext>
+    <mah:MetroWindow.Resources>
+        <converters:ObjectEqualToVisibleConverter x:Key="ObjectEqualToVisibleConverter" />
+    </mah:MetroWindow.Resources>
+    
+    <Grid>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+            
+            <shared:HeaderUserControl  Grid.Row="0" 
+                                       Grid.ColumnSpan="2"/>
+            
+            <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Auto">
+                <Grid>
+                  
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</controls:WindowBase>

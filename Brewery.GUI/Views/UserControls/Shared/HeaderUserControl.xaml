@@ -38,43 +38,67 @@
             <MenuItem 
                 Command="{Binding OnDisplayPage }"
                 CommandParameter="{Binding HomePage}"
-                       Style="{StaticResource MenuStyle}" Header = "G-Brewery" HorizontalAlignment = "Left"   />
+                       Style="{StaticResource MenuStyle}" Header = "G-Brewery" 
+                        HorizontalAlignment = "Left"   />
             <MenuItem  Visibility="{Binding UserFirstname, Converter={StaticResource NullToCollapseConverter}}"
-                       Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderHome}" HorizontalAlignment = "Left"   />
+                       Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderHome}" 
+                       Command="{Binding OnDisplayPage }"
+                       CommandParameter="{Binding HomePage}"
+                       HorizontalAlignment = "Left"   />
+            
             <MenuItem Visibility="{Binding UserFirstname, Converter={StaticResource NullToCollapseConverter}}"
-                      Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderBrewery}" HorizontalAlignment = "Left"   />
+                      Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderBrewery}" 
+                      Command="{Binding OnDisplayPage }"
+                      CommandParameter="{Binding BreweryPage}"
+                      HorizontalAlignment = "Left"   />
             <MenuItem 
                 Visibility="{Binding UserFirstname, Converter={StaticResource NullToCollapseConverter}}"
-                Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderWholesaler}" HorizontalAlignment = "Left"/>
+                Style="{StaticResource MenuStyle}" Header = "{DynamicResource HeaderWholesaler}" 
+                Command="{Binding OnDisplayPage }"
+                CommandParameter="{Binding BreweryPage}"
+                HorizontalAlignment = "Left"/>
                 
             <MenuItem   Visibility="{Binding UserFirstname, Converter={StaticResource NullToCollapseConverter}}"
-                        Style="{StaticResource MenuStyle}"  Header="{Binding UserFirstname}"  HorizontalAlignment="Left" >
+                        Style="{StaticResource MenuStyle}" 
+                        Header="{Binding UserFirstname}" 
+                        HorizontalAlignment="Left" >
+                
                 <MenuItem  Header = "{DynamicResource DisplayDetail}"  />
+                
                 <Separator />
                 <MenuItem  
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='en'
                     }"
-                    CommandParameter="en" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderEn}" />
+                    CommandParameter="en" Command="{Binding OnSwitchLanguageCommand }" 
+                    Header="{DynamicResource HeaderEn}" />
+                
                 <MenuItem 
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='nl'
-                    }"  x:Uid="nl" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderNl}" />
+                    }"  x:Uid="nl" Command="{Binding OnSwitchLanguageCommand }" 
+                    Header="{DynamicResource HeaderNl}" />
+                
                 <MenuItem
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='ar'
                     }"
-                    CommandParameter="ar" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderAr}" />
+                    CommandParameter="ar" Command="{Binding OnSwitchLanguageCommand }" 
+                    Header="{DynamicResource HeaderAr}" />
+                
                 <MenuItem
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='fr'
                     }"
-                    CommandParameter="fr" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderFr}" />
+                    CommandParameter="fr" Command="{Binding OnSwitchLanguageCommand }"
+                    Header="{DynamicResource HeaderFr}" />
+                
                 <Separator/>
+                
                 <MenuItem Header = "{DynamicResource HeaderLogout}"  />
             </MenuItem>
             
@@ -84,6 +108,7 @@
                 CommandParameter="{Binding LoginPage}"
                 Visibility="{Binding UserFirstname, Converter={StaticResource NullToVisibleConverter}}"
                 Header="{DynamicResource Login}"  />
+            
             <MenuItem 
                 Style="{StaticResource MenuStyle}" 
                 Command="{Binding OnDisplayPage }"
@@ -92,31 +117,41 @@
                 Header="{DynamicResource Register}"  />
             
             <MenuItem   Visibility="{Binding UserFirstname, Converter={StaticResource NullToVisibleConverter}}"
-                        Style="{StaticResource MenuStyle}"   Header = "{DynamicResource Language}"  HorizontalAlignment="Left" >
+                        Style="{StaticResource MenuStyle}"   
+                        Header = "{DynamicResource Language}" 
+                        HorizontalAlignment="Left" >
       
                 <MenuItem  
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='en'
                     }"
-                    CommandParameter="en" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderEn}" />
+                    CommandParameter="en" Command="{Binding OnSwitchLanguageCommand }"
+                    Header="{DynamicResource HeaderEn}" />
+                
                 <MenuItem 
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='nl'
-                    }"  x:Uid="nl" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderNl}" />
+                    }"  x:Uid="nl" Command="{Binding OnSwitchLanguageCommand }" 
+                    Header="{DynamicResource HeaderNl}" />
+                
                 <MenuItem
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='ar'
                     }"
-                    CommandParameter="ar" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderAr}" />
+                    CommandParameter="ar" Command="{Binding OnSwitchLanguageCommand }"
+                    Header="{DynamicResource HeaderAr}" />
+                
                 <MenuItem
                     Visibility="{Binding CurrentLang,  
                     Converter={StaticResource LangVisibilityConvert},
                     ConverterParameter='fr'
                     }"
-                    CommandParameter="fr" Command="{Binding OnSwitchLanguageCommand }" Header="{DynamicResource HeaderFr}" />
+                    CommandParameter="fr" Command="{Binding OnSwitchLanguageCommand }"
+                    Header="{DynamicResource HeaderFr}" />
+                
             </MenuItem>
         </Menu>
     </Grid>

@@ -5,6 +5,8 @@ namespace Brewery.ViewModel.ViewModels;
 
 public class ViewModelCommon:ViewModelBase<CreateUserOutput>
 {
+    public static string DefaultTextLoad = "Loading...";
+    
     #region Properties Notify
 
     private string _currentLang;
@@ -14,6 +16,13 @@ public class ViewModelCommon:ViewModelBase<CreateUserOutput>
         set => SetProperty(ref _currentLang, value ); 
     }
     
+    private string _loading;
+    public string Loading
+    {
+        get => _loading ;
+        set => SetProperty(ref _loading, value ); 
+    }
+
     
     private string _userFirstname;
     public string UserFirstname

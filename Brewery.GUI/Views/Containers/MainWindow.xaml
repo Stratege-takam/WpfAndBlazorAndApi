@@ -1,0 +1,82 @@
+﻿<f:WindowBase x:Class="Brewery.GUI.Views.Containers.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:f="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+              xmlns:iconPacks1="http://metro.mahapps.com/winfx/xaml/iconpacks"
+              xmlns:shared="clr-namespace:Brewery.GUI.Views.UserControls.Shared"
+              xmlns:home="clr-namespace:Brewery.GUI.Views.UserControls.Home"
+              xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
+              xmlns:viewModels="clr-namespace:Brewery.ViewModel.ViewModels;assembly=Brewery.ViewModel"
+              Title="G-brewary"
+              Width="1200"
+              Height="850"
+              x:Name="MainWindow1"
+              BorderThickness="0"
+              BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+              ResizeMode="CanResizeWithGrip"
+              WindowStartupLocation="CenterScreen"
+              ShowTitleBar="False"
+              mc:Ignorable="d">
+    
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <Button ToolTip="Open up the GitHub site">
+                <iconPacks1:PackIconModern Width="22"
+                                          Height="22"
+                                          Kind="CupHalf" />
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    
+    <mah:MetroWindow.DataContext>
+        <viewModels:HomeViewModel x:Name="viewModels"/>
+    </mah:MetroWindow.DataContext>
+    <mah:MetroWindow.Resources>
+        <converters:ObjectEqualToVisibleConverter x:Key="ObjectEqualToVisibleConverter" />
+    </mah:MetroWindow.Resources>
+    
+    <Grid>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+            
+            <shared:HeaderUserControl  Grid.Row="0" 
+                                   Grid.ColumnSpan="2"/>
+            
+            <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Auto">
+                <Grid>
+                    
+                   <StackPanel  Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='1' }">
+                       <home:HomeUserControl />
+                   </StackPanel>
+                   
+                    <StackPanel
+                        VerticalAlignment="Center"
+                        Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='2' }"
+                        >
+                        <home:LoginUserControl />
+                    </StackPanel>
+                   
+                    <StackPanel 
+                        VerticalAlignment="Center"
+                        Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='3' }">
+                        <home:RegisterUserControl   />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</f:WindowBase>

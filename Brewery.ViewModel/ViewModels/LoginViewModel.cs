@@ -20,19 +20,26 @@ public class LoginViewModel : ViewModelCommon
     #endregion
     
     #region Properties Notify
+    
+    private string _errorServer;
+    public string ErrorServer
+    {
+        get => _errorServer;
+        set => SetProperty(ref _errorServer, value); 
+    }
 
-    private string _email;
+    private string _email = "test@elia.be";
     public string Email
     {
         get => _email;
-        set => SetProperty(ref _email, value , () => Validate(nameof(Email))); 
+        set => SetProperty(ref _email, value , () => Validate()); 
     }
     
-    private string _password;
+    private string _password = "azerty";
     public string Password
     {
         get => _password;
-        set => SetProperty(ref _password, value, () => Validate(nameof(Password)) ); 
+        set => SetProperty(ref _password, value, () => Validate()) ; 
     }
 
     #endregion
@@ -42,7 +49,6 @@ public class LoginViewModel : ViewModelCommon
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="bl"></param>
     public  LoginViewModel(): base()
     {
         _bl = ServiceProvider.GetRequiredService<UserService>();
@@ -50,41 +56,45 @@ public class LoginViewModel : ViewModelCommon
         {
             if (Validate())
             {
+                Loading = DefaultTextLoad;
+                ErrorServer = "";
                var response = await  _bl.LoginAsync(new LoginInput()
                 {
                     Email = Email,
                     Password = Password
                 });
                
+               // Login success. Set token
                if (response.ResultStatus == BaseResultStatus.Success)
                {
                    FormatResult.Token = response.Data.Token;
                    NotifyColleagues(MessageEnum.MsgDisplayBrewery, response.Data);
+                   Loading = null;
+                   return;
                }
+
+               Loading = null;
+               ErrorServer = response.Reason;
             }
         });
     }
 
-    public override bool Validate(string currentField)
+    public override bool Validate()
     {
         ClearErrors();
         
-        if (nameof(Email) == currentField && string.IsNullOrEmpty(Email))
+        if ( string.IsNullOrEmpty(Email))
             AddError(nameof(Email), "Email is required");
-        else if (nameof(Email) == currentField && !IsValid(Email))
+        else if (!IsValid(Email))
             AddError(nameof(Email), "The email address is not valid");
-        if (nameof(Email) == currentField && string.IsNullOrEmpty(Password))
+        if (string.IsNullOrEmpty(Password))
             AddError(nameof(Password), "Password is required");
-        else if (nameof(Email) == currentField && Password.Length < 5)
+        else if ( Password.Length < 5)
             AddError(nameof(Password), "length must be at least 4");
 
         return !HasErrors;
     }
 
-    public override bool Validate()
-    {
-        return !HasErrors;
-    }
 
 
     private bool IsValid(string email)
