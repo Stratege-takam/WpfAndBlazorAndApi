@@ -3,7 +3,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Elia.Shares.Helpers
+namespace Elia.Share.WPF.Helpers
 {
     public static class PasswordHelper {
         public static readonly DependencyProperty PasswordProperty =

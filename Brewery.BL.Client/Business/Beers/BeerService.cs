@@ -17,14 +17,14 @@ namespace Brewery.BL.Client.Business.Beers;
     ///     </para>
     /// </summary>
     [Injectable()]
-    public class BeerBl: FormatResult
+    public class BeerService: FormatResult
     {
        
 
             #region Constructor
 
        
-            public BeerBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
+            public BeerService(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
             {
             }
 

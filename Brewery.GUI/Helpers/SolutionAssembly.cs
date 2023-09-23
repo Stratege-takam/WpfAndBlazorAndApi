@@ -19,6 +19,11 @@ namespace Brewery.GUI.Helpers
         /// </summary>
         public static string ViewModel { get; set; } = "Brewery.ViewModel";
         
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string Bl { get; set; } = "Brewery.BL.Client";
+        
 
         /// <summary>
         /// 
@@ -37,6 +42,7 @@ namespace Brewery.GUI.Helpers
         {
             Core,
             Share,
+            Bl,
             ViewModel,
             Gui
         }.Select(s => Assembly.Load(s)).ToArray();

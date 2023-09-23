@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 
-namespace Elia.Shares.Helpers
+namespace Elia.Share.WPF.Helpers
 {
     // see: https://forums.xamarin.com/discussion/29925/observablecollection-addrange
     public class ObservableCollectionFast<T> : ObservableCollection<T> {

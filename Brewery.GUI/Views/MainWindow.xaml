@@ -7,12 +7,14 @@
               xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
               xmlns:iconPacks="http://metro.mah.apps.com/winfx/xaml/iconpacks"
               xmlns:iconPacks1="http://metro.mahapps.com/winfx/xaml/iconpacks"
-              xmlns:styles="clr-namespace:Brewery.ViewModel.Styles;assembly=Brewery.ViewModel"
-              xmlns:vm="clr-namespace:Brewery.ViewModel.ViewModels;assembly=Brewery.ViewModel"
-              xmlns:uc="clr-namespace:Brewery.GUI.Views.Layout"
+              xmlns:userControls="clr-namespace:Brewery.GUI.Views.UserControls"
+              xmlns:shared="clr-namespace:Brewery.GUI.Views.UserControls.Shared"
+              xmlns:home="clr-namespace:Brewery.GUI.Views.UserControls.Home"
+              xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
+              xmlns:viewModels="clr-namespace:Brewery.ViewModel.ViewModels;assembly=Brewery.ViewModel"
               Title="G-brewary"
               Width="1200"
-              Height="600"
+              Height="850"
               BorderThickness="0"
               BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
               ResizeMode="CanResizeWithGrip"
@@ -31,28 +33,10 @@
     </mah:MetroWindow.LeftWindowCommands>
     
     <mah:MetroWindow.DataContext>
-        <vm:HomeViewModel x:Name="vm"/>
+        <viewModels:HomeViewModel x:Name="viewModels"/>
     </mah:MetroWindow.DataContext>
-    
     <mah:MetroWindow.Resources>
-        <Style TargetType="TextBlock" x:Key="TextBlockText">
-            <Setter Property="Padding" Value="10,10,10,10"></Setter>
-            <Setter Property="TextWrapping" Value="Wrap"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-        </Style>
-        
-        <Style TargetType="TextBlock" x:Key="TextBlockHeader" BasedOn="{StaticResource TextBlockText}">
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.Accent}"></Setter>
-        </Style>
-    
-        
-         <Style TargetType="Border" x:Key="Border">
-            <Setter Property="CornerRadius" Value="6"></Setter>
-            <Setter Property="Margin" Value="0,10, 0, 0"></Setter>
-            <Setter Property="BorderThickness" Value="1,0, 1, 1"></Setter>
-            <Setter Property="BorderBrush" Value="DarkGray"></Setter>
-        </Style>
+        <converters:ObjectEqualToVisibleConverter x:Key="ObjectEqualToVisibleConverter" />
     </mah:MetroWindow.Resources>
     
     <Grid>
@@ -64,145 +48,35 @@
             </Grid.RowDefinitions>
            
             
-            <uc:HeaderUserControl  Grid.Row="0" 
+            <shared:HeaderUserControl  Grid.Row="0" 
                                    Grid.ColumnSpan="2"/>
             
-            <ScrollViewer Grid.Row="1" Grid.Column="0"  HorizontalScrollBarVisibility="Auto">
-                 <Grid 
-                  HorizontalAlignment="Center">
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                
-                <StackPanel 
-                    Grid.Column="0" 
-                    MinWidth="300"
-                    MaxWidth="800"
-                    HorizontalAlignment="Right" 
-                    Margin="10"
-                >
-                    <Border BorderThickness="1" Style="{StaticResource Border}">
-                        <StackPanel Orientation="Vertical">
-                            <Image 
-                                Stretch="Uniform"
-                                StretchDirection="DownOnly"
-                                Source="../Assets/beer1.png" />
-                        
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Style ="{StaticResource TextBlockHeader}"
-                                           Text="{DynamicResource Text1}" />
-                        
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text2}" />
-                            </StackPanel>
+            <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Auto">
+                <Grid>
                     
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Style ="{StaticResource TextBlockHeader}"
-                                           Text="{DynamicResource Text3}" />
-                        
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text4}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text5}" />
-                        
-                                <Image 
-                                    Stretch="Uniform"
-                                    StretchDirection="DownOnly"
-                                    HorizontalAlignment="Center"
-                                    Source="../Assets/beer2.png" />
-                            </StackPanel>
-                    
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text6}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text7}" />
-                            </StackPanel>
-                            
-                            <StackPanel Orientation="Vertical">
-                                
-                                <TextBlock Style ="{StaticResource TextBlockHeader}"
-                                           Text="{DynamicResource Text8}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text9}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text10}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text11}" />
-                                
-                                <TextBlock 
-                                    Style ="{StaticResource TextBlockText}"
-                                    Text="{DynamicResource Text12}" />
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
+                   <StackPanel  Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='1' }">
+                       <home:HomeUserControl />
+                   </StackPanel>
                    
-                
-                </StackPanel>
-                
-                <StackPanel 
-                        Grid.Column="1" 
-                        HorizontalAlignment="Left" 
-                        MinWidth="180"
-                        MaxWidth="350"
-                        Margin="10"
+                    <StackPanel
+                        VerticalAlignment="Center"
+                        Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='2' }"
                         >
-                <TextBlock  Style ="{StaticResource TextBlockHeader}"
-                           Text="{DynamicResource Text13}" />
-                <Border Style="{StaticResource Border}">
-                    <StackPanel >
-                        <StackPanel HorizontalAlignment="Stretch"  Background="{DynamicResource MahApps.Brushes.Accent}">
-                            <TextBlock Foreground="White"
-                                       Style ="{StaticResource TextBlockHeader}"
-                                       Text="14/09/2023" />
-                        </StackPanel>
-                    
-                        <StackPanel>
-                            <TextBlock  Style ="{StaticResource TextBlockHeader}"
-                                        Text="{DynamicResource Text14}" />
-                        
-                            <TextBlock  Style ="{StaticResource TextBlockText}"
-                                        Text="{DynamicResource Text15}" />
-                        </StackPanel>
+                        <home:LoginUserControl />
                     </StackPanel>
-                </Border>
-                
-                
-                <Border Style="{StaticResource Border}">
-                    <StackPanel >
-                        <StackPanel HorizontalAlignment="Stretch"  Background="{DynamicResource MahApps.Brushes.Accent}">
-                            <TextBlock Foreground="White"
-                                       Style ="{StaticResource TextBlockHeader}"
-                                       Text="16/09/2023" />
-                        </StackPanel>
-                    
-                        <StackPanel>
-                            <TextBlock  Style ="{StaticResource TextBlockHeader}"
-                                        Text="{DynamicResource Text14}" />
-                        
-                            <TextBlock  Style ="{StaticResource TextBlockText}"
-                                        Text="{DynamicResource Text15}" />
-                        </StackPanel>
+                   
+                    <StackPanel 
+                        VerticalAlignment="Center"
+                        Visibility="{Binding CurrentPage,
+                     Converter={StaticResource ObjectEqualToVisibleConverter},
+                     ConverterParameter='3' }">
+                        <home:RegisterUserControl   />
                     </StackPanel>
-                </Border>
-               
-            </StackPanel>
-            </Grid>
+                </Grid>
             </ScrollViewer>
         </Grid>
     </Grid>

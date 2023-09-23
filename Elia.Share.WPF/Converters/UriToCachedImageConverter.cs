@@ -1,12 +1,12 @@
-﻿using Elia.Share.WPF.BaseClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media.Imaging;
+using Elia.Share.WPF.BaseClasses;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     // see: http://www.thejoyofcode.com/WPF_Image_element_locks_my_local_file.aspx
     public class UriToCachedImageConverter : MarkupExtension, IValueConverter {
         private static List<string> _cache = new List<string>();

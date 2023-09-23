@@ -5,6 +5,8 @@ using System.Windows;
 using Brewery.BL.Contracts.Responses.Users;
 using Brewery.GUI.Helpers;
 using Brewery.GUI.Views;
+using Brewery.ViewModel.Enums;
+using Brewery.ViewModel.ViewModels;
 using Elia.Core.Containers;
 using Elia.Core.Utils;
 using Elia.Share.WPF.BaseClasses;
@@ -24,7 +26,7 @@ namespace Brewery.GUI
         /// <summary>
         /// This properties is container services
         /// </summary>
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public  IServiceProvider ServiceProvider { get; private set; }
 
         /// <summary>
         /// This properties represent the configuration
@@ -53,6 +55,8 @@ namespace Brewery.GUI
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            ViewModelCommon.ServiceProvider = ServiceProvider;
+
             SwitchLanguage();
             ListernerChange();
 
@@ -77,34 +81,43 @@ namespace Brewery.GUI
 
         #region Listener change
 
-        public enum Messages
-        {
-            MSG_LOGIN,
-            MSG_SIGN_UP_ACTION,
-            MSG_SIGN_UP,
-            MSG_LOGOUT,
-            MSG_SWITCH_LANG,
-            MSG_DISPLAY_ACCOUNT_DETAIL,
-        }
-
+       
 
         public void ListernerChange()
         {
-            Register(this, Messages.MSG_SWITCH_LANG, (string lang) =>
+            // Siwtchlanguage
+            Register(this, MessageEnum.MsgSwitchLang, (string lang) =>
             {
                 SwitchLanguage(lang);
+            });
+            
+            // After login or register, first, we set user
+            Register(this, MessageEnum.MsgDisplayBrewery, (CreateUserOutput user) =>
+            {
+                if (user != null)
+                {
+                    CurrentUser = user;
+                }
             });
         }
         
         
         private void SwitchLanguage(string lang = null)
         {
-            ApplicationRoot.CurrentLang = lang;
+            ApplicationRoot.CurrentLang = lang ?? "fr";
             ResourceDictionary dictionary = new ResourceDictionary();
             lang = string.IsNullOrEmpty(lang) || lang == "fr" ? "" : $"{lang}.";
-            dictionary.Source = new Uri($"..\\Resources\\Home\\HomeTranslationResource.{lang}xaml", UriKind.Relative);
-            
-            Resources.MergedDictionaries.Add(dictionary);
+
+            try
+            {
+                dictionary.Source = new Uri($"..\\Resources\\Home\\HomeTranslationResource.{lang}xaml", UriKind.Relative);
+                Resources.MergedDictionaries.Add(dictionary);
+            }
+            catch (Exception)
+            {
+               // Resource not found
+            } 
+          
         }
 
         #endregion

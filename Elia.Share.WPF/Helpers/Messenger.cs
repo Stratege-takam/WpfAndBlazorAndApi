@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Elia.Shares.Helpers
+namespace Elia.Share.WPF.Helpers
 {
     /// <summary>
     /// Provides loosely-coupled messaging between

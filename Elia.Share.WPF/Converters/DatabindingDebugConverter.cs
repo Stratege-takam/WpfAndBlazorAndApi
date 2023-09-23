@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     public class DatabindingDebugConverter : MarkupExtension, IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             Debugger.Break();

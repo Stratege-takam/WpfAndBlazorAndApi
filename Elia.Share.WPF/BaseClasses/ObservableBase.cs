@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace Elia.Share.WPF.BaseClasses
 {
-    public abstract class ObservableBase : INotifyPropertyChanged {
+    public abstract class ObservableBase : ValidatableObjectBase, INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
         private List<string> _computedProps = new();

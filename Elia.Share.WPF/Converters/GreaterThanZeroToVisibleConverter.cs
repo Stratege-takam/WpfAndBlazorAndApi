@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     [ValueConversion(typeof(int), typeof(bool))]
     public class GreaterThanZeroToVisibleConverter : MarkupExtension, IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {

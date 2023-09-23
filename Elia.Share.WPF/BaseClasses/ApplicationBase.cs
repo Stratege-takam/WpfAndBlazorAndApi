@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using Elia.Share.WPF.Controls;
+using Elia.Share.WPF.Helpers;
 
 namespace Elia.Share.WPF.BaseClasses {
     public enum ApplicationBaseMessages {

@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     [ValueConversion(typeof(ReadOnlyObservableCollection<ValidationError>), typeof(string))]
     public class ValidationErrorsToStringConverter : MarkupExtension, IValueConverter {
         public override object ProvideValue(IServiceProvider serviceProvider) {

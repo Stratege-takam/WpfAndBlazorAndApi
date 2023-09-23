@@ -1,11 +1,12 @@
-﻿using Brewery.BL.Client.Contracts.Outputs.Companies;
+﻿using Brewery.BL.Client.Contracts.Outputs.Beers;
+using Brewery.BL.Client.Contracts.Outputs.Companies;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 
-namespace Brewery.BL.Client.Business.Breweries;
+namespace Brewery.BL.Client.Business.Wholesalers;
 
     /// <summary>
     ///     <para>
@@ -14,22 +15,23 @@ namespace Brewery.BL.Client.Business.Breweries;
     ///     </para>
     /// </summary>
     [Injectable()]
-    public class BreweryBl : FormatResult
+    public class WholesalerService: FormatResult
     {
         #region Constructor
 
        
-        public BreweryBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
+        public WholesalerService(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
         {
         }
 
         #endregion
         
         
-               #region Public methods
+        #region Public methods
+
 
         /// <summary>
-        ///     Payload a quote from get breweries
+        ///     Payload a quote from get wholesaler
         /// </summary>
         /// <remarks>
         ///   ## Header
@@ -39,18 +41,18 @@ namespace Brewery.BL.Client.Business.Breweries;
         /// 
         ///     ## Example Request ##
         ///     ``````````````````````````````````````````````````````
-        ///     Get /api/Brewery/Search/Beer 1
+        ///     Get /api/Wholesaler/Search/wholesaler 1
         ///     ``````````````````````````````````````````````````````
-        ///     *get brewery.*
-        /// 
-        /// 
+        ///     *get wholesaler.*
+        ///
+        ///
         ///     ## Example Response ##
         ///     ``````````````````````````````````````````````````````
         ///     When Reason exist, data is null. When Data exist, reason must be null
         ///      {
         ///        Data: {
         ///         "Results": [{"Id": "3fa85f64-5717-4562-b3fc-2c963f66afb1",
-        ///         "Name": "Beer 1"}],
+        ///         "Name": "Wholesaler 1"}],
         ///         "Count": 1
         ///        },
         ///        Reason: "Some error if error",
@@ -64,21 +66,20 @@ namespace Brewery.BL.Client.Business.Breweries;
         ///     **Unexcepted** - An unexecepted error occurs.
         /// </response>
         /// <param name="search">The query/param>
-        /// <returns></returns>
         /// <param name="take">Count to get </param>
         /// <param name="skip"> count to skip</param>
-        public  Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetBreweriesAsync( string search, int take, int skip)
+        /// <returns></returns>
+        public Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetWholesalerAsync(string search, int take,
+            int skip)
         {
             var route = string.IsNullOrEmpty(search)
-                ? $"{BaseUrl}/Brewery/Search/${search}/${take}/${skip}"
-                : $"{BaseUrl}/Brewery/Search/${take}/${skip}";
+                ? $"{BaseUrl}/Wholesaler/Search/${search}/${take}/${skip}"
+                : $"{BaseUrl}/Wholesaler/Search/${take}/${skip}";
             
             return ExecuteAsync(() =>
                 Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyOutput>>>(route, Verb.GET));
         }
 
-
         #endregion
-
 
     }

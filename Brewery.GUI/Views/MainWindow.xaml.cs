@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using Elia.Core.Attributes;
-using Elia.Share.WPF.BaseClasses;
+﻿using Elia.Core.Attributes;
 using Elia.Share.WPF.Controls;
 
 namespace Brewery.GUI.Views
@@ -14,10 +10,8 @@ namespace Brewery.GUI.Views
     [Injectable]
     public partial class MainWindow : WindowBase
     {
-        public MyTestService MyTestService { get; set; }
-        public MainWindow(MyTestService myTestService)
+        public MainWindow()
         {
-            MyTestService = myTestService;
             InitializeComponent();
         }
 

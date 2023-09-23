@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using Elia.Shares.Converters;
+using Elia.Share.WPF.Converters;
 
 namespace Elia.Shares.Helpers
 {

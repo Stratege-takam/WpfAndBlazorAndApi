@@ -7,6 +7,16 @@ namespace Elia.Core.Utils;
 public abstract class FormatResult
 {
     #region Properties (Private)
+    
+    /// <summary>
+    /// This properties must save jwt param in appsetting
+    /// </summary>
+    private  readonly AppSettings.Server _appSettingsServer;
+    
+    #endregion
+    
+    
+    #region Properties (Public)
 
     public static string Token { get; set; }
     protected  string BaseUrl { get; set; }
@@ -18,13 +28,9 @@ public abstract class FormatResult
     /// </summary>
     protected ServerRestService Http;
     
-    /// <summary>
-    /// This properties must save jwt param in appsetting
-    /// </summary>
-    private  readonly AppSettings.Server _appSettingsServer;
     
     #endregion
-    
+
     
     #region Constructor
 

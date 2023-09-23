@@ -1,8 +1,15 @@
-﻿namespace Elia.Share.WPF.BaseClasses
+﻿using System;
+
+namespace Elia.Share.WPF.BaseClasses
 {
     public abstract class ViewModelBase<U> : ObservableBase
         where U : class, new()
     {
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IServiceProvider ServiceProvider { get;  set; }
 
         public ViewModelBase() : base() {
             ApplicationRoot.Register(this, ApplicationBaseMessages.MSG_REFRESH_DATA, OnRefreshData);

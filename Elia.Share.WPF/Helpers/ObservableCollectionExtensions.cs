@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 
-namespace Elia.Shares.Helpers
+namespace Elia.Share.WPF.Helpers
 {
     public static class ObservableCollectionExtensions {
         [Obsolete("Cette méthode est obsolète car très lente à cause du fait que les notifications sont déclenchées " +

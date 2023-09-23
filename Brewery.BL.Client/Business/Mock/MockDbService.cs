@@ -15,12 +15,12 @@ namespace Brewery.BL.Client.Business.Mock;
     ///     </para>
     /// </summary>
     [Injectable()]
-    public class MockDbBl: FormatResult
+    public class MockDbService: FormatResult
     {
         #region Constructor
 
        
-        public MockDbBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
+        public MockDbService(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
         {
         }
 

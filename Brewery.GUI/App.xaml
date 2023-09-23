@@ -8,7 +8,8 @@
                     xmlns:ui="http://schemas.modernwpf.com/2019"
                     xmlns:f="clr-namespace:Elia.Share.WPF.BaseClasses;assembly=Elia.Share.WPF">
     <Application.Resources>
-         <ResourceDictionary>
+        
+        <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <!-- https://mahapps.com/docs/guides/quick-start-->
                  <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
@@ -19,6 +20,11 @@
                  
                  <!-- https://github.com/Kinnara/ModernWpf -->
                  <ui:ThemeResources /><ui:XamlControlsResources />
+                 
+                 <ResourceDictionary Source="pack://application:,,,/Elia.Share.WPF;component/Styles/EliaStyles.xaml"/>
+                 <ResourceDictionary Source="Resources/Styles/BorderResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/TextBlockResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/ButtonResource.xaml"></ResourceDictionary>
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>

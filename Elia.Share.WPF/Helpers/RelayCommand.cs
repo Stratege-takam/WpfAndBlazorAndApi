@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace Elia.Shares.Helpers
+namespace Elia.Share.WPF.Helpers
 {
     /// <summary>
     /// A command whose sole purpose is to 

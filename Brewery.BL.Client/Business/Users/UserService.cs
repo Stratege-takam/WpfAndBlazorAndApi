@@ -17,12 +17,12 @@ namespace Brewery.BL.Client.Business.Users;
     ///     </para>
     /// </summary>
     [Injectable()]
-    public class UserBl : FormatResult
+    public class UserService : FormatResult
     {
         #region Constructor
 
        
-        public UserBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
+        public UserService(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
         {
         }
 

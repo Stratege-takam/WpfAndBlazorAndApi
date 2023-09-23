@@ -95,5 +95,6 @@ namespace Elia.Share.WPF.BaseClasses {
         }
 
         public virtual bool Validate() => true;
+        public virtual bool Validate(string currentField) => true;
     }
 }

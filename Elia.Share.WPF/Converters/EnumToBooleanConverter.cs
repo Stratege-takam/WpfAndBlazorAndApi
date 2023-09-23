@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     [ValueConversion(typeof(Enum), typeof(bool))]
     public class EnumToBooleanConverter : MarkupExtension, IValueConverter {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {

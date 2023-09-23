@@ -16,12 +16,12 @@ namespace Brewery.BL.Client.Business.OrderBeers;
     ///     </para>
     /// </summary>
     [Injectable()]
-    public class OrderBeerBl : FormatResult
+    public class OrderBeerService : FormatResult
     {
         #region Constructor
 
        
-        public OrderBeerBl(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
+        public OrderBeerService(ServerRestService http, IOptions<AppSettings.Server> appSettingsClientSection): base(http, appSettingsClientSection.Value)
         {
         }
 

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Elia.Shares.Converters {
+namespace Elia.Share.WPF.Converters {
     [ValueConversion(typeof(string), typeof(bool))]
     public class IsPositiveConverter : MarkupExtension, IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
