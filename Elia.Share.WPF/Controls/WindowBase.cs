@@ -5,7 +5,7 @@ using MahApps.Metro.Controls;
 
 namespace Elia.Share.WPF.Controls
 {
-    public class WindowBase : MetroWindow, IDisposable {
+    public partial class WindowBase : MetroWindow, IDisposable {
         private bool _disposed;
 
         public virtual void Dispose() {

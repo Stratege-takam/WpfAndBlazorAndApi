@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Elia.Shares.Controls
+namespace Elia.Share.WPF.Controls
 {
     public class MyDataGrid : DataGrid {
         public MyDataGrid() {

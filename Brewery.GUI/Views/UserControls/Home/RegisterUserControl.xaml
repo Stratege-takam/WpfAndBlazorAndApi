@@ -3,16 +3,14 @@
                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                          xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls"
-                          xmlns:controls="clr-namespace:Elia.Shares.Controls;assembly=Elia.Share.WPF"
-                          xmlns:viewModels="clr-namespace:Brewery.ViewModel.ViewModels;assembly=Brewery.ViewModel"
-                          xmlns:controls1="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
                           xmlns:helpers="clr-namespace:Elia.Share.WPF.Helpers;assembly=Elia.Share.WPF"
+                          xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+                          xmlns:vm="clr-namespace:Brewery.VM.ViewModels;assembly=Brewery.VM"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
     
     <UserControl.DataContext>
-        <viewModels:RegisterViewModel x:Name="viewModels"/>
+        <vm:RegisterViewModel x:Name="Vm"/>
     </UserControl.DataContext>
 
     <UserControl.Resources>
@@ -47,28 +45,28 @@
                        <StackPanel Grid.Row="1">
                            <TextBlock Style="{StaticResource TextBlockCustorm}"  Text="{DynamicResource Name}" />
             
-                           <controls1:ValidatedField VerticalAlignment="Center" >
+                           <controls:ValidatedField VerticalAlignment="Center" >
                                <TextBox  x:Name="txtName"   TextWrapping="Wrap" 
                                          Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                           </controls1:ValidatedField>
+                           </controls:ValidatedField>
                        </StackPanel>
                        
                        <StackPanel Grid.Row="2">
                            <TextBlock Style="{StaticResource TextBlockCustorm}"  Text="{DynamicResource Email}" />
             
-                           <controls1:ValidatedField VerticalAlignment="Center" >
+                           <controls:ValidatedField VerticalAlignment="Center" >
                                <TextBox  x:Name="txtEmail"   TextWrapping="Wrap" 
                                          Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                           </controls1:ValidatedField>
+                           </controls:ValidatedField>
                        </StackPanel>
         
                        <StackPanel Grid.Row="3">
                            <TextBlock Style="{StaticResource TextBlockCustorm}"  Text="{DynamicResource Password}" />
             
-                           <controls1:ValidatedField VerticalAlignment="Center" >
+                           <controls:ValidatedField VerticalAlignment="Center" >
                                <PasswordBox  x:Name="txtPassword"    helpers:PasswordHelper.Attach="True"
                                              helpers:PasswordHelper.Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"  />
-                           </controls1:ValidatedField>
+                           </controls:ValidatedField>
                        </StackPanel>
         
                        <StackPanel Orientation="Horizontal"

@@ -4,7 +4,7 @@
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                           xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls"
-                          xmlns:controls="clr-namespace:Elia.Shares.Controls;assembly=Elia.Share.WPF"
+                          xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
      <Grid 

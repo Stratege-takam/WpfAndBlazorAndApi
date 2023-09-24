@@ -4,10 +4,9 @@ using System.IO;
 using System.Windows;
 using Brewery.BL.Contracts.Responses.Users;
 using Brewery.GUI.Helpers;
-using Brewery.GUI.Views;
 using Brewery.GUI.Views.Containers;
-using Brewery.ViewModel.Enums;
-using Brewery.ViewModel.ViewModels;
+using Brewery.VM.Enums;
+using Brewery.VM.ViewModels;
 using Elia.Core.Containers;
 using Elia.Core.Utils;
 using Elia.Share.WPF.BaseClasses;
@@ -23,7 +22,6 @@ namespace Brewery.GUI
     {
 
         #region Properties
-        public static string CurrentLang { get;  set; }
         /// <summary>
         /// This properties is container services
         /// </summary>
@@ -139,7 +137,7 @@ namespace Brewery.GUI
         }
         
         
-        private void SwitchLanguage(string lang = null)
+        private void SwitchLanguage(string? lang = null)
         {
             ApplicationRoot.CurrentLang = lang ?? "fr";
             ResourceDictionary dictionary = new ResourceDictionary();

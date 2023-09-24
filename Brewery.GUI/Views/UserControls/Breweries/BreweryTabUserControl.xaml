@@ -1,0 +1,54 @@
+﻿<controls:UserControlBase x:Class="Brewery.GUI.Views.UserControls.Breweries.BreweryTabUserControl"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                          xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+                          xmlns:vm="clr-namespace:Brewery.VM.ViewModels;assembly=Brewery.VM"
+                          mc:Ignorable="d"
+                          d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+      
+    </UserControl.Resources>
+    
+    
+    <UserControl.DataContext>
+        <vm:BreweryViewModel x:Name="Vm"/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <TabControl x:Name="tabControl">
+           
+            <TabItem x:Name="accountTab" 
+                     Header="Detail 1"
+                     Tag="account">
+                <ContentControl>
+                    <StackPanel Height="500" Background="Chocolate">
+                        <TextBlock Text="Block 1"></TextBlock>
+                    </StackPanel>
+                </ContentControl>
+            </TabItem>
+            
+            <TabItem x:Name="Detail2"
+                     Header="Detail2"
+                     Tag="Detail2">
+                <ContentControl>
+                    <StackPanel Height="500" Background="Red">
+                        <TextBlock Text="Block 2"></TextBlock>
+                    </StackPanel>
+                </ContentControl>
+            </TabItem>
+            
+            <TabItem x:Name="Detail3"
+                     Header="Detail3"
+                     Tag="Detail3">
+                <ContentControl>
+                    <StackPanel Height="500" Background="Aqua">
+                        <TextBlock Text="Block 3"></TextBlock>
+                    </StackPanel>
+                </ContentControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</controls:UserControlBase>

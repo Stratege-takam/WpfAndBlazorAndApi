@@ -85,7 +85,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Brewery.BL.Client\Brewery.BL.Client.csproj" />
-      <ProjectReference Include="..\Brewery.ViewModel\Brewery.ViewModel.csproj" />
+      <ProjectReference Include="..\Brewery.VM\Brewery.VM.csproj" />
       <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
       <ProjectReference Include="..\Elia.Share.WPF\Elia.Share.WPF.csproj" />
     </ItemGroup>
@@ -112,5 +112,6 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
+
 
 </Project>

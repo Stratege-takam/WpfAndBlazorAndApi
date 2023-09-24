@@ -1,8 +1,6 @@
-﻿using System.Windows.Controls.Primitives;
-using Elia.Share.WPF.BaseClasses;
-using Elia.Share.WPF.Controls;
+﻿using Elia.Share.WPF.BaseClasses;
 
-namespace Elia.Shares.Controls {
+namespace Elia.Share.WPF.Controls {
     public class DialogWindowBase : WindowBase {
 
         public DialogWindowBase() {

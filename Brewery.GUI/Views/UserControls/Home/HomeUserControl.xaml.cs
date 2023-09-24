@@ -1,5 +1,5 @@
 ﻿using Elia.Core.Attributes;
-using Elia.Shares.Controls;
+using Elia.Share.WPF.Controls;
 
 namespace Brewery.GUI.Views.UserControls.Home;
 

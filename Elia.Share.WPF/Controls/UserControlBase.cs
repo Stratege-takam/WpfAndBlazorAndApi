@@ -1,12 +1,10 @@
-﻿using Elia.Share.WPF.BaseClasses;
-using System;
-using System.Globalization;
+﻿using System;
 using System.Windows.Controls;
-using System.Windows.Markup;
+using Elia.Share.WPF.BaseClasses;
 
-namespace Elia.Shares.Controls
+namespace Elia.Share.WPF.Controls
 {
-    public class UserControlBase : UserControl, IDisposable {
+    public partial class UserControlBase : UserControl, IDisposable {
         private bool _disposed;
 
         //public UserControlBase(): base() {

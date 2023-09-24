@@ -1,4 +1,4 @@
-﻿using Elia.Shares.Controls;
+﻿using Elia.Share.WPF.Controls;
 
 namespace Brewery.GUI.Views.UserControls.Shared;
 

@@ -17,7 +17,7 @@ namespace Brewery.GUI.Helpers
         /// <summary>
         /// 
         /// </summary>
-        public static string ViewModel { get; set; } = "Brewery.ViewModel";
+        public static string ViewModel { get; set; } = "Brewery.VM";
         
         /// <summary>
         /// 

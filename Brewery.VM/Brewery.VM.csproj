@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>11</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.BL.Client\Brewery.BL.Client.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+      <ProjectReference Include="..\Elia.Share.WPF\Elia.Share.WPF.csproj" />
+    </ItemGroup>
+
+</Project>

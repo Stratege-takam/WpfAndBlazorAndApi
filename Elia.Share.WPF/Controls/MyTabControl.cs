@@ -8,9 +8,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Elia.Share.WPF.BaseClasses;
 
-namespace Elia.Shares.Controls
+namespace Elia.Share.WPF.Controls
 {
-    public class MyTabControl : TabControl, IDisposable {
+    public partial class MyTabControl : TabControl, IDisposable {
         public TabItem Add(ContentControl content, string header, object tag = null) {
 
             // refuser l'ajout si le tab courant est dirty
