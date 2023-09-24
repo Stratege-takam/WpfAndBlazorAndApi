@@ -62,6 +62,7 @@ namespace Brewery.API.Controllers;
         ///     {
         ///         "OwnerId": "08d9c2d4-bd3b-4129-8153-4924870c9cb7",
         ///         "Name": "Leffe Blonde",
+        ///         "Description": "A description",
         ///         "Price": 2.20,
         ///         "Degree": 6.6
         ///     }
@@ -77,6 +78,7 @@ namespace Brewery.API.Controllers;
         ///         "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         ///         "Name": "Leffe Blonde",
         ///         "Price": 2.20,
+        ///         "Description": "A description",
         ///         "Degree": "6.6%"
         ///        },
         ///        Reason: "Some error if error",
@@ -192,6 +194,7 @@ namespace Brewery.API.Controllers;
         ///                "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         ///                "Name": "Leffe Blonde",
         ///                "Price": 2.20,
+        ///                "Description": "A description",
         ///                "Degree": "6.6%",
         ///                "Owner": { Name: "Abbaye de Leffe", Id: "3fa85f64-5717-4562-b3fc-2c963f66afa1"}
         ///             }
@@ -243,6 +246,7 @@ namespace Brewery.API.Controllers;
         ///                "Id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
         ///                "Name": "Leffe Blonde",
         ///                "Price": 2.20,
+        ///                "Description": "A description",
         ///                "Degree": "6.6%",
         ///                "Owner": { Name: "Abbaye de Leffe", Id: "3fa85f64-5717-4562-b3fc-2c963f66afa1"}
         ///             }

@@ -105,6 +105,15 @@ namespace Elia.Share.WPF.BaseClasses {
                     win.Close();
             }
         }
+        
+        public static object ShowDialog<T>()
+            where T : WindowBase 
+        {
+            var dialog = (WindowBase)ViewModelBase.ServiceProvider.GetRequiredService<T>();
+            dialog.ShowDialog();
+            
+            return dialog.DialogResult;
+        }
 
         public static object ShowDialog<T, U>(params object[] args)
             where U : Track, new()

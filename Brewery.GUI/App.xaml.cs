@@ -114,6 +114,12 @@ namespace Brewery.GUI
                     CurrentUser = user;
                     NavigateTo<BreweryWindow>();
                 }
+            }); 
+            
+            // After click to button open beer
+            Register(this, MessageEnum.MsgOpenCreateBeer, () =>
+            {
+                ShowDialog<BreweryCreateWindow>();
             });
             
             // Switch to home page
@@ -133,6 +139,11 @@ namespace Brewery.GUI
               
             });
 
+
+            Register(this, MessageEnum.MsgLoadBeer,  () =>
+            {
+            
+            });
             
         }
         

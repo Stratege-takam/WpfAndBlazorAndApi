@@ -33,10 +33,11 @@ public class RegisterViewModel : LoginViewModel
         _bl = ServiceProvider.GetRequiredService<UserService>();
         OnSubmit = new RelayCommand(async () =>
         {
-           
+            ErrorServer = null;
             if (Validate())
             {
                 Loading = DefaultTextLoad;
+               
                 var response = await  _bl.CreateuserAsync(new CreateUserInput()
                 {
                     Email = Email,

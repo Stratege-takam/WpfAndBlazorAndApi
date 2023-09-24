@@ -69,9 +69,9 @@ namespace Brewery.BL.Client.Business.Breweries;
         /// <param name="skip"> count to skip</param>
         public  Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetBreweriesAsync( string search, int take, int skip)
         {
-            var route = string.IsNullOrEmpty(search)
-                ? $"{BaseUrl}/Brewery/Search/${search}/${take}/${skip}"
-                : $"{BaseUrl}/Brewery/Search/${take}/${skip}";
+            var route = !string.IsNullOrEmpty(search)
+                ? $"{BaseUrl}/Brewery/Search/{search}/{take}/{skip}"
+                : $"{BaseUrl}/Brewery/Search/{take}/{skip}";
             
             return ExecuteAsync(() =>
                 Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyOutput>>>(route, Verb.GET));

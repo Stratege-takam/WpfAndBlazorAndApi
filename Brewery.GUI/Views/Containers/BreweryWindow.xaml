@@ -10,6 +10,7 @@
               xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
               xmlns:vm="clr-namespace:Brewery.VM.ViewModels;assembly=Brewery.VM"
               xmlns:breweries="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+              xmlns:breweries1="clr-namespace:Brewery.VM.ViewModels.Breweries;assembly=Brewery.VM"
               x:Name="BreweryWindow1"
               Title="G-brewary"
               Width="1200"
@@ -22,7 +23,7 @@
     
     
     <mah:MetroWindow.DataContext>
-        <vm:BreweryViewModel x:Name="Vm"/>
+        <breweries1:BreweryViewModel x:Name="Vm"/>
     </mah:MetroWindow.DataContext>
     <mah:MetroWindow.Resources>
         <converters:ObjectEqualToVisibleConverter x:Key="ObjectEqualToVisibleConverter" />

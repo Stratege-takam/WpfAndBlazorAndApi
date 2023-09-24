@@ -5,7 +5,7 @@ using Brewery.BL.Client.Contracts.Outputs.Beers;
 using Brewery.VM.Enums;
 using Elia.Share.WPF.Helpers;
 
-namespace Brewery.VM.ViewModels;
+namespace Brewery.VM.ViewModels.Breweries;
 
 public class BreweryViewModel: ViewModelCommon
 {
@@ -96,8 +96,8 @@ public class BreweryViewModel: ViewModelCommon
 
     #region For treview
 
-    private ObservableCollection<BreweryModel> _treeBreweries;
-    public ObservableCollection<BreweryModel> TreeBreweries
+    private ObservableCollection<BreweryDetailViewModel> _treeBreweries;
+    public ObservableCollection<BreweryDetailViewModel> TreeBreweries
     {
         get => _treeBreweries;
         set => SetProperty(ref _treeBreweries, value); 
@@ -123,18 +123,14 @@ public class BreweryViewModel: ViewModelCommon
             
         });
         
-        OnOpenCreateBeerCommand = new RelayCommand<Guid>( ((current) =>
+        OnOpenCreateBeerCommand = new RelayCommand( () =>
         {
-            
-        }));
+            NotifyColleagues(MessageEnum.MsgOpenCreateBeer);
+        });
     }
 
 
     #endregion
-    
-    
-    public record BreweryModel(string Name, Guid Id, ObservableCollection<CreateBeerOutput> Beers): BreweryCreateBeerOutput(Name, Id)
-    {
-    }
+
     
 }

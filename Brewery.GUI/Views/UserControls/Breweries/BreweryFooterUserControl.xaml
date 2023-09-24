@@ -6,6 +6,7 @@
                           xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                           xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
                           xmlns:vm="clr-namespace:Brewery.VM.ViewModels;assembly=Brewery.VM"
+                          xmlns:breweries="clr-namespace:Brewery.VM.ViewModels.Breweries;assembly=Brewery.VM"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
     
@@ -16,7 +17,7 @@
     </UserControl.Resources>
     
     <UserControl.DataContext>
-        <vm:BreweryViewModel x:Name="Vm"/>
+        <breweries:BreweryViewModel x:Name="Vm"/>
     </UserControl.DataContext>
     
     <Grid>

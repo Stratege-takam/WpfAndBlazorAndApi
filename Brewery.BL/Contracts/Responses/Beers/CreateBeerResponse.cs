@@ -27,5 +27,10 @@ public class CreateBeerResponse
     /// Degree of beer
     /// </summary>
     public string Degree { get; set; }
+    
+    /// <summary>
+    /// Description of beer
+    /// </summary>
+    public string Description { get; set; }
 }
 

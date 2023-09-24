@@ -72,9 +72,9 @@ namespace Brewery.BL.Client.Business.Wholesalers;
         public Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetWholesalerAsync(string search, int take,
             int skip)
         {
-            var route = string.IsNullOrEmpty(search)
-                ? $"{BaseUrl}/Wholesaler/Search/${search}/${take}/${skip}"
-                : $"{BaseUrl}/Wholesaler/Search/${take}/${skip}";
+            var route = !string.IsNullOrEmpty(search)
+                ? $"{BaseUrl}/Wholesaler/Search/{search}/{take}/{skip}"
+                : $"{BaseUrl}/Wholesaler/Search/{take}/{skip}";
             
             return ExecuteAsync(() =>
                 Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyOutput>>>(route, Verb.GET));

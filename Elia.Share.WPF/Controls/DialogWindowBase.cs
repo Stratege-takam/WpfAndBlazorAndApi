@@ -4,6 +4,7 @@ namespace Elia.Share.WPF.Controls {
     public class DialogWindowBase : WindowBase {
 
         public DialogWindowBase() {
+            
             DataContextChanged += (o, e) => {
                 if (e.OldValue != null)
                     (e.OldValue as IDialogViewModelBase).DoClose -= DialogWindowBase_DoClose;

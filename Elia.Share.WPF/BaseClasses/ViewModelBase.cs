@@ -9,8 +9,11 @@ namespace Elia.Share.WPF.BaseClasses
         /// 
         /// </summary>
         public static IServiceProvider ServiceProvider { get;  set; }
-        
-        protected virtual void OnRefreshData() { }
+
+        protected virtual void OnRefreshData()
+        {
+            
+        }
 
         public virtual void SaveAction() { }
 

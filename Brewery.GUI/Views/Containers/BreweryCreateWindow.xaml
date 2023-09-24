@@ -1,0 +1,126 @@
+﻿<controls:DialogWindowBase x:Class="Brewery.GUI.Views.Containers.BreweryCreateWindow"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+                           xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                           xmlns:breweries="clr-namespace:Brewery.VM.ViewModels.Breweries;assembly=Brewery.VM"
+                           mc:Ignorable="d"
+                           x:Name="BreweryCreateWindow1"
+                           Title="G-brewary"
+                           BorderThickness="0"
+                           BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                           ResizeMode="CanResizeWithGrip"
+                           WindowStartupLocation="CenterScreen"
+                           ShowTitleBar="False"
+                           Height="550" Width="800">
+    <mah:MetroWindow.Resources>
+        <Style TargetType="TextBlock"  x:Key="TextBlockCustorm" BasedOn="{StaticResource TextBlockText}">
+            <Setter Property="Padding" Value="0,10,10,10"></Setter>
+        </Style>
+        
+        <Style TargetType="TextBlock"  x:Key="TextBlockHeaderCustorm" BasedOn="{StaticResource TextBlockHeader}">
+            <Setter Property="Padding" Value="0,10,10,10"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+    </mah:MetroWindow.Resources>
+    
+    <mah:MetroWindow.DataContext>
+        <breweries:BeerCreateViewModel x:Name="Vm"/>
+    </mah:MetroWindow.DataContext>
+  <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <TextBlock Style="{StaticResource TextBlockHeaderCustorm}"  Text="{DynamicResource Register}" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="5"></StackPanel>
+        
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <TextBlock Style="{StaticResource TextBlockCustorm}" 
+                       Text="Owner:" />
+            <controls:ValidatedField VerticalAlignment="Center" >
+                <ComboBox x:Name="cmbOwner"  
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="Id"
+                          ItemsSource="{Binding Owners}"
+                          SelectedValue="{Binding Id}" 
+                          />
+            </controls:ValidatedField>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBlock Style="{StaticResource TextBlockCustorm}" 
+                       Text="Nom:" />
+            <controls:ValidatedField VerticalAlignment="Center" >
+                <TextBox x:Name="txtName"  TextWrapping="Wrap" 
+                         Text="{Binding NameOfBeer, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </controls:ValidatedField>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBlock Style="{StaticResource TextBlockCustorm}"  Text="Price:"
+                       />
+            <controls:ValidatedField VerticalAlignment="Center" >
+                <TextBox x:Name="txtPrice"  TextWrapping="Wrap" 
+                         PreviewTextInput="NumberValidationTextBox"
+                         Text="{Binding PriceOfBeer, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </controls:ValidatedField>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <TextBlock Style="{StaticResource TextBlockCustorm}"  Text="Degree:"
+                       />
+            <controls:ValidatedField VerticalAlignment="Center" >
+                <TextBox x:Name="txtDegree"  TextWrapping="Wrap" 
+                         PreviewTextInput="NumberValidationTextBox"
+                         Text="{Binding DegreeOfBeer, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </controls:ValidatedField>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <TextBlock Style="{StaticResource TextBlockCustorm}" 
+                       Text="Description:" />
+            <controls:ValidatedField VerticalAlignment="Center" >
+                <TextBox x:Name="txtDescription"  
+                         TextWrapping="Wrap" AcceptsReturn="True"
+                         Text="{Binding DescriptionOfBeer, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </controls:ValidatedField>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal"
+                    Grid.Row="7"
+                    VerticalAlignment="Center">
+            <Button  Content="{DynamicResource Submit}"
+                     Command="{Binding OnSubmitCommand}"/>
+                           
+            <TextBlock TextWrapping="Wrap" Text="{Binding Loading}" 
+                       VerticalAlignment="Center" Padding="10,0,0,0"/>
+                        
+            <TextBlock TextWrapping="Wrap" Text="{Binding ErrorServer}" 
+                       VerticalAlignment="Center"
+                       Foreground="Red" Padding="10,0,0,0"/>
+            
+            <TextBlock TextWrapping="Wrap" Text="{Binding SuccessServer}" 
+                       VerticalAlignment="Center"
+                       Foreground="Green" Padding="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+  </ScrollViewer>
+</controls:DialogWindowBase>

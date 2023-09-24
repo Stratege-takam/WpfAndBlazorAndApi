@@ -10,6 +10,6 @@ public enum MessageEnum
     MsgDisplayAccountDetail,
     MsgNavigationPage,
     MsgDisplayBrewery,
-    MsSeachBeer,
-    MsOpenCreateBeer
+    MsgLoadBeer,
+    MsgOpenCreateBeer
 }

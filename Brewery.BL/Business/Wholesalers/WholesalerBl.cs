@@ -53,7 +53,7 @@ namespace Brewery.BL.Business.Wholesalers;
         /// <returns></returns>
         public async  Task<BaseResult<ListResult<GetCompanyResponse>>> GetWholesalerAsync(string search, int take, int skip)
         {
-            var entityReponse = await _repository.SearchAllByAsync(b => !string.IsNullOrEmpty(search) &&
+            var entityReponse = await _repository.SearchAllByAsync(b => string.IsNullOrEmpty(search) || !string.IsNullOrEmpty(search) &&
                                                                         EF.Functions.Like(b.Name, "%" + search + "%"), 
                 o => o.OrderBy(b => b.Name), null,  skip, take);
 

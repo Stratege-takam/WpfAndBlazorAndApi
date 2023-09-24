@@ -54,10 +54,10 @@ public class LoginViewModel : ViewModelCommon
         _bl = ServiceProvider.GetRequiredService<UserService>();
         OnSubmit = new RelayCommand(async () =>
         {
+            ErrorServer = null;
             if (Validate())
             {
                 Loading = DefaultTextLoad;
-                ErrorServer = "";
                var response = await  _bl.LoginAsync(new LoginInput()
                 {
                     Email = Email,

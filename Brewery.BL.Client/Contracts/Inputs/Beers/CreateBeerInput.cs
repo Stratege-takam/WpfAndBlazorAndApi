@@ -34,4 +34,9 @@ public class CreateBeerInput
     /// </summary>
     [Required]
     public Guid OwnerId { get; set; }
+
+    /// <summary>
+    /// Description of beer
+    /// </summary>
+    public string Description { get; set; }
 }

@@ -98,7 +98,8 @@ namespace Brewery.BL.Business.Beers;
                 Degree = request.Degree,
                 Name = request.Name,
                 Price = request.Price,
-                OwnerId = request.OwnerId
+                OwnerId = request.OwnerId,
+                Description = request.Description,
             };
             var entityReponse = await _repository.CreateAsync(entity, true);
 
@@ -110,6 +111,7 @@ namespace Brewery.BL.Business.Beers;
                     Name = entityReponse.Data.Name,
                     Price = entityReponse.Data.Price,
                     Id = entityReponse.Data.Id,
+                    Description = entityReponse.Data.Description,
                 };
                 
                 return new BaseResult<CreateBeerResponse>(response);
@@ -184,6 +186,7 @@ namespace Brewery.BL.Business.Beers;
                     Name = b.Name,
                     Price = b.Price,
                     Id = b.Id,
+                    Description = b.Description,
                     Owner = new BreweryCreateBeerResponse(b.Owner.Name, b.Owner.Id) 
                 });
                 
@@ -213,6 +216,7 @@ namespace Brewery.BL.Business.Beers;
                     Name = b.Name,
                     Price = b.Price,
                     Id = b.Id,
+                    Description = b.Description,
                     Owner = new BreweryCreateBeerResponse(b.Owner.Name, b.Owner.Id) 
                 });
                 
