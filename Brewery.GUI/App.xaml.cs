@@ -7,6 +7,7 @@ using Brewery.GUI.Helpers;
 using Brewery.GUI.Views.Containers;
 using Brewery.VM.Enums;
 using Brewery.VM.ViewModels;
+using Brewery.VM.ViewModels.Breweries;
 using Elia.Core.Containers;
 using Elia.Core.Utils;
 using Elia.Share.WPF.BaseClasses;
@@ -128,7 +129,7 @@ namespace Brewery.GUI
                 switch (page)
                 {
                     case PageEnum.BreweryPage:
-                        NavigateTo<MainWindow>();
+                        NavigateTo<BreweryWindow>();
                         break;
                     case PageEnum.HomePage:
                     case PageEnum.LoginPage:

@@ -26,9 +26,6 @@
         </Style>
     </mah:MetroWindow.Resources>
     
-    <mah:MetroWindow.DataContext>
-        <breweries:BeerCreateViewModel x:Name="Vm"/>
-    </mah:MetroWindow.DataContext>
   <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid Margin="10">
         <Grid.RowDefinitions>

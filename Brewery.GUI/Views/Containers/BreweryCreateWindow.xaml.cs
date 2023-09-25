@@ -9,10 +9,12 @@ namespace Brewery.GUI.Views.Containers;
 [Injectable]
 public partial class BreweryCreateWindow : DialogWindowBase
 {
+    public BeerCreateViewModel BeerCreateViewModel { get; set; }
     public BreweryCreateWindow()
     {
         InitializeComponent();
-        Vm = new BeerCreateViewModel();
+        BeerCreateViewModel = new BeerCreateViewModel();
+        DataContext = BeerCreateViewModel;
     }
     
     

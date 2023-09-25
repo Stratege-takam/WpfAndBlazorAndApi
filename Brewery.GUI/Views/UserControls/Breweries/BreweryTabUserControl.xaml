@@ -1,23 +1,16 @@
-﻿<controls:UserControlBase x:Class="Brewery.GUI.Views.UserControls.Breweries.BreweryTabUserControl"
-                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                          xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
-                          xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
-                          xmlns:vm="clr-namespace:Brewery.VM.ViewModels;assembly=Brewery.VM"
-                          xmlns:breweries="clr-namespace:Brewery.VM.ViewModels.Breweries;assembly=Brewery.VM"
-                          mc:Ignorable="d"
-                          d:DesignHeight="300" d:DesignWidth="300">
+﻿<controls:BreweryCommonUserControl x:Class="Brewery.GUI.Views.UserControls.Breweries.BreweryTabUserControl"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                   xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   xmlns:controls="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   mc:Ignorable="d"
+                                   d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
       
     </UserControl.Resources>
-    
-    
-    <UserControl.DataContext>
-        <breweries:BreweryViewModel x:Name="Vm"/>
-    </UserControl.DataContext>
-    
+
     <Grid>
         <TabControl x:Name="tabControl">
            
@@ -52,4 +45,4 @@
             </TabItem>
         </TabControl>
     </Grid>
-</controls:UserControlBase>
+</controls:BreweryCommonUserControl>
