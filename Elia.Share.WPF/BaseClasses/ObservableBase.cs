@@ -143,5 +143,11 @@ namespace Elia.Share.WPF.BaseClasses
         public void UnRegister() {
             ApplicationRoot.UnRegister(this);
         }
+
+
+        public void InitMethod(Action action)
+        {
+            action?.Invoke();
+        }
     }
 }

@@ -239,7 +239,7 @@ namespace Brewery.BL.Client.Business.Beers;
         /// <param name="skip">The count to skip</param>
         /// <returns></returns>
         public  Task<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>> GetAllAsync(int skip, int take)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>>($"{BaseUrl}/Beer/${skip}/${take}", Verb.GET));
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>>($"{BaseUrl}/Beer/{skip}/{take}", Verb.GET));
 
         #endregion
 

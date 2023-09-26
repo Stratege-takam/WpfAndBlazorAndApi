@@ -5,6 +5,7 @@
                                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                                    xmlns:controls="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                                    mc:Ignorable="d"
                                    d:DesignHeight="300" d:DesignWidth="300">
     
@@ -34,15 +35,25 @@
                                             <TextBlock Style="{StaticResource TextBlockCustorm}" 
                                                        Margin="0,0, 5, 0"
                                                        VerticalAlignment="Center"
-                                                       Text="Brewery : " />
+                                                       Text="Brasseurs : " />
+                                            <!--ListBox  ItemsSource="{Binding Breweries}" 
+                                                      Width="150"
+                                                      SelectionMode="Multiple"
+                                                      DisplayMemberPath="Name"
+                                                      SelectedItem="{Binding BrewerySearchs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                      SelectedValuePath="Id"/-->
                                             <mah:MultiSelectionComboBox 
                                                 Width="150"
+                                                x:Name="SelectionComboBoxBreweries"
+                                                DisplayMemberPath="Name"
+                                                SelectedValuePath="Id"
                                                 ItemsSource="{Binding Breweries}"    
-                                                SelectedItem="{Binding BrewerySearch, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                SelectionChanged="SelectionComboBoxBreweries_OnSelectionChanged"
                                                 SelectionMode="Multiple"
                                                 IsEditable="True"
+                                                Height="40"
                                                 Separator=", "
-                                                IsSynchronizedWithCurrentItem="True"
+                                                IsSynchronizedWithCurrentItem="False"
                                                 SelectItemsFromTextInputDelay="200" />
                                         </StackPanel> 
                                         
@@ -50,22 +61,38 @@
                                             <TextBlock Style="{StaticResource TextBlockCustorm}"
                                                        Margin="0,0, 5, 0"
                                                        VerticalAlignment="Center"
-                                                       Text="Wholesaler : " />
+                                                       Text="Grossites : " />
                                             <mah:MultiSelectionComboBox 
                                                 Width="150"
+                                                x:Name="SelectionComboBoxWholesalers"
+                                                DisplayMemberPath="Name"
+                                                SelectedValuePath="Id"
                                                 ItemsSource="{Binding Wholesalers}"    
-                                                SelectedItem="{Binding WholesalerSearch, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                SelectionChanged="SelectionComboBoxWholesalers_OnSelectionChanged"
                                                 SelectionMode="Multiple"
                                                 IsEditable="True"
+                                                Height="40"
                                                 Separator=", "
                                                 Margin="0,0, 5, 0"
-                                                IsSynchronizedWithCurrentItem="True"
+                                                IsSynchronizedWithCurrentItem="False"
                                                 SelectItemsFromTextInputDelay="200" />
                                             
-                                            <Button  Content="Rechercher"
-                                                     VerticalAlignment="Bottom"
+                                            <Button  VerticalAlignment="Bottom"
                                                      Style="{StaticResource ButtonCustorm}"
-                                                     Command="{Binding OnSearchCommand}"/>
+                                                     Command="{Binding OnSearchCommand}">
+                                                <DockPanel>
+                                                    <iconPacks:PackIconBoxIcons
+                                                        VerticalAlignment="Center"
+                                                        Foreground="White"
+                                                        Margin="5,0,0,0"
+                                                        Kind="RegularSearch"  
+                                                                              Width="20"
+                                                                              Height="20" />
+                                                    <Label Foreground="White"
+                                                           VerticalAlignment="Center"
+                                                           Content="Rechercher"/>
+                                                </DockPanel>
+                                            </Button>
                                         </StackPanel>
                                     </StackPanel>
                                     
@@ -74,10 +101,24 @@
                                                  HorizontalAlignment="Right"
                                                  VerticalAlignment="Bottom">
                                         
-                                        <Button  Content="Create new beer"
+                                        <Button  
                                                  VerticalAlignment="Bottom"
                                                  Style="{StaticResource ButtonCustorm}"
-                                                 Command="{Binding OnOpenCreateBeerCommand}"/>
+                                                 Command="{Binding OnOpenCreateBeerCommand}">
+                                            <DockPanel>
+                                                <iconPacks:PackIconBoxIcons
+                                                    Foreground="White"
+                                                    VerticalAlignment="Center"
+                                                    Kind="RegularPlus"  
+                                                    Margin="5,0,0,0"
+                                                                          Width="20"
+                                                                          Height="20" />
+                                                <Label 
+                                                    Foreground="White"
+                                                    VerticalAlignment="Center"
+                                                    Content="Créer une bière"/>
+                                            </DockPanel>
+                                        </Button>
                                     </StackPanel>
                                 </DockPanel>
     </Grid>

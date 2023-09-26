@@ -6,43 +6,33 @@ using System.Windows.Input;
 using Brewery.BL.Client.Business.Beers;
 using Brewery.BL.Client.Business.Breweries;
 using Brewery.BL.Client.Contracts.Inputs.Beers;
-using Brewery.VM.Enums;
 using Elia.Core.Utils;
-using Elia.Share.WPF.BaseClasses;
 using Elia.Share.WPF.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Brewery.VM.ViewModels.Breweries;
 
-public class BeerCreateViewModel: DialogViewModelCommon
+
+public class BeerCreateViewModelBase : DialogViewModelCommon
 {
-    
-    #region Private properties
-
-    private BeerService _bl;
-    private BreweryService _breweryBl;
-
-    #endregion
-    
+        
       #region Properties Notify
     
-        private string _errorServer;
-        public string ErrorServer
-        {
-            get => _errorServer;
-            set => SetProperty(ref _errorServer, value); 
-        }
-        
-        private string _successServer;
-        public string SuccessServer
-        {
-            get => _successServer;
-            set => SetProperty(ref _successServer, value); 
-        }
-        
+       
     
 
         #region Information for beer
+        
+        private CompanyCreateViewModel _owner ;
+        public CompanyCreateViewModel Owner
+        {
+            get => _owner;
+            set
+            {
+                SetProperty(ref _owner, value, () => Validate()) ; 
+            }
+        }
+        
         
         private Guid? _id ;
         public Guid? Id
@@ -55,13 +45,7 @@ public class BeerCreateViewModel: DialogViewModelCommon
         }
         
         
-        private ObservableCollection<BreweryCreateViewModel> _owners ;
-        public ObservableCollection<BreweryCreateViewModel> Owners
-        {
-            get => _owners;
-            set => SetProperty(ref _owners, value) ; 
-        }
-
+       
         private Guid _idOfBeer ;
         public Guid IdOfBeer
         {
@@ -99,65 +83,102 @@ public class BeerCreateViewModel: DialogViewModelCommon
         #endregion
      
         #endregion
+
+}
+
+public class BeerCreateViewModel: BeerCreateViewModelBase
+{
+    
+    #region Private properties
+
+    private BeerService _bl;
+    private BreweryService _breweryBl;
+
+    #endregion
+
+    #region helps
+
+    private string _errorServer;
+    public string ErrorServer
+    {
+        get => _errorServer;
+        set => SetProperty(ref _errorServer, value); 
+    }
         
-        #region Commands
+    private string _successServer;
+    public string SuccessServer
+    {
+        get => _successServer;
+        set => SetProperty(ref _successServer, value); 
+    }
 
-        public  ICommand OnSubmitCommand { get; set; }
+    
+    private ObservableCollection<CompanyCreateViewModel> _owners ;
+    public ObservableCollection<CompanyCreateViewModel> Owners
+    {
+        get => _owners;
+        set => SetProperty(ref _owners, value) ; 
+    }
 
-        #endregion
 
-        #region Constructor
+    #endregion
+        
+    #region Commands
 
-            public  BeerCreateViewModel(): base()
+    public  ICommand OnSubmitCommand { get; set; }
+
+    #endregion
+
+    #region Constructor
+
+        public  BeerCreateViewModel(): base()
+        {
+            _bl = ServiceProvider.GetRequiredService<BeerService>();
+            _breweryBl = ServiceProvider.GetRequiredService<BreweryService>();
+
+            InitMethod( async () =>
             {
-                _bl = ServiceProvider.GetRequiredService<BeerService>();
-                _breweryBl = ServiceProvider.GetRequiredService<BreweryService>();
+                await OnRefresh();
+            });
 
-                NotifyColleagues(MessageEnum.MsgLoadBeer);
-                
-                Register( MessageEnum.MsgLoadBeer, async () =>
+            OnSubmitCommand = new RelayCommand(async () =>
+            {
+                Loading = DefaultTextLoad;
+                SuccessServer = null;
+                ErrorServer = null;
+                var response = await  _bl.CreateBeerAsync(new CreateBeerInput()
                 {
-                    OnRefresh();
+                   Degree = DegreeOfBeer.GetValueOrDefault(),
+                   Name = NameOfBeer,
+                   Price = PriceOfBeer.GetValueOrDefault(),
+                   OwnerId = Id.GetValueOrDefault(),
+                   Description = DescriptionOfBeer
                 });
-
-                OnSubmitCommand = new RelayCommand(async () =>
+           
+                // Login success. Set token
+                if (response.ResultStatus == BaseResultStatus.Success)
                 {
-                    Loading = DefaultTextLoad;
-                    SuccessServer = null;
-                    ErrorServer = null;
-                    var response = await  _bl.CreateBeerAsync(new CreateBeerInput()
-                    {
-                       Degree = DegreeOfBeer.GetValueOrDefault(),
-                       Name = NameOfBeer,
-                       Price = PriceOfBeer.GetValueOrDefault(),
-                       OwnerId = Id.GetValueOrDefault(),
-                       Description = DescriptionOfBeer
-                    });
-               
-                    // Login success. Set token
-                    if (response.ResultStatus == BaseResultStatus.Success)
-                    {
-                        ResetForm();
-                        Loading = null;
-                        SuccessServer = $"Create beer {response.Data.Name} successfull !";
-                        return;
-                    }
-
+                    ResetForm();
                     Loading = null;
-                    ErrorServer = response.Reason;
-                });
-            }
-        #endregion
+                    SuccessServer = $"Create beer {response.Data.Name} successfull !";
+                    return;
+                }
+
+                Loading = null;
+                ErrorServer = response.Reason;
+            });
+        }
+    #endregion
 
 
-        #region Reset method
+    #region Reset method
 
         public async Task OnRefresh()
         {
             var response = await _breweryBl.GetBreweriesAsync(null, int.MaxValue, 0 );
             if (response.ResultStatus == BaseResultStatus.Success)
             {
-                Owners = new ObservableCollection<BreweryCreateViewModel>(response.Data.Results.Select(b => new BreweryCreateViewModel()
+                Owners = new ObservableCollection<CompanyCreateViewModel>(response.Data.Results.Select(b => new CompanyCreateViewModel()
                 {
                     Id = b.Id,
                     Name = b.Name,

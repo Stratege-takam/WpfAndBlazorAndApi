@@ -4,53 +4,81 @@
                                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                    xmlns:controls="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                                    mc:Ignorable="d"
                                    d:DesignHeight="300" d:DesignWidth="300">
     
     <UserControl.Resources>
-       
+        <DataTemplate x:Key="TeamTemplate">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Stretch">
+                <iconPacks:PackIconModern Kind="CupHalf"  
+                                          Width="10"
+                                          VerticalAlignment="Center"
+                                          Height="10" />
+                <TextBlock TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           Text="{Binding NameOfBeer}" />
+                <Button 
+                    HorizontalAlignment="Right"
+                    ToolTip="Detail"
+                    Width="20"
+                    VerticalAlignment="Center"
+                    Height="20"
+                    BorderThickness="0"
+                    Padding="5"
+                    
+                    Style="{DynamicResource MahApps.Styles.Button.Circle}"
+                    Command="{Binding OnOpenDetailBeerCommand}"
+                    CommandParameter="{Binding IdOfBeer}"
+                    >
+                    <iconPacks:PackIconModern Kind="Eye"  
+                                              Width="10"
+                                              Height="10" />
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+         
+        <HierarchicalDataTemplate x:Key="TeamClassTemplate"
+                                  ItemsSource="{Binding Beers}"
+                                  ItemTemplate="{StaticResource TeamTemplate}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <iconPacks:PackIconModern Kind="Cabinet"  
+                                          Width="15"
+                                          VerticalAlignment="Center"
+                                          Height="15" />
+                
+                <TextBlock TextWrapping="Wrap" FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center" />
+
+            </StackPanel>
+        </HierarchicalDataTemplate>
     </UserControl.Resources>
     
+    
+    
     <Grid>
-       <TreeView Padding="10" 
-                                      Name="TreeView1" 
-                                      HorizontalAlignment="Left" 
-                                      VerticalAlignment="Top"
-                                      MaxWidth="300"
-                                      MaxHeight="790">
-                                  
-                                <TreeViewItem IsExpanded="True" Header="Cold Drinks">  
-                                    <TreeViewItem Header="Coke"></TreeViewItem>  
-                                    <TreeViewItem Header="Pepsi"></TreeViewItem>  
-                                    <TreeViewItem Header="Orange Juice"></TreeViewItem>  
-                                    <TreeViewItem Header="Milk"></TreeViewItem>  
-                                    <TreeViewItem Header="Iced Tea"></TreeViewItem>  
-                                    <TreeViewItem Header="Mango Shake"></TreeViewItem>  
-                                </TreeViewItem>  
-                                <TreeViewItem IsExpanded="True" Header="Cold Drinks">  
-                                    <TreeViewItem Header="Coke"></TreeViewItem>  
-                                    <TreeViewItem Header="Pepsi"></TreeViewItem>  
-                                    <TreeViewItem Header="Orange Juice"></TreeViewItem>  
-                                    <TreeViewItem Header="Milk"></TreeViewItem>  
-                                    <TreeViewItem Header="Iced Tea"></TreeViewItem>  
-                                    <TreeViewItem Header="Mango Shake"></TreeViewItem>  
-                                </TreeViewItem>  
-                                <TreeViewItem IsExpanded="True" Header="Cold Drinks">  
-                                    <TreeViewItem Header="Coke"></TreeViewItem>  
-                                    <TreeViewItem Header="Pepsi"></TreeViewItem>  
-                                    <TreeViewItem Header="Orange Juice"></TreeViewItem>  
-                                    <TreeViewItem Header="Milk"></TreeViewItem>  
-                                    <TreeViewItem Header="Iced Tea"></TreeViewItem>  
-                                    <TreeViewItem Header="Mango Shake"></TreeViewItem>  
-                                </TreeViewItem>  
-                                <TreeViewItem IsExpanded="True" Header="Cold Drinks">  
-                                    <TreeViewItem Header="Coke"></TreeViewItem>  
-                                    <TreeViewItem Header="Pepsi"></TreeViewItem>  
-                                    <TreeViewItem Header="Orange Juice"></TreeViewItem>  
-                                    <TreeViewItem Header="Milk"></TreeViewItem>  
-                                    <TreeViewItem Header="Iced Tea"></TreeViewItem>  
-                                    <TreeViewItem Header="Mango Shake"></TreeViewItem>  
-                                </TreeViewItem>  
-                            </TreeView>  
+        
+       <ScrollViewer  
+           VerticalScrollBarVisibility="Auto"
+           Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=StackPanel}}"
+           >
+           <TreeView x:Name="MainTreeView" 
+                     HorizontalAlignment="Stretch"
+                     Padding="10" 
+                     VerticalAlignment="Top"
+                     MaxWidth="300"
+                     MaxHeight="{Binding ElementName=Container,Path=ActualHeight}"
+                     ItemTemplate="{StaticResource TeamClassTemplate}"
+                     ItemsSource="{Binding TreeBreweries}">
+               <TreeView.ItemContainerStyle>
+                   <Style TargetType="{x:Type TreeViewItem}">
+                    
+                       <Setter Property="IsExpanded" Value="True" />
+                   </Style>
+               </TreeView.ItemContainerStyle>
+           </TreeView>
+
+       </ScrollViewer>
+        
     </Grid>
 </controls:BreweryCommonUserControl>

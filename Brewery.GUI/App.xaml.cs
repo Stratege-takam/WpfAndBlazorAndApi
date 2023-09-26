@@ -139,12 +139,6 @@ namespace Brewery.GUI
                 }
               
             });
-
-
-            Register(this, MessageEnum.MsgLoadBeer,  () =>
-            {
-            
-            });
             
         }
         
