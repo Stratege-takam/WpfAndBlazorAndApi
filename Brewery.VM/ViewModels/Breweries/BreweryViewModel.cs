@@ -7,7 +7,6 @@ using System.Windows.Input;
 using Brewery.BL.Client.Business.Beers;
 using Brewery.BL.Client.Business.Breweries;
 using Brewery.BL.Client.Business.Wholesalers;
-using Brewery.BL.Client.Contracts.Outputs.Beers;
 using Brewery.BL.Contracts.Requests.Beers;
 using Brewery.VM.Enums;
 using Elia.Core.Utils;
@@ -43,7 +42,7 @@ public class BreweryViewModel: ViewModelCommon
 
     #region For footer
 
-    private int _take = 5;
+    private int _take = 20;
     public int Take
     {
         get => _take;
@@ -146,11 +145,24 @@ public class BreweryViewModel: ViewModelCommon
 
     #region For treview
 
-    private ObservableCollection<BreweryDetailViewModel> _treeBreweries;
-    public ObservableCollection<BreweryDetailViewModel> TreeBreweries
+    private BeerCreateViewModelBase _currentBeer;
+    public BeerCreateViewModelBase CurrentBeer
     {
-        get => _treeBreweries;
-        set => SetProperty(ref _treeBreweries, value); 
+        get => _currentBeer;
+        set
+        {
+            SetProperty(ref _currentBeer, value); 
+            
+            NotifyColleagues(MessageEnum.MsgOpenDetailBeer, value);
+        }
+    }
+    
+    
+    private ObservableCollection<KeyValue> _trees;
+    public ObservableCollection<KeyValue> Trees
+    {
+        get => _trees;
+        set => SetProperty(ref _trees, value); 
     }
     
     
@@ -166,7 +178,6 @@ public class BreweryViewModel: ViewModelCommon
 
     public  ICommand OnOpenCreateBeerCommand { get; set; }
     
-    public  ICommand OnOpenDetailBeerCommand { get; set; }
     #endregion
 
     #region Constructor
@@ -189,14 +200,11 @@ public class BreweryViewModel: ViewModelCommon
             await FillTreview();
         });
         
+        
+        
         OnOpenCreateBeerCommand = new RelayCommand( () =>
         {
             NotifyColleagues(MessageEnum.MsgOpenCreateBeer);
-        });
-        
-        OnOpenDetailBeerCommand =  new RelayCommand<Guid>( (beerId) =>
-        {
-            NotifyColleagues(MessageEnum.MsgOpenDetailBeer);
         });
 
     }
@@ -280,32 +288,65 @@ public class BreweryViewModel: ViewModelCommon
             Pages = new ObservableCollection<int>(pages);
 
             var group = response.Data.Results.GroupBy(b => b.Owner, (be, g) => 
-               new BreweryDetailViewModel()
+               new KeyValue()
                {
-                   Id = be.Id,
-                   Name = be.Name,
-                   Beers = new ObservableCollection<BeerCreateViewModelBase>(g.Select(b =>  
-                       new BeerCreateViewModel()
-                       {
-                           IdOfBeer = b.Id,
-                           NameOfBeer = b.Name,
-                           DegreeOfBeer = double.Parse(b.Degree?.Replace('%', ' ').Trim()) ,
-                           PriceOfBeer = b.Price,
-                           DescriptionOfBeer = b.Description,
-                           Owner = new CompanyCreateViewModel()
-                           {
-                               Id = be.Id,
-                               Name = be.Name
-                           },
-                       }
+                   DisplayCompany = be.Name,
+                   Beers = new ObservableCollection<KeyValue>(g.Select(b =>  
+                      new KeyValue()
+                      {
+                          DisplayBeer = b.Name,
+                          IsBeer = true,
+                          Beer =  new BeerCreateViewModel()
+                          {
+                              IdOfBeer = b.Id,
+                              NameOfBeer = b.Name,
+                              DegreeOfBeer = double.Parse(b.Degree?.Replace('%', ' ').Trim()) ,
+                              PriceOfBeer = b.Price,
+                              DescriptionOfBeer = b.Description,
+                              Owner = new CompanyCreateViewModel()
+                              {
+                                  Id = be.Id,
+                                  Name = be.Name
+                              },
+                          }
+                      }
                    ))
                }).ToList();
-            
 
-            TreeBreweries = new ObservableCollection<BreweryDetailViewModel>(group);
-
+            Trees = new ObservableCollection<KeyValue>(group);
         }
     }
     
     #endregion
+    
+    
+    public class KeyValue: ViewModelCommon
+    {
+
+        public bool IsBeer { get; set; }
+        public BeerCreateViewModelBase Beer { get; set; }
+        
+        private string _displayCompany;
+        public string DisplayCompany
+        {
+            get => _displayCompany;
+            set => SetProperty(ref _displayCompany, value); 
+        }
+
+        
+        private string _displayBeer;
+        public string DisplayBeer
+        {
+            get => _displayBeer;
+            set => SetProperty(ref _displayBeer, value); 
+        }
+        
+        private ObservableCollection<KeyValue> _beers;
+        public ObservableCollection<KeyValue> Beers
+        {
+            get => _beers;
+            set => SetProperty(ref _beers, value); 
+        }
+
+    }
 }

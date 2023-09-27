@@ -25,6 +25,7 @@
                  <ResourceDictionary Source="Resources/Styles/TextBlockResource.xaml"></ResourceDictionary>
                  <ResourceDictionary Source="Resources/Styles/ButtonResource.xaml"></ResourceDictionary>
                  <ResourceDictionary Source="Resources/Styles/ComboboxResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/TabControl.xaml"></ResourceDictionary>
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>

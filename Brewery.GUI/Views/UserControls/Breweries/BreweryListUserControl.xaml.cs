@@ -5,6 +5,7 @@ namespace Brewery.GUI.Views.UserControls.Breweries;
 
 public partial class BreweryListUserControl : BreweryCommonUserControl
 {
+    public BreweryViewModel Vm { get; set; }
     public BreweryListUserControl()
     {
         InitializeComponent();
@@ -12,7 +13,18 @@ public partial class BreweryListUserControl : BreweryCommonUserControl
 
     public override void OnSetViewModelChanged(DependencyPropertyChangedEventArgs e)
     {
-        var  vm = e.NewValue as BreweryViewModel;
-        DataContext = vm;
+        Vm = e.NewValue as BreweryViewModel;
+        DataContext = Vm;
+    }
+
+    private void MainTreeView_OnSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+    {
+        var item = e.NewValue as BreweryViewModel.KeyValue;
+
+        if (item.IsBeer)
+        {
+            Vm.CurrentBeer = item.Beer;
+        }
+
     }
 }

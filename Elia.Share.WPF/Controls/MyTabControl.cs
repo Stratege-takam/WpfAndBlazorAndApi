@@ -28,8 +28,8 @@ namespace Elia.Share.WPF.Controls
 
             if (HasCloseButton) {
                 // crée le header du tab avec le bouton de fermeture
-                var headerPanel = new StackPanel() { Orientation = Orientation.Horizontal };
-                headerPanel.Children.Add(new TextBlock() { Text = header, VerticalAlignment = VerticalAlignment.Center });
+                var headerPanel = new StackPanel() { Orientation = Orientation.Horizontal, Background = Brushes.Transparent, Margin = new Thickness(0,0,4,0)};
+                headerPanel.Children.Add(new TextBlock() { Text = header, VerticalAlignment = VerticalAlignment.Center, Background = Brushes.Transparent});
                 var closeButton = new Button() {
                     Content = "X",
                     FontWeight = FontWeights.Bold,
@@ -57,7 +57,7 @@ namespace Elia.Share.WPF.Controls
             if (tab == null) return;
             if (tab.Content != null) {
                 var vm = (tab.Content as dynamic)?.DataContext;
-                if (vm != null && (vm.HasErrors || vm.HasChanges || !vm.MayLeave))
+                if (vm != null && (vm.HasErrors ))
                     MessageBox.Show(Application.Current.MainWindow,
                         "You have unsaved changes and/or errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
@@ -128,7 +128,7 @@ namespace Elia.Share.WPF.Controls
             if (tab?.Content is UserControlBase uc &&
                 InheritsFrom(uc.DataContext.GetType(), typeof(ViewModelBase<>))) {
                 dynamic vm = uc.DataContext;
-                return vm.HasErrors || vm.HasChanges || !vm.MayLeave;
+                return vm.HasErrors;
             }
             return false;
         }

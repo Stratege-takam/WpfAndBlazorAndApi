@@ -5,44 +5,19 @@
                                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                    xmlns:local="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
                                    xmlns:controls="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   xmlns:controls1="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
                                    mc:Ignorable="d"
                                    d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-      
+     
     </UserControl.Resources>
 
     <Grid>
-        <TabControl x:Name="tabControl">
-           
-            <TabItem x:Name="accountTab" 
-                     Header="Detail 1"
-                     Tag="account">
-                <ContentControl>
-                    <StackPanel Height="500" Background="Chocolate">
-                        <TextBlock Text="Block 1"></TextBlock>
-                    </StackPanel>
-                </ContentControl>
-            </TabItem>
-            
-            <TabItem x:Name="Detail2"
-                     Header="Detail2"
-                     Tag="Detail2">
-                <ContentControl>
-                    <StackPanel Height="500" Background="Red">
-                        <TextBlock Text="Block 2"></TextBlock>
-                    </StackPanel>
-                </ContentControl>
-            </TabItem>
-            
-            <TabItem x:Name="Detail3"
-                     Header="Detail3"
-                     Tag="Detail3">
-                <ContentControl>
-                    <StackPanel Height="500" Background="Aqua">
-                        <TextBlock Text="Block 3"></TextBlock>
-                    </StackPanel>
-                </ContentControl>
-            </TabItem>
-        </TabControl>
+        
+        <controls1:MyTabControl 
+            x:Name="tabControl" 
+            HasCloseButton="True">
+         
+        </controls1:MyTabControl>
     </Grid>
 </controls:BreweryCommonUserControl>

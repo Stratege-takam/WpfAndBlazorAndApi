@@ -18,24 +18,7 @@
                                           Height="10" />
                 <TextBlock TextWrapping="Wrap"
                            VerticalAlignment="Center"
-                           Text="{Binding NameOfBeer}" />
-                <Button 
-                    HorizontalAlignment="Right"
-                    ToolTip="Detail"
-                    Width="20"
-                    VerticalAlignment="Center"
-                    Height="20"
-                    BorderThickness="0"
-                    Padding="5"
-                    
-                    Style="{DynamicResource MahApps.Styles.Button.Circle}"
-                    Command="{Binding OnOpenDetailBeerCommand}"
-                    CommandParameter="{Binding IdOfBeer}"
-                    >
-                    <iconPacks:PackIconModern Kind="Eye"  
-                                              Width="10"
-                                              Height="10" />
-                </Button>
+                           Text="{Binding DisplayBeer}" />
             </StackPanel>
         </DataTemplate>
          
@@ -48,7 +31,7 @@
                                           VerticalAlignment="Center"
                                           Height="15" />
                 
-                <TextBlock TextWrapping="Wrap" FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center" />
+                <TextBlock TextWrapping="Wrap" FontWeight="Bold" Text="{Binding DisplayCompany}" VerticalAlignment="Center" />
 
             </StackPanel>
         </HierarchicalDataTemplate>
@@ -69,7 +52,8 @@
                      MaxWidth="300"
                      MaxHeight="{Binding ElementName=Container,Path=ActualHeight}"
                      ItemTemplate="{StaticResource TeamClassTemplate}"
-                     ItemsSource="{Binding TreeBreweries}">
+                     SelectedItemChanged="MainTreeView_OnSelectedItemChanged"
+                     ItemsSource="{Binding Trees}">
                <TreeView.ItemContainerStyle>
                    <Style TargetType="{x:Type TreeViewItem}">
                     

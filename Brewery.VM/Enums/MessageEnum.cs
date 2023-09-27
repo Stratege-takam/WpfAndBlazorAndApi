@@ -1,4 +1,6 @@
-﻿namespace Brewery.VM.Enums;
+﻿using System.ComponentModel;
+
+namespace Brewery.VM.Enums;
 
 public enum MessageEnum
 {
@@ -7,5 +9,6 @@ public enum MessageEnum
     MsgNavigationPage,
     MsgDisplayBrewery,
     MsgOpenCreateBeer,
+    [Description("MSG_OPEN_TAB_DETAIL_BEER")]
     MsgOpenDetailBeer
 }

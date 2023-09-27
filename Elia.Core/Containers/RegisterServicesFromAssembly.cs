@@ -19,6 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
                 "TabControl",
                 "DialogWindowBase",
                 "WindowBase",
+                "UserControlBase",
                 "DataGrid"
             }; 
         }
