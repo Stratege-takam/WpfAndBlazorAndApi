@@ -18,10 +18,10 @@ builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttri
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 var env = Environments.Current.ToString();
-var appsettings = $"appsettings.{env}.json";
+var appsettings = $"Appsettings/appsettings.{env}.json";
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", true, true)
+    .AddJsonFile("Appsettings/appsettings.json", false, true)
     .AddJsonFile(appsettings, true)
     .AddEnvironmentVariables()
     .AddCommandLine(args)
