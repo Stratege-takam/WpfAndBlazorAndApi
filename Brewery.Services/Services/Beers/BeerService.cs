@@ -1,14 +1,12 @@
-﻿
-using Brewery.BL.Client.Contracts.Inputs.Beers;
-using Brewery.BL.Client.Contracts.Outputs.Beers;
-using Brewery.BL.Contracts.Requests.Beers;
+﻿using Brewery.BL.Contracts.Requests.Beers;
+using Brewery.BL.Contracts.Responses.Beers;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 
-namespace Brewery.BL.Client.Business.Beers;
+namespace Brewery.Services.Services.Beers;
 
     /// <summary>
     ///     <para>
@@ -77,8 +75,8 @@ namespace Brewery.BL.Client.Business.Beers;
             /// </response>
             /// <param name="request">The model that allow to create beer</param>
             /// <returns></returns>
-            public  Task<BaseHttpResponse<CreateBeerOutput>> CreateBeerAsync(CreateBeerInput request)
-             => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateBeerOutput>>($"{BaseUrl}/Beer", Verb.POST, request));
+            public  Task<BaseHttpResponse<CreateBeerResponse>> CreateBeerAsync(CreateBeerRequest request)
+             => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateBeerResponse>>($"{BaseUrl}/Beer", Verb.POST, request));
 
         
         /// <summary>
@@ -132,8 +130,8 @@ namespace Brewery.BL.Client.Business.Beers;
         /// </response>
         /// <param name="request">The model that allow to create beer</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<RemoveBeerOutput>> DeleteAsync(RemoveBeerInput request)
-            =>  ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<RemoveBeerOutput>>($"{BaseUrl}/Beer/Remove", Verb.POST, request));
+        public  Task<BaseHttpResponse<RemoveBeerResponse>> DeleteAsync(RemoveBeerRequest request)
+            =>  ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<RemoveBeerResponse>>($"{BaseUrl}/Beer/Remove", Verb.POST, request));
         
         
         
@@ -188,8 +186,8 @@ namespace Brewery.BL.Client.Business.Beers;
         /// </response>
         /// <param name="request">The model that allow to create beer</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>> GetBeerByWholesalersOrBreweriesAsync( SearchBeerByWholesalerAndBreweryInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>>($"{BaseUrl}/Beer/Search", Verb.POST, request));
+        public  Task<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryResponse>>> GetBeerByWholesalersOrBreweriesAsync( SearchBeerByWholesalerAndBreweryRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryResponse>>>($"{BaseUrl}/Beer/Search", Verb.POST, request));
 
         
         
@@ -238,8 +236,8 @@ namespace Brewery.BL.Client.Business.Beers;
         /// <param name="take">The count to take</param>
         /// <param name="skip">The count to skip</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>> GetAllAsync(int skip, int take)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryOutput>>>($"{BaseUrl}/Beer/{skip}/{take}", Verb.GET));
+        public  Task<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryResponse>>> GetAllAsync(int skip, int take)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<ListResult<SearchBeerByWholesalerAndBreweryResponse>>>($"{BaseUrl}/Beer/{skip}/{take}", Verb.GET));
 
         #endregion
 

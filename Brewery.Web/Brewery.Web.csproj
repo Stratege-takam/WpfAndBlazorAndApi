@@ -24,4 +24,10 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Brewery.Contract\Brewery.Contract.csproj" />
+      <ProjectReference Include="..\Brewery.Services\Brewery.Services.csproj" />
+      <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
+    </ItemGroup>
+
 </Project>

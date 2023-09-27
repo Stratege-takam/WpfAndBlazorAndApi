@@ -1,12 +1,12 @@
-﻿using Brewery.BL.Client.Contracts.Inputs.Orders;
-using Brewery.BL.Client.Contracts.Outputs.Orders;
+﻿using Brewery.BL.Contracts.Requests.Orders;
+using Brewery.BL.Contracts.Responses.Orders;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 
-namespace Brewery.BL.Client.Business.OrderBeers;
+namespace Brewery.Services.Services.OrderBeers;
 
 
     /// <summary>
@@ -82,8 +82,8 @@ namespace Brewery.BL.Client.Business.OrderBeers;
         /// </response>
         /// <param name="request">The model that allow to ask estimation</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<EstimateOrderOutput>> GetEstimation(EstimationOrderInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderOutput>>($"{BaseUrl}/OrderBeer/Estimations", Verb.POST, request));
+        public  Task<BaseHttpResponse<EstimateOrderResponse>> GetEstimation(EstimationOrderRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderResponse>>($"{BaseUrl}/OrderBeer/Estimations", Verb.POST, request));
         
         
         /// <summary>
@@ -138,8 +138,8 @@ namespace Brewery.BL.Client.Business.OrderBeers;
         /// </response>
         /// <param name="request">The model that allow to create order beer</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<EstimateOrderOutput>> PostAsync(CreateOrderInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderOutput>>($"{BaseUrl}/OrderBeer", Verb.POST, request));
+        public  Task<BaseHttpResponse<EstimateOrderResponse>> PostAsync(CreateOrderRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<EstimateOrderResponse>>($"{BaseUrl}/OrderBeer", Verb.POST, request));
 
         #endregion
     }

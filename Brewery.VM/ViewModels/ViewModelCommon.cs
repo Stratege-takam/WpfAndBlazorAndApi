@@ -3,7 +3,7 @@ using Elia.Share.WPF.BaseClasses;
 
 namespace Brewery.VM.ViewModels;
 
-public class ViewModelCommon:ViewModelBase<CreateUserOutput>
+public class ViewModelCommon:ViewModelBase<CreateUserResponse>
 {
     public static string DefaultTextLoad = "Loading...";
     

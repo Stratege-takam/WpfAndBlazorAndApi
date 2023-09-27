@@ -1,12 +1,11 @@
-﻿using Brewery.BL.Client.Contracts.Outputs.Beers;
-using Brewery.BL.Client.Contracts.Outputs.Companies;
+﻿using Brewery.BL.Contracts.Responses.Companies;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 
-namespace Brewery.BL.Client.Business.Wholesalers;
+namespace Brewery.Services.Services.Wholesalers;
 
     /// <summary>
     ///     <para>
@@ -69,7 +68,7 @@ namespace Brewery.BL.Client.Business.Wholesalers;
         /// <param name="take">Count to get </param>
         /// <param name="skip"> count to skip</param>
         /// <returns></returns>
-        public Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetWholesalerAsync(string search, int take,
+        public Task<BaseHttpResponse<ListResult<GetCompanyResponse>>> GetWholesalerAsync(string search, int take,
             int skip)
         {
             var route = !string.IsNullOrEmpty(search)
@@ -77,7 +76,7 @@ namespace Brewery.BL.Client.Business.Wholesalers;
                 : $"{BaseUrl}/Wholesaler/Search/{take}/{skip}";
             
             return ExecuteAsync(() =>
-                Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyOutput>>>(route, Verb.GET));
+                Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyResponse>>>(route, Verb.GET));
         }
 
         #endregion

@@ -3,7 +3,7 @@ using Elia.Share.WPF.BaseClasses;
 
 namespace Brewery.VM.ViewModels;
 
-public class DialogViewModelCommon: DialogViewModelBase<CreateUserOutput>
+public class DialogViewModelCommon: DialogViewModelBase<CreateUserResponse>
 {
     public static string DefaultTextLoad = "Loading...";
     

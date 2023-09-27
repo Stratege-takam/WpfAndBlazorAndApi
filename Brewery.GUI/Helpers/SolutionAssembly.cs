@@ -22,7 +22,7 @@ namespace Brewery.GUI.Helpers
         /// <summary>
         /// 
         /// </summary>
-        public static string Bl { get; set; } = "Brewery.BL.Client";
+        public static string Bl { get; set; } = "Brewery.Services";
         
 
         /// <summary>

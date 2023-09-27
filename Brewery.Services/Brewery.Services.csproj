@@ -14,6 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Brewery.Contract\Brewery.Contract.csproj" />
       <ProjectReference Include="..\Elia.Core\Elia.Core.csproj" />
     </ItemGroup>
 

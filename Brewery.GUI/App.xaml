@@ -1,12 +1,11 @@
 ﻿<f:ApplicationBase  x:Class="Brewery.GUI.App"
-                    x:TypeArguments="m:CreateUserOutput" 
-                    xmlns:m="clr-namespace:Brewery.BL.Contracts.Responses.Users;assembly=Brewery.BL.Client"
+                    x:TypeArguments="users:CreateUserResponse" 
+                    xmlns:m="clr-namespace:Brewery.BL.Contracts.Responses.Users;assembly=Brewery.Services"
                   
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Brewery.GUI"
-                    xmlns:ui="http://schemas.modernwpf.com/2019"
-                    xmlns:f="clr-namespace:Elia.Share.WPF.BaseClasses;assembly=Elia.Share.WPF">
+                    xmlns:f="clr-namespace:Elia.Share.WPF.BaseClasses;assembly=Elia.Share.WPF"
+                    xmlns:users="clr-namespace:Brewery.BL.Contracts.Responses.Users;assembly=Brewery.Contract">
     <Application.Resources>
         <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>

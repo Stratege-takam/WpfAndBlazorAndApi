@@ -1,5 +1,5 @@
-﻿using Brewery.BL.Client.Business.Users;
-using Brewery.BL.Client.Contracts.Inputs.Users;
+﻿using Brewery.BL.Contracts.Requests.Users;
+using Brewery.Services.Services.Users;
 using Brewery.VM.Enums;
 using Elia.Core.Attributes;
 using Elia.Core.Utils;
@@ -38,7 +38,7 @@ public class RegisterViewModel : LoginViewModel
             {
                 Loading = DefaultTextLoad;
                
-                var response = await  _bl.CreateuserAsync(new CreateUserInput()
+                var response = await  _bl.CreateuserAsync(new CreateUserRequest()
                 {
                     Email = Email,
                     Firstname = Firstname,

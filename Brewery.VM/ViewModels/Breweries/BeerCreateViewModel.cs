@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Brewery.BL.Client.Business.Beers;
-using Brewery.BL.Client.Business.Breweries;
-using Brewery.BL.Client.Contracts.Inputs.Beers;
+using Brewery.BL.Contracts.Requests.Beers;
+using Brewery.Services.Services.Beers;
+using Brewery.Services.Services.Breweries;
 using Elia.Core.Utils;
 using Elia.Share.WPF.Helpers;
 using Microsoft.Extensions.DependencyInjection;
@@ -146,7 +146,7 @@ public class BeerCreateViewModel: BeerCreateViewModelBase
                 Loading = DefaultTextLoad;
                 SuccessServer = null;
                 ErrorServer = null;
-                var response = await  _bl.CreateBeerAsync(new CreateBeerInput()
+                var response = await  _bl.CreateBeerAsync(new CreateBeerRequest()
                 {
                    Degree = DegreeOfBeer.GetValueOrDefault(),
                    Name = NameOfBeer,

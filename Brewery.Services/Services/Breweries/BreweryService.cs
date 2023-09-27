@@ -1,11 +1,11 @@
-﻿using Brewery.BL.Client.Contracts.Outputs.Companies;
+﻿using Brewery.BL.Contracts.Responses.Companies;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 
-namespace Brewery.BL.Client.Business.Breweries;
+namespace Brewery.Services.Services.Breweries;
 
     /// <summary>
     ///     <para>
@@ -67,14 +67,14 @@ namespace Brewery.BL.Client.Business.Breweries;
         /// <returns></returns>
         /// <param name="take">Count to get </param>
         /// <param name="skip"> count to skip</param>
-        public  Task<BaseHttpResponse<ListResult<GetCompanyOutput>>> GetBreweriesAsync( string search, int take, int skip)
+        public  Task<BaseHttpResponse<ListResult<GetCompanyResponse>>> GetBreweriesAsync( string search, int take, int skip)
         {
             var route = !string.IsNullOrEmpty(search)
                 ? $"{BaseUrl}/Brewery/Search/{search}/{take}/{skip}"
                 : $"{BaseUrl}/Brewery/Search/{take}/{skip}";
             
             return ExecuteAsync(() =>
-                Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyOutput>>>(route, Verb.GET));
+                Http.RunAsync<BaseHttpResponse<ListResult<GetCompanyResponse>>>(route, Verb.GET));
         }
 
 

@@ -7,7 +7,6 @@ using Brewery.GUI.Helpers;
 using Brewery.GUI.Views.Containers;
 using Brewery.VM.Enums;
 using Brewery.VM.ViewModels;
-using Brewery.VM.ViewModels.Breweries;
 using Elia.Core.Containers;
 using Elia.Core.Utils;
 using Elia.Share.WPF.BaseClasses;
@@ -19,7 +18,7 @@ namespace Brewery.GUI
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : ApplicationBase<CreateUserOutput>
+    public partial class App : ApplicationBase<CreateUserResponse>
     {
 
         #region Properties
@@ -108,7 +107,7 @@ namespace Brewery.GUI
             });
             
             // After login or register, first, we set user
-            Register(this, MessageEnum.MsgDisplayBrewery, (CreateUserOutput user) =>
+            Register(this, MessageEnum.MsgDisplayBrewery, (CreateUserResponse user) =>
             {
                 if (user != null)
                 {

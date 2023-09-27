@@ -1,5 +1,5 @@
-﻿using Brewery.BL.Client.Contracts.Inputs.Mock;
-using Brewery.BL.Client.Contracts.Outputs.Mock;
+﻿using Brewery.BL.Contracts.Requests.Mock;
+using Brewery.BL.Contracts.Responses.Mock;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
@@ -7,7 +7,7 @@ using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 using AppSettings = Elia.Core.Utils.AppSettings;
 
-namespace Brewery.BL.Client.Business.Mock;
+namespace Brewery.Services.Services.Mock;
 
     /// <summary>
     ///     <para>
@@ -59,8 +59,8 @@ namespace Brewery.BL.Client.Business.Mock;
         /// </response>
         /// <param name="request">Information to auth user</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<MockOutput>> RunSeedAsync( MockInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<MockOutput>>($"{BaseUrl}/MockDb/Seed", Verb.POST, request));
+        public  Task<BaseHttpResponse<MockResponse>> RunSeedAsync( MockRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<MockResponse>>($"{BaseUrl}/MockDb/Seed", Verb.POST, request));
         
         
         
@@ -95,8 +95,8 @@ namespace Brewery.BL.Client.Business.Mock;
         /// </response>
         /// <param name="request">Information to auth user</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<MockOutput>> CleanTablesAsync( MockInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<MockOutput>>($"{BaseUrl}/MockDb/Clean", Verb.POST, request));
+        public  Task<BaseHttpResponse<MockResponse>> CleanTablesAsync( MockRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<MockResponse>>($"{BaseUrl}/MockDb/Clean", Verb.POST, request));
 
         #endregion
 

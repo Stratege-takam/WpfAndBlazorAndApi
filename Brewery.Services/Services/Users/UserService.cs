@@ -1,14 +1,13 @@
-﻿using Brewery.BL.Client.Contracts.Inputs.Users;
+﻿using Brewery.BL.Contracts.Requests.Users;
 using Brewery.BL.Contracts.Responses.Users;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
-using Elia.Core.Extensions;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;
 using Microsoft.Extensions.Options;
 using AppSettings = Elia.Core.Utils.AppSettings;
 
-namespace Brewery.BL.Client.Business.Users;
+namespace Brewery.Services.Services.Users;
 
     /// <summary>
     ///     <para>
@@ -72,8 +71,8 @@ namespace Brewery.BL.Client.Business.Users;
         /// </response>
         /// <param name="request">The model that allow to ask estimation</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<CreateUserOutput>> CreateuserAsync(CreateUserInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateUserOutput>>($"{BaseUrl}/User", Verb.POST, request));
+        public  Task<BaseHttpResponse<CreateUserResponse>> CreateuserAsync(CreateUserRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateUserResponse>>($"{BaseUrl}/User", Verb.POST, request));
         
         
         
@@ -115,8 +114,8 @@ namespace Brewery.BL.Client.Business.Users;
         /// </response>
         /// <param name="request">The model that allow to ask estimation</param>
         /// <returns></returns>
-        public  Task<BaseHttpResponse<CreateUserOutput>> LoginAsync( LoginInput request)
-            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateUserOutput>>($"{BaseUrl}/User/Login", Verb.POST, request));
+        public  Task<BaseHttpResponse<CreateUserResponse>> LoginAsync( LoginRequest request)
+            => ExecuteAsync(() => Http.RunAsync<BaseHttpResponse<CreateUserResponse>>($"{BaseUrl}/User/Login", Verb.POST, request));
         
     
         #endregion

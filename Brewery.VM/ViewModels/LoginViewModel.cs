@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Mail;
 using System.Windows.Input;
-using Brewery.BL.Client.Business.Users;
-using Brewery.BL.Client.Contracts.Inputs.Users;
+using Brewery.BL.Contracts.Requests.Users;
+using Brewery.Services.Services.Users;
 using Brewery.VM.Enums;
 using Elia.Core.Utils;
 using Elia.Share.WPF.Helpers;
@@ -58,7 +58,7 @@ public class LoginViewModel : ViewModelCommon
             if (Validate())
             {
                 Loading = DefaultTextLoad;
-               var response = await  _bl.LoginAsync(new LoginInput()
+               var response = await  _bl.LoginAsync(new LoginRequest()
                 {
                     Email = Email,
                     Password = Password

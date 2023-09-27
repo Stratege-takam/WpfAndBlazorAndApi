@@ -28,7 +28,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Brewery.API\Brewery.API.csproj" />
-      <ProjectReference Include="..\Brewery.BL.Client\Brewery.BL.Client.csproj" />
+      <ProjectReference Include="..\Brewery.Services\Brewery.Services.csproj" />
       <ProjectReference Include="..\Brewery.BL\Brewery.BL.csproj" />
       <ProjectReference Include="..\Brewery.BO\Brewery.BO.csproj" />
       <ProjectReference Include="..\Brewery.Context\Brewery.Context.csproj" />

@@ -19,7 +19,7 @@
                             <Setter Property="FontWeight" Value="Bold" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
-                            <Setter TargetName="TabPanel" Property="Background" Value="LightGray" />
+                            <Setter TargetName="TabPanel" Property="Background" Value="DarkGray" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
