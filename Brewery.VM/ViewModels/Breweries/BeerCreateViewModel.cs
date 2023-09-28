@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Brewery.BL.Contracts.Requests.Beers;
+using Brewery.Contract.Contracts.Requests.Beers;
 using Brewery.Services.Services.Beers;
 using Brewery.Services.Services.Breweries;
 using Elia.Core.Utils;

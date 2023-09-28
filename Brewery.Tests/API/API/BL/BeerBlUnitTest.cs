@@ -1,5 +1,5 @@
-using Brewery.BL.Contracts.Requests.Beers;
 using Brewery.BO.Entities;
+using Brewery.Contract.Contracts.Requests.Beers;
 using Brewery.Tests.API.Provides;
 using Elia.Core.Utils;
 

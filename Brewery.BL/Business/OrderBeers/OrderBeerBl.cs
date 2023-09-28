@@ -1,8 +1,7 @@
-﻿
-using Brewery.BL.Contracts.Requests.Orders;
-using Brewery.BL.Contracts.Responses.Orders;
-using Brewery.BO.Entities;
+﻿using Brewery.BO.Entities;
 using Brewery.Context;
+using Brewery.Contract.Contracts.Requests.Orders;
+using Brewery.Contract.Contracts.Responses.Orders;
 using Brewery.DAL.Repositories.Beers;
 using Brewery.DAL.Repositories.Clients;
 using Brewery.DAL.Repositories.OrderBeers;

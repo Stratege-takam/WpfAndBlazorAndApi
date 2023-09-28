@@ -1,4 +1,4 @@
-﻿using Brewery.BL.Contracts.Requests.Users;
+﻿using Brewery.Contract.Contracts.Requests.Users;
 using Brewery.Services.Services.Users;
 using Brewery.VM.Enums;
 using Elia.Core.Attributes;

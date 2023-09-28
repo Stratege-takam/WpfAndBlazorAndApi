@@ -1,4 +1,4 @@
-namespace Brewery.BL.Contracts.Responses.Beers;
+namespace Brewery.Contract.Contracts.Responses.Beers;
 
 /// <summary>
 /// response of search beer

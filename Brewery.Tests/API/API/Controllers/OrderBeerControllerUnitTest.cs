@@ -1,4 +1,4 @@
-using Brewery.BL.Contracts.Requests.Orders;
+using Brewery.Contract.Contracts.Requests.Orders;
 using Brewery.Tests.API.Provides;
 using Elia.Core.Utils;
 using Microsoft.Extensions.DependencyInjection;

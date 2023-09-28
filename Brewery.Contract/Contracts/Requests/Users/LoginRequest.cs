@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Brewery.BL.Contracts.Requests.Users;
+namespace Brewery.Contract.Contracts.Requests.Users;
 
 /// <summary>
 /// 

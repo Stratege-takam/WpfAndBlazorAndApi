@@ -1,4 +1,4 @@
-﻿using Brewery.BL.Contracts.Responses.Companies;
+﻿using Brewery.Contract.Contracts.Responses.Companies;
 using Brewery.DAL.Repositories.Breweries;
 using Elia.Core.Attributes;
 using Elia.Core.Utils;

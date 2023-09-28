@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Brewery.Web;
-using Brewery.Web.Helpers;
-using Elia.Core.Containers;
+using Brewery.Web.Extensions;
 using Elia.Core.Enums;
-using Elia.Core.Utils;
 using Environments = Elia.Core.Utils.Environments;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -27,9 +25,10 @@ using var stream = await response.Content.ReadAsStreamAsync();
 
 builder.Configuration.AddJsonStream(stream);
 
+builder.Services.AddProjectScoped(builder.Configuration);
 
-builder.Services.AutoInject(SolutionAssembly.GetAllAssemblies);
+var host = builder.Build();
 
-var app = builder.Build();
+await host.SetDefaultCulture();
 
-await app.RunAsync();
+await host.RunAsync();

@@ -1,6 +1,6 @@
 ﻿using Brewery.BL.Business.Beers;
-using Brewery.BL.Contracts.Requests.Beers;
-using Brewery.BL.Contracts.Responses.Beers;
+using Brewery.Contract.Contracts.Requests.Beers;
+using Brewery.Contract.Contracts.Responses.Beers;
 using Elia.Core.Utils;
 using Elia.Share.ASP.Filters;
 using Microsoft.AspNetCore.Mvc;

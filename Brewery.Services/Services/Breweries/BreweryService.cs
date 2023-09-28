@@ -1,4 +1,4 @@
-﻿using Brewery.BL.Contracts.Responses.Companies;
+﻿using Brewery.Contract.Contracts.Responses.Companies;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;

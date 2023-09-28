@@ -1,6 +1,6 @@
 ﻿using Brewery.BL.Business.Mock;
-using Brewery.BL.Contracts.Requests.Mock;
-using Brewery.BL.Contracts.Responses.Mock;
+using Brewery.Contract.Contracts.Requests.Mock;
+using Brewery.Contract.Contracts.Responses.Mock;
 using Elia.Core.Utils;
 using Microsoft.AspNetCore.Mvc;
 namespace Brewery.API.Controllers;

@@ -1,4 +1,4 @@
-namespace Brewery.BL.Contracts.Responses.Orders;
+namespace Brewery.Contract.Contracts.Responses.Orders;
 
 /// <summary>
 /// Devis response

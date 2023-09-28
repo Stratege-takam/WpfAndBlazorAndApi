@@ -1,4 +1,4 @@
-namespace Brewery.BL.Contracts.Responses.Companies;
+namespace Brewery.Contract.Contracts.Responses.Companies;
 
 /// <summary>
 /// 

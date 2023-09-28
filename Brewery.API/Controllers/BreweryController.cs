@@ -1,5 +1,5 @@
 ﻿using Brewery.BL.Business.Breweries;
-using Brewery.BL.Contracts.Responses.Companies;
+using Brewery.Contract.Contracts.Responses.Companies;
 using Elia.Core.Utils;
 using Elia.Share.ASP.Filters;
 using Microsoft.AspNetCore.Mvc;

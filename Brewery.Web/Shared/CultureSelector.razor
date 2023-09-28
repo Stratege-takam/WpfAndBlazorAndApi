@@ -1,0 +1,32 @@
+﻿@using System.Globalization
+@using Brewery.Web.States
+@using Brewery.Web.ViewModels
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject IStringLocalizer<Resource> localizer
+@inject CultureState CultureState
+
+
+ <li class="nav-item dropdown">
+  <NavLink class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    @if (CultureState.CurrentCulture != null)
+    {
+      @localizer[CultureState.CurrentCulture.Value]
+    }
+  </NavLink>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+     @foreach (var culture in CultureState.GetDisplayLanguage())
+      {
+        <li>
+          <NavLink class="dropdown-item" href=""  @onclick="@(() => CultureState.SwitchLanguage(culture.Key))">
+            @localizer[culture.Value]
+          </NavLink>
+        </li>
+      }
+  </ul>
+</li>
+
+
+@code
+{
+  
+}

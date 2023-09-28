@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Brewery.BL.Contracts.Requests.Orders;
+namespace Brewery.Contract.Contracts.Requests.Orders;
 
 /// <summary>
 /// Create order request

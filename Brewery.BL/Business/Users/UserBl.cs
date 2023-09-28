@@ -1,8 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using Brewery.BL.Contracts.Requests.Users;
-using Brewery.BL.Contracts.Responses.Users;
 using Brewery.BO.Entities;
+using Brewery.Contract.Contracts.Requests.Users;
+using Brewery.Contract.Contracts.Responses.Users;
 using Brewery.DAL.Repositories.Users;
 using Elia.Core.Attributes;
 using Elia.Core.Extensions;

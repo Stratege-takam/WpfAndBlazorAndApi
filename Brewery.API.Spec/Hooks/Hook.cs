@@ -1,6 +1,6 @@
-using Brewery.BL.Contracts.Requests.Mock;
-using Brewery.BL.Contracts.Responses.Mock;
-using Brewery.BL.Contracts.Responses.Users;
+using Brewery.Contract.Contracts.Requests.Mock;
+using Brewery.Contract.Contracts.Responses.Mock;
+using Brewery.Contract.Contracts.Responses.Users;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;
 using Elia.Core.Utils;

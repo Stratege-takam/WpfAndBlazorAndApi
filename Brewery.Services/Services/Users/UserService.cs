@@ -1,5 +1,5 @@
-﻿using Brewery.BL.Contracts.Requests.Users;
-using Brewery.BL.Contracts.Responses.Users;
+﻿using Brewery.Contract.Contracts.Requests.Users;
+using Brewery.Contract.Contracts.Responses.Users;
 using Elia.Core.Attributes;
 using Elia.Core.Enums;
 using Elia.Core.Services.ServerRest;

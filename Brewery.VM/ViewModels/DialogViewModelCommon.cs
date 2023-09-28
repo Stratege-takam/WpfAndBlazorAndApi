@@ -1,4 +1,4 @@
-﻿using Brewery.BL.Contracts.Responses.Users;
+﻿using Brewery.Contract.Contracts.Responses.Users;
 using Elia.Share.WPF.BaseClasses;
 
 namespace Brewery.VM.ViewModels;

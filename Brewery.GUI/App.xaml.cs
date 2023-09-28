@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 using System.Windows;
-using Brewery.BL.Contracts.Responses.Users;
+using Brewery.Contract.Contracts.Responses.Users;
 using Brewery.GUI.Helpers;
 using Brewery.GUI.Views.Containers;
 using Brewery.VM.Enums;

@@ -1,6 +1,6 @@
-using Brewery.BL.Contracts.Requests.Users;
+using Brewery.Contract.Contracts.Requests.Users;
 
-namespace Brewery.BL.Contracts.Requests.Mock;
+namespace Brewery.Contract.Contracts.Requests.Mock;
 
 /// <summary>
 /// 

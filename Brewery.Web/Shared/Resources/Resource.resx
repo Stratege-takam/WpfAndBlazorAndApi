@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Title" xml:space="preserve">
+        <value>
+            Brasseur en ligne
+        </value>
+    </data>
+    <data name="Loading" xml:space="preserve">
+        <value>
+            Chargement...
+        </value>
+    </data>
+    <data name="HeaderHome" xml:space="preserve">
+        <value>
+            Accueil
+        </value>
+    </data>
+    <data name="HeaderBrewery" xml:space="preserve">
+        <value>
+            Brasseur
+        </value>
+    </data>
+    <data name="HeaderWholesaler" xml:space="preserve">
+        <value>
+            Grossiste
+        </value>
+    </data>
+    <data name="HeaderLogin" xml:space="preserve">
+        <value>
+            Connexion
+        </value>
+    </data>
+    <data name="HeaderLogout" xml:space="preserve">
+        <value>
+            Déconnexion
+        </value>
+    </data>
+    <data name="HeaderNewUser" xml:space="preserve">
+        <value>
+            Créer un compte
+        </value>
+    </data>
+    <data name="HeaderFr" xml:space="preserve">
+        <value>
+            Français
+        </value>
+    </data>
+    <data name="HeaderEn" xml:space="preserve">
+        <value>
+            Anglais
+        </value>
+    </data>
+    <data name="HeaderNl" xml:space="preserve">
+        <value>
+            Néerlandais
+        </value>
+    </data>
+    <data name="HeaderAr" xml:space="preserve">
+        <value>
+            Arabe
+        </value>
+    </data>
+    <data name="Text1" xml:space="preserve">
+        <value>
+            G-brewery, votre brasseur en ligne !
+        </value>
+    </data>
+    <data name="Text2" xml:space="preserve">
+        <value>
+            Vous souhaitez varier votre offre en alcools ? Cafetier, restaurateur ou caviste, vous désirez fidéliser ou attirer une nouvelle clientèle avec des bières étrangères ? Grâce à G-brewery, vous trouverez votre bonheur ! Profitez d’un large choix et de multiples services en commandant sur notre site !
+        </value>
+    </data>
+    <data name="Text3" xml:space="preserve">
+        <value>
+            Pourquoi privilégier l’achat d’une bière en ligne sur G-brewery ?
+        </value>
+    </data>
+    <data name="Text4" xml:space="preserve">
+        <value>
+            Depuis 2007, nous commercialisons auprès des particuliers et des professionnels ces boissons. En nous adressant aux grandes surfaces, aux gérants de cafés, aux restaurants et aux hôtels, nous avons développé une expertise, précieuse pour bien comprendre les attentes de tous les amateurs de bières.
+        </value>
+    </data>
+    <data name="Text5" xml:space="preserve">
+        <value>
+            Ainsi, pour étancher la soif de découverte de vos clients, notre offre comporte des boissons de la plupart des continents. L’Europe bien entendu où les plus grandes nations brassicoles sont représentées. Cependant, outre l’Allemagne, la Belgique, le Royaume-Uni ou les Pays-Bas, d’autres pays figurent dans notre catalogue. Citons notamment l’Autriche, le Danemark, la Suède, l’Italie ou le Portugal. Nous n’avons pas oublié les Amériques. Ainsi, vous servirez à vos clients habitués ou de passage dans votre établissement des bouteilles de la brasserie Anchor Brewing Company (installée aux USA). D’autres pays comme la Thaïlande, l’Australie, la Chine ou le Japon figurent dans notre catalogue.
+        </value>
+    </data>
+    <data name="Text6" xml:space="preserve">
+        <value>
+            Ces bouteilles sont disponibles sous diverses contenances. Elles proviennent généralement de brasseries artisanales. Ainsi, vous ferez découvrir à vos clients des goûts souvent insolites. Vous les ferez voyager en leur faisant goûter de nouveaux arômes !
+        </value>
+    </data>
+    <data name="Text7" xml:space="preserve">
+        <value>
+            Cependant, nous n’avons pas oublié les grandes brasseries belges et allemandes. Pour certaines d’entre-elles, des fûts sont disponibles, pour un service à la pression !
+        </value>
+    </data>
+    <data name="Text8" xml:space="preserve">
+        <value>
+            Quels sont les services G-brewery ?
+        </value>
+    </data>
+    <data name="Text9" xml:space="preserve">
+        <value>
+            Vous ne connaissez pas très bien les divers types de bières ? Vous ne savez pas quelle référence proposer pour un repas dans votre restaurant ? En commandant sur notre boutique en ligne, vous profiterez de notre expertise.
+        </value>
+    </data>
+    <data name="Text10" xml:space="preserve">
+        <value>
+            Pour chaque bière étrangère, nous fournissons de multiples informations, sur la contenance, le pays d’origine, le degré d’alcool, le style et les divers arômes.
+        </value>
+    </data>
+    <data name="Text11" xml:space="preserve">
+        <value>
+            Enfin, le paiement est totalement sécurisé. Et vous bénéficierez d’une expédition rapide (dans les 24 heures).
+        </value>
+    </data>
+    <data name="Text12" xml:space="preserve">
+        <value>
+            Une question au sujet de notre offre de boissons ? Vous souhaitez en savoir plus au sujet de la vente en gros de bières ? N’hésitez pas à nous joindre par email. Vous poserez toutes vos questions ou nous téléphonerez pour échanger avec des spécialistes de cette boisson !
+        </value>
+    </data>
+    <data name="Text13" xml:space="preserve">
+        <value>
+            Dans la même catégorie
+        </value>
+    </data>
+    <data name="Text14" xml:space="preserve">
+        <value>
+            Comment fonctionne G-brewery ?
+        </value>
+    </data>
+    <data name="Text15" xml:space="preserve">
+        <value>
+            La tireuse à bière G-brewery est un chef d'œuvre de technologie ! Outre ses nombreuses fonctionnalités vous offrant une expérience dégustation sans pareil, la machine PerfectDraft Pro a surtout la faculté d’être une tireuse connectée. Contrôlable grâce à l’application...
+        </value>
+    </data>
+    <data name="Text16" xml:space="preserve">
+        <value>
+            Faites découvrir la bière IPA grâce au brasseur en ligne G-brewery !
+        </value>
+    </data>
+    <data name="Text17" xml:space="preserve">
+        <value>
+            Restaurateur ou cafetier ? Caviste ou responsable du rayon Alcools d’une grande surface alimentaire ? Vous souhaitez diversifier votre offre en proposant des bières fortes en houblon ? Vous apprécierez l’offre disponible chez G-brewery et les multiples avantages de ce grossiste spécialisé ! Une grande variété de...
+        </value>
+    </data>
+</root>

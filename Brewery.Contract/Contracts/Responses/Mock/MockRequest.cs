@@ -1,5 +1,5 @@
 
-namespace Brewery.BL.Contracts.Responses.Mock;
+namespace Brewery.Contract.Contracts.Responses.Mock;
 
 /// <summary>
 /// 
