@@ -1,0 +1,154 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    
+    
+  <system:String x:Key="Text17" >
+      Restaurateur or cafe owner? Wine merchant or manager of the alcohol section of a supermarket? Do you want to diversify your offering with strong hop beers? You will appreciate the offer available at G-brewery and the multiple advantages of this specialized wholesaler! A wide variety of...
+  </system:String>
+
+  <system:String x:Key="Text16" >
+      Discover IPA beer thanks to the G-brewery line brewer!
+  </system:String>
+
+  <system:String x:Key="Text15" >
+      The G-brewery beer tap is a masterpiece of technology! In addition to its many features offering you an unparalleled tasting experience, the PerfectDraft Pro machine above all has the ability to be a connected printer. Controllable using the app...
+  </system:String>
+
+  <system:String x:Key="Text14" >
+      How does G-brewery work?
+  </system:String>
+
+  <system:String x:Key="Text13" >
+      In the same category
+  </system:String>
+
+  <system:String x:Key="Text12" >
+      A question about our drinks offer? Would you like to know more about wholesale beer sales? Do not hesitate to contact us by email. You will ask all your questions or call us to speak with specialists in this drink!
+  </system:String>
+
+  <system:String x:Key="Text11" >
+      Finally, payment is completely secure. And you will benefit from fast shipping (within 24 hours).
+  </system:String>
+
+  <system:String x:Key="Text10" >
+      For each foreign beer, we provide multiple information on the capacity, country of origin, alcohol level, style and various aromas.
+  </system:String>
+
+  <system:String x:Key="Text9" >
+      You are not very familiar with various types of beers? You don't know which reference to suggest for a meal in your restaurant? ordering from our online store, you will benefit from our expertise.
+  </system:String>
+
+  <system:String x:Key="Text8" >
+      What are the G-brewery services?
+  </system:String>
+
+  <system:String x:Key="Text7" >
+      However, we have not forgotten the great Belgian and German breweries. For some of them, barrels are available, for service on tap!
+  </system:String>
+
+  <system:String x:Key="Text6" >
+      These bottles are available in various capacities. They generally come from craft breweries. This way, you will introduce your customers to often unusual tastes. You will take them on a journey, making them taste new aromas!
+  </system:String>
+
+  <system:String x:Key="Text5" >
+      So, to quench your customers' thirst for discovery, our offer includes drinks from most continents. Europe of course where the biggest brewing nations are represented. However, in addition to Germany, Belgium, the United Kingdom or the Netherlands, other countries appear in our catalog. These include Austria, Denmark, Sweden, Italy and Portugal. We have not forgotten the Americas. Thus, you will serve your regular customers or those passing through your establishment with bottles from the Anchor Brewing Company brewery (based in the USA). Other countries such as Thailand, Australia, China or Japan appear in our catalog.
+  </system:String>
+
+  <system:String x:Key="Text4" >
+      Since 2007, we have been marketing these drinks to individuals and professionals. Addressing supermarkets, café managers, restaurants and hotels, we have developed valuable expertise in understanding the expectations of all beer lovers.
+  </system:String>
+
+  <system:String x:Key="Text3" >
+      Why choose to buy a line beer on G-brewery?
+  </system:String>
+
+  <system:String x:Key="Text2" >
+      Do you want to vary your alcohol offering? Cafe owner, restaurateur or wine merchant, do you want to build loyalty or attract new customers with foreign beers? Thanks to G-brewery, you will find what you are looking for! Take advantage of a wide choice and multiple services ordering on our site!
+  </system:String>
+
+  <system:String x:Key="Text1" >
+      G-brewery, your online brewer!
+  </system:String>
+
+  <system:String x:Key="HeaderHome" >
+    Home
+  </system:String>
+  <system:String x:Key="HeaderBrewery" >
+    Brewery
+  </system:String>
+
+  <system:String x:Key="HeaderWholesaler" >
+    Wholesaler
+  </system:String>
+
+  <system:String x:Key="HeaderAr" >
+    Arab
+  </system:String>
+
+  <system:String x:Key="HeaderNl" >
+    Dutch
+  </system:String>
+
+  <system:String x:Key="HeaderEn" >
+    English
+  </system:String>
+
+  <system:String x:Key="HeaderFr" >
+    French
+  </system:String>
+
+
+  <system:String x:Key="HeaderNewUser" >
+   Create an account
+  </system:String>
+
+
+  <system:String x:Key="HeaderLogout" >
+    Logout
+  </system:String>
+
+  <system:String x:Key="HeaderLogin" >
+    Login
+  </system:String>
+
+  <system:String x:Key="Loading" >
+    Loading
+  </system:String>
+  <system:String x:Key="Title" >
+   Brewery online
+  </system:String>
+    <system:String x:Key="DisplayDetail" >
+       Display detail
+    </system:String>
+    
+    <system:String x:Key="Language" >
+        Language
+    </system:String>
+    
+    <system:String x:Key="Login" >
+        Sign In
+    </system:String>
+    
+    <system:String x:Key="Register" >
+        Create an account
+    </system:String>
+    
+    <system:String x:Key="Email" >
+        Email *
+    </system:String>
+    
+    <system:String x:Key="Name" >
+        Name *
+    </system:String>
+    
+    <system:String x:Key="Password" >
+        Password *
+    </system:String>
+    
+    <system:String x:Key="Submit" >
+        Submit
+    </system:String>
+
+</ResourceDictionary>

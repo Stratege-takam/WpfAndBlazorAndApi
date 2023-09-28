@@ -1,0 +1,18 @@
+﻿@page "/"
+@using Brewery.Web.States
+
+@inject CultureState CultureState
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<button class="btn btn-primary" @onclick="CultureState.SetIncrement">
+    Incrementer 
+</button>
+
+<input type="text" @bind="CultureState.Search">
+
+<SurveyPrompt Title="How is Blazor working for you?"/>

@@ -1,0 +1,30 @@
+﻿<f:ApplicationBase  x:Class="Brewery.GUI.App"
+                    x:TypeArguments="users:CreateUserResponse"
+
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:f="clr-namespace:Elia.Share.WPF.BaseClasses;assembly=Elia.Share.WPF"
+                    xmlns:users="clr-namespace:Brewery.Contract.Contracts.Responses.Users;assembly=Brewery.Contract">
+    <Application.Resources>
+        <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <!-- https://mahapps.com/docs/guides/quick-start-->
+                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                 <!-- Theme setting -->
+                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Orange.xaml" />
+                 
+                 <!-- https://github.com/Kinnara/ModernWpf -->
+                 <!-- ui:ThemeResources /><ui:XamlControlsResources /-->
+                 
+                 <ResourceDictionary Source="pack://application:,,,/Elia.Share.WPF;component/Styles/EliaStyles.xaml"/>
+                 <ResourceDictionary Source="Resources/Styles/BorderResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/TextBlockResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/ButtonResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/ComboboxResource.xaml"></ResourceDictionary>
+                 <ResourceDictionary Source="Resources/Styles/TabControl.xaml"></ResourceDictionary>
+             </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+    </Application.Resources>
+</f:ApplicationBase>

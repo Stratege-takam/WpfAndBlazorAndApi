@@ -1,0 +1,70 @@
+﻿<controls:WindowBase x:Class="Brewery.GUI.Views.Containers.BreweryWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:Brewery.GUI.Views.Containers"
+              xmlns:controls="clr-namespace:Elia.Share.WPF.Controls;assembly=Elia.Share.WPF"
+              xmlns:shared="clr-namespace:Brewery.GUI.Views.UserControls.Shared"
+              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+              xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
+              xmlns:breweries="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+              x:Name="BreweryWindow1"
+              Title="G-brewary"
+              Width="1200"
+              Height="850"
+              BorderThickness="0"
+              BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+              ResizeMode="CanResizeWithGrip"
+              WindowStartupLocation="CenterScreen"
+              ShowTitleBar="False">
+    
+    
+    
+    <mah:MetroWindow.Resources>
+        <converters:ObjectEqualToVisibleConverter x:Key="ObjectEqualToVisibleConverter" />
+    </mah:MetroWindow.Resources>
+    
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+            <shared:HeaderUserControl  Grid.Row="0" Grid.ColumnSpan="2"/>
+            
+            <DockPanel Grid.Row="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <breweries:BreweryListUserControl  
+                                x:Name="BreweryListUserControl" />
+                        </StackPanel>
+                        <DockPanel>
+                            <StackPanel Orientation="Vertical" 
+                                        Margin="0,10,0,0"
+                                        DockPanel.Dock="Top" >
+                               <Border BorderBrush="DarkGray" BorderThickness="0,0,0, 1" Padding="0,0,0,10">
+                                   <breweries:BreweryHeaderUserControl  x:Name="BreweryHeaderUserControl"  />
+                               </Border>
+                            </StackPanel>
+                        
+                            <StackPanel DockPanel.Dock="Bottom" >
+                               <Border  BorderBrush="DarkGray" BorderThickness="0,1,0, 0" Padding="0,10,0,0">
+                                  <breweries:BreweryFooterUserControl  x:Name="BreweryFooterUserControl"  />
+                               </Border>
+                            </StackPanel>
+                            
+                            <StackPanel>
+                                <breweries:BreweryTabUserControl x:Name="BreweryTabUserControl"/>
+                            </StackPanel>
+                       </DockPanel>
+                        
+                    </DockPanel>
+                </ScrollViewer>
+            </DockPanel>
+           
+        </Grid>
+    </Grid>
+</controls:WindowBase>

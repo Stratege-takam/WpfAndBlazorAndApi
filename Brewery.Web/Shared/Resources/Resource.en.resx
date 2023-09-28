@@ -1,0 +1,160 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Title" xml:space="preserve">
+        <value>
+            Online brewer
+        </value>
+    </data>
+    <data name="Loading" xml:space="preserve">
+        <value>
+            Loading...
+        </value>
+    </data>
+    <data name="HeaderHome" xml:space="preserve">
+        <value>
+            Home
+        </value>
+    </data>
+    <data name="HeaderBrewery" xml:space="preserve">
+        <value>
+            Brewer
+        </value>
+    </data>
+    <data name="HeaderWholesaler" xml:space="preserve">
+        <value>
+            Wholesaler
+        </value>
+    </data>
+    <data name="HeaderLogin" xml:space="preserve">
+        <value>
+            Login
+        </value>
+    </data>
+    <data name="HeaderLogout" xml:space="preserve">
+        <value>
+            Logout
+        </value>
+    </data>
+    <data name="HeaderNewUser" xml:space="preserve">
+        <value>
+            Create an account
+        </value>
+    </data>
+    <data name="HeaderFr" xml:space="preserve">
+        <value>
+            French
+        </value>
+    </data>
+    <data name="HeaderEn" xml:space="preserve">
+        <value>
+            English
+        </value>
+    </data>
+    <data name="HeaderNl" xml:space="preserve">
+        <value>
+            Dutch
+        </value>
+    </data>
+    <data name="HeaderAr" xml:space="preserve">
+        <value>
+            Arab
+        </value>
+    </data>
+    <data name="Text1" xml:space="preserve">
+        <value>
+            G-brewery, votre brasseur en ligne !
+        </value>
+    </data>
+    <data name="Text2" xml:space="preserve">
+        <value>
+            G-brewery, your online brewer!
+        </value>
+    </data>
+    <data name="Text3" xml:space="preserve">
+        <value>
+            Why choose to buy a beer online on G-brewery?
+        </value>
+    </data>
+    <data name="Text4" xml:space="preserve">
+        <value>
+          Since 2007, we have been marketing these drinks to individuals and professionals. By addressing supermarkets, café managers, restaurants and hotels, we have developed valuable expertise in understanding the expectations of all beer lovers.
+        </value>
+    </data>
+    <data name="Text5" xml:space="preserve">
+        <value>
+            So, to quench your customers' thirst for discovery, our offer includes drinks from most continents. Europe of course where the biggest brewing nations are represented. However, in addition to Germany, Belgium, the United Kingdom or the Netherlands, other countries appear in our catalog. 
+            These include Austria, Denmark, Sweden, Italy and Portugal. We have not forgotten the Americas. Thus, you will serve your regular customers or those passing through your establishment with bottles from the Anchor Brewing Company brewery (based in the USA). Other countries such as Thailand, Australia, China or Japan appear in our catalog.
+        </value>
+    </data>
+    <data name="Text6" xml:space="preserve">
+        <value>
+            These bottles are available in various capacities. They generally come from craft breweries. This way, you will introduce your customers to often unusual tastes. You will take them on a journey by making them taste new aromas!
+        </value>
+    </data>
+    <data name="Text7" xml:space="preserve">
+        <value>
+            However, we have not forgotten the great Belgian and German breweries. For some of them, barrels are available, for service on tap!
+        </value>
+    </data>
+    <data name="Text8" xml:space="preserve">
+        <value>
+           What are the G-brewery services?
+        </value>
+    </data>
+    <data name="Text9" xml:space="preserve">
+        <value>
+           You don't know the various types of beers very well? You don't know which reference to suggest for a meal in your restaurant? By ordering from our online store, you will benefit from our expertise.
+        </value>
+    </data>
+    <data name="Text10" xml:space="preserve">
+        <value>
+             For each foreign beer, we provide multiple information on the capacity, country of origin, alcohol level, style and various aromas.
+        </value>
+    </data>
+    <data name="Text11" xml:space="preserve">
+        <value>
+           Finally, payment is completely secure. And you will benefit from fast shipping (within 24 hours).
+        </value>
+    </data>
+    <data name="Text12" xml:space="preserve">
+        <value>
+            A question about our drinks offer? Would you like to know more about beer wholesale? Do not hesitate to contact us by email. You will ask all your questions or call us to speak with specialists in this drink!
+        </value>
+    </data>
+    <data name="Text13" xml:space="preserve">
+        <value>
+            In the same category
+        </value>
+    </data>
+    <data name="Text14" xml:space="preserve">
+        <value>
+            How does G-brewery work?
+        </value>
+    </data>
+    <data name="Text15" xml:space="preserve">
+        <value>
+           The G-brewery beer tap is a masterpiece of technology! In addition to its many features offering you an unparalleled tasting experience, the PerfectDraft Pro machine above all has the ability to be a connected printer. Controllable using the app...
+        </value>
+    </data>
+    <data name="Text16" xml:space="preserve">
+        <value>
+            Discover IPA beer thanks to the online brewer G-brewery!
+        </value>
+    </data>
+    <data name="Text17" xml:space="preserve">
+        <value>
+            Restaurateur or cafe owner? Wine merchant or manager of the alcohol section of a supermarket? Do you want to diversify your offering by offering strong hop beers? You will appreciate the offer available at G-brewery and the multiple advantages of this specialized wholesaler! A wide variety of...
+        </value>
+    </data>
+</root>

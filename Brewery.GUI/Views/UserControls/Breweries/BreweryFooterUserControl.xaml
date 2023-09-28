@@ -1,0 +1,49 @@
+﻿<controls:BreweryCommonUserControl x:Class="Brewery.GUI.Views.UserControls.Breweries.BreweryFooterUserControl"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                   xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                                   xmlns:controls="clr-namespace:Brewery.GUI.Views.UserControls.Breweries"
+                                   xmlns:converters="clr-namespace:Elia.Share.WPF.Converters;assembly=Elia.Share.WPF"
+                                   mc:Ignorable="d"
+                                   d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <Style TargetType="TextBlock"  x:Key="TextBlockCustorm" BasedOn="{StaticResource TextBlockText}">
+            <Setter Property="Padding" Value="0,10,10,10"></Setter>
+        </Style>
+        <converters:RadioBoolToIntConverter x:Key="radioBoolToIntConverter" />
+    </UserControl.Resources>
+    
+    <Grid>
+         <StackPanel Orientation="Horizontal">
+                                        <WrapPanel   Margin="0,0,10,10">
+                                    <TextBlock Style="{StaticResource TextBlockCustorm}"
+                                               Margin="0,0, 5, 0"
+                                               Text="Nombre de resultat :" />
+                              
+                                    <ComboBox 
+                                              ItemsSource="{Binding Takes}"
+                                              SelectedItem="{Binding Take, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    />
+                                </WrapPanel> 
+                                
+                                <WrapPanel Orientation="Horizontal" Margin="0,0,10,10">
+                                    <TextBlock Style="{StaticResource TextBlockCustorm}"
+                                               Margin="0,0, 5, 0"
+                                               Text="Page :" />
+                                    
+                                    <ComboBox 
+                                        ItemsSource="{Binding Pages}"
+                                        SelectedItem="{Binding Page, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    
+                                </WrapPanel> 
+                 <!--WrapPanel Orientation="Horizontal" Margin="0,0,10,10">
+                     <TextBlock Style="{StaticResource TextBlockCustorm}" Margin="0,0, 5, 0" Text="Ouvrir :" />
+                     <RadioButton IsChecked="{Binding Path=IsChecked, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}" Content="Oui" />
+                     <RadioButton IsChecked="{Binding Path=IsChecked, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2}" Content="Non" />
+                 </WrapPanel--> 
+                                </StackPanel>
+    </Grid>
+</controls:BreweryCommonUserControl>

@@ -1,0 +1,150 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <system:String x:Key="Text17" >
+    Restaurateur ou cafetier ? Caviste ou responsable du rayon Alcools d’une grande surface alimentaire ? Vous souhaitez diversifier votre offre en proposant des bières fortes en houblon ? Vous apprécierez l’offre disponible chez G-brewery et les multiples avantages de ce grossiste spécialisé ! Une grande variété de...
+  </system:String>
+
+  <system:String x:Key="Text16" >
+    Faites découvrir la bière IPA grâce au brasseur en ligne G-brewery !
+  </system:String>
+
+  <system:String x:Key="Text15" >
+    La tireuse à bière G-brewery est un chef d'œuvre de technologie ! Outre ses nombreuses fonctionnalités vous offrant une expérience dégustation sans pareil, la machine PerfectDraft Pro a surtout la faculté d’être une tireuse connectée. Contrôlable grâce à l’application...
+  </system:String>
+
+  <system:String x:Key="Text14" >
+    Comment fonctionne G-brewery ?
+  </system:String>
+
+  <system:String x:Key="Text13" >
+    Dans la même catégorie
+  </system:String>
+
+  <system:String x:Key="Text12" >
+    Une question au sujet de notre offre de boissons ? Vous souhaitez en savoir plus au sujet de la vente en gros de bières ? N’hésitez pas à nous joindre par email. Vous poserez toutes vos questions ou nous téléphonerez pour échanger avec des spécialistes de cette boisson !
+  </system:String>
+
+  <system:String x:Key="Text11" >
+    Enfin, le paiement est totalement sécurisé. Et vous bénéficierez d’une expédition rapide (dans les 24 heures).
+  </system:String>
+
+  <system:String x:Key="Text10" >
+    Pour chaque bière étrangère, nous fournissons de multiples informations, sur la contenance, le pays d’origine, le degré d’alcool, le style et les divers arômes.
+  </system:String>
+
+  <system:String x:Key="Text9" >
+    Vous ne connaissez pas très bien les divers types de bières ? Vous ne savez pas quelle référence proposer pour un repas dans votre restaurant ? En commandant sur notre boutique en ligne, vous profiterez de notre expertise.
+  </system:String>
+
+  <system:String x:Key="Text8" >
+    Quels sont les services G-brewery ?
+  </system:String>
+
+  <system:String x:Key="Text7" >
+    Cependant, nous n’avons pas oublié les grandes brasseries belges et allemandes. Pour certaines d’entre-elles, des fûts sont disponibles, pour un service à la pression !
+  </system:String>
+
+  <system:String x:Key="Text6" >
+    Ces bouteilles sont disponibles sous diverses contenances. Elles proviennent généralement de brasseries artisanales. Ainsi, vous ferez découvrir à vos clients des goûts souvent insolites. Vous les ferez voyager en leur faisant goûter de nouveaux arômes !
+  </system:String>
+
+  <system:String x:Key="Text5" >
+    Ainsi, pour étancher la soif de découverte de vos clients, notre offre comporte des boissons de la plupart des continents. L’Europe bien entendu où les plus grandes nations brassicoles sont représentées. Cependant, outre l’Allemagne, la Belgique, le Royaume-Uni ou les Pays-Bas, d’autres pays figurent dans notre catalogue. Citons notamment l’Autriche, le Danemark, la Suède, l’Italie ou le Portugal. Nous n’avons pas oublié les Amériques. Ainsi, vous servirez à vos clients habitués ou de passage dans votre établissement des bouteilles de la brasserie Anchor Brewing Company (installée aux USA). D’autres pays comme la Thaïlande, l’Australie, la Chine ou le Japon figurent dans notre catalogue.
+  </system:String>
+
+  <system:String x:Key="Text4" >
+    Depuis 2007, nous commercialisons auprès des particuliers et des professionnels ces boissons. En nous adressant aux grandes surfaces, aux gérants de cafés, aux restaurants et aux hôtels, nous avons développé une expertise, précieuse pour bien comprendre les attentes de tous les amateurs de bières.
+  </system:String>
+
+  <system:String x:Key="Text3" >
+    Pourquoi privilégier l’achat d’une bière en ligne sur G-brewery ?
+  </system:String>
+
+  <system:String x:Key="Text2" >
+    Vous souhaitez varier votre offre en alcools ? Cafetier, restaurateur ou caviste, vous désirez fidéliser ou attirer une nouvelle clientèle avec des bières étrangères ? Grâce à G-brewery, vous trouverez votre bonheur ! Profitez d’un large choix et de multiples services en commandant sur notre site !
+  </system:String>
+
+  <system:String x:Key="Text1" >
+    G-brewery, votre brasseur en ligne !
+  </system:String>
+
+  <system:String x:Key="HeaderHome" >
+    Accueil
+  </system:String>
+  <system:String x:Key="HeaderBrewery" >
+    Brasseur
+  </system:String>
+
+  <system:String x:Key="HeaderWholesaler" >
+    Grossiste
+  </system:String>
+
+  <system:String x:Key="HeaderAr" >
+    Arabe
+  </system:String>
+
+  <system:String x:Key="HeaderNl" >
+    Néerlandais
+  </system:String>
+
+  <system:String x:Key="HeaderEn" >
+    Anglais
+  </system:String>
+
+  <system:String x:Key="HeaderFr" >
+    Français
+  </system:String>
+
+
+  <system:String x:Key="HeaderNewUser" >
+    Créer un compte
+  </system:String>
+
+
+  <system:String x:Key="HeaderLogout" >
+    Déconnexion
+  </system:String>
+
+  <system:String x:Key="HeaderLogin" >
+    Connexion
+  </system:String>
+
+  <system:String x:Key="Loading" >
+    Chargement
+  </system:String>
+  <system:String x:Key="Title" >
+    Brasseur en ligne
+  </system:String>
+  <system:String x:Key="DisplayDetail" >
+    Afficher le détail
+  </system:String>
+  
+  <system:String x:Key="Language" >
+    Langue
+  </system:String>
+  
+  <system:String x:Key="Login" >
+    Connexion
+  </system:String>
+    
+  <system:String x:Key="Register" >
+    Créer un compte
+  </system:String>
+  
+  <system:String x:Key="Email" >
+    Email *
+  </system:String>
+    
+  <system:String x:Key="Name" >
+    Nom *
+  </system:String>
+    
+  <system:String x:Key="Password" >
+    Mot de passe *
+  </system:String>
+    
+  <system:String x:Key="Submit" >
+    Soumettre 
+  </system:String>
+</ResourceDictionary>
