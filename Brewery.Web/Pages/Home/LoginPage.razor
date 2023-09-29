@@ -3,6 +3,9 @@
 @using Brewery.Web.ViewModels
 @inject UserState UserState
 @inject NavigationManager NavigationManager
+@inject IStringLocalizer<Resource> localizer
+
+<PageTitle> @localizer["HeaderLogin"]</PageTitle>
 
 <div class="container h-80 d-flex justify-content-center align-items-center">
     <EditForm @ref="form" OnValidSubmit="UserState.SubmitLogin"
@@ -11,7 +14,7 @@
         <DataAnnotationsValidator />
         <Card Class="p-4">
             <CardHeader Class="bg-white border-bottom-0 text-warning fw-bold h3">
-                Login
+                <PageTitle> @localizer["HeaderLogin"]</PageTitle>
             </CardHeader>
             <CardBody>
                @if (UserState.ErrorServer != null)

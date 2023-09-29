@@ -33,6 +33,12 @@
         <Link>.dockerignore</Link>
       </Content>
       <Content Include="Extensions\WebAssemblyHostExtension.cs" />
+      <Content Update="wwwroot\Assets\beer1.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\Assets\beer2.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

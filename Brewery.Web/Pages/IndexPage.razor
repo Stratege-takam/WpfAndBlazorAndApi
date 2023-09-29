@@ -1,19 +1,105 @@
 ﻿@page "/"
-@using Brewery.Web.States
 @using Microsoft.AspNetCore.Authorization
-
-@inject CultureState CultureState
-@inject UserState UserState
+@inject IStringLocalizer<Resource> localizer
 @attribute [AllowAnonymous]
 
-<PageTitle>IndexPage</PageTitle>
+<PageTitle> @localizer["Title"]</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container page">
+      <div class="row">
+          <div class="col-sm-12 col-md-8" >
+              <Card Class="">
+                  <CardBody>
+                      <img 
+                          class="img-fluid mx-100"
+                          src="Assets/beer1.png" />
+                                             
+                      <div class="mb-3 px-4">
+                          <div class="h3 title">
+                              @localizer["Text1"]
+                          </div>
+                          <div class="">
+                              @localizer["Text2"]
+                          </div>
+                      </div>
+                                                 
+                      <div class="mb-3  px-4">
+                          <div class="h3 title">
+                              @localizer["Text3"]
+                          </div>
+                          <div class="">
+                              @localizer["Text4"]
+                          </div>
+                          <div class="">
+                              @localizer["Text5"]
+                          </div>
+                          <img 
+                              class="img-fluid mx-100"
+                              src="Assets/beer2.png" />
+                          <div class="">
+                              @localizer["Text6"]
+                          </div>
+                          <div class="">
+                              @localizer["Text7"]
+                          </div>
+                                                      
+                      </div>
+                                         
+                                               
+                      <div class="mb-3  px-4">
+                          <div class="h3 title">
+                              @localizer["Text8"]
+                          </div>
+                          <div class="">
+                              @localizer["Text9"]
+                          </div>
+                          <div class="">
+                              @localizer["Text10"]
+                          </div>
+                          <div class="">
+                              @localizer["Text11"]
+                          </div>
+                          <div class="">
+                              @localizer["Text12"]
+                          </div>
+                      </div>
+                  </CardBody>
+              </Card>
+          </div>
+                                     
+          <div class="col">
+              
+              <div class="h3 title ">
+                  @localizer["Text13"]
+              </div>
+              
+              
+              <Card Class="p-4">
+                  <div class="mb-3">
+                      <div class="h3 title">
+                          14/09/2023
+                      </div>
+                      <div class="">
+                          @localizer["Text14"]
+                      </div>
+                      <div class="">
+                          @localizer["Text15"]
+                      </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <div class="h3 title">
+                          16/09/2023
+                      </div>
+                      <div class="">
+                          @localizer["Text16"]
+                      </div>
+                      <div class="">
+                          @localizer["Text17"]
+                      </div>
+                  </div>
+              </Card>
 
-Welcome to your new app.
-
-<button class="btn btn-primary" @onclick="CultureState.SetIncrement">
-    Incrementer 
-</button>
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+          </div>
+      </div>
+</div>

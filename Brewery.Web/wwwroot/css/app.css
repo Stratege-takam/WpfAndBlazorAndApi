@@ -97,6 +97,13 @@ a, .btn-link {
         height: 80vh;
     }
 
+    .page{
+        margin-top: 4em;
+    }
+    .title{
+        font-weight: bold;
+        color: orange;
+    }
 .form-control:focus {
     border-color: #e5ba6a;
     outline: 0;
