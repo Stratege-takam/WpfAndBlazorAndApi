@@ -1,12 +1,50 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView  RouteData="@routeData" 
+                                 DefaultLayout="@typeof(MainLayout)"
+                                 Resource="@routeData">
+                <NotAuthorized>
+                    <div class="h-80 d-flex flex-column align-items-center justify-content-center">
+                        <p class="h4" role="alert">Vous n'êtes pas autorisez à accèder à cette page. Verifier que vous avez les droits</p>
+                        <div class="d-flex">
+                            <NavLink href="Login" class="btn-link m-5"> Se connecter</NavLink>
+                            <NavLink href="" class="btn-link m-5"> Page d'accueil</NavLink>
+                        </div>
+                    </div>
+                </NotAuthorized>
+                <Authorizing>
+                    <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+                    <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+                </Authorizing>
+            </AuthorizeRouteView>
+            
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                 <div class="h-80 d-flex flex-column align-items-center justify-content-center">
+                    <p class="h4" role="alert">Désolez, cette adresse n'existe pas </p>
+                    <div class="d-flex">
+                        <NavLink href="Login" class="btn-link m-5"> Se connecter</NavLink>
+                        <NavLink href="" class="btn-link m-5"> Page d'accueil</NavLink>
+                    </div>
+                 </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+
+@*<Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-        <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
     </NotFound>
-</Router>
+</Router>*@

@@ -1,0 +1,43 @@
+﻿@using Brewery.Web.States
+@using Brewery.Web.ViewModels
+@using Elia.Core.Extensions
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject AuthSateProvider AuthSateProvider
+
+<div class="main">
+    
+
+    <CascadingValue Value="CurrentUser" Name="@CascadingConst.CurrentUser">
+        <NavMenu/>
+        <article class="content px-4">
+            @Body
+        </article>
+    </CascadingValue>
+   
+</div>
+
+@code
+{
+    public ApplicationUser CurrentUser { get; set; }
+ 
+    
+    [CascadingParameter]
+    Task<AuthenticationState> AuthenticationState { get; set; }
+    
+    protected override async Task OnParametersSetAsync()
+    {
+        var userIdentity = (await AuthenticationState)?.User.Identity;
+        
+        if (userIdentity != null && !userIdentity.IsAuthenticated)
+        {
+           
+
+            //NavigationManager.NavigateTo(AppRoutingEnum.Login.GetEnumDescription());
+        }
+        else
+        {
+            CurrentUser = AuthSateProvider.CurrentUser;
+        }
+    }
+}

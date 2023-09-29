@@ -57,4 +57,15 @@ public class NotifyPropertyChanged {
         {
             action?.Invoke();
         }
+
+        public void Dispose(Action action)
+        {
+	        OnChange -= action;
+	        PropertyChanged -= SetComputedProps;
+        }
+        
+        public void Mont(Action action)
+        {
+	        OnChange += action;
+        }
 }

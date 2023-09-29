@@ -14,14 +14,6 @@ public class CultureState: NotifyPropertyChanged
     private IJSRuntime _jSRuntime;
 
    
-    
-    private string _search;
-    public string Search
-    {
-      get => _search;
-      set => SetProperty(ref _search, value );
-    }
-
       private int _increment;
       public int Increment
       {
