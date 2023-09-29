@@ -1,17 +1,18 @@
-﻿@page "/Login"
+﻿@page "/Register"
+
 @using Brewery.Web.States
 @using Brewery.Web.ViewModels
 @inject UserState UserState
 @inject NavigationManager NavigationManager
 
 <div class="container h-80 d-flex justify-content-center align-items-center">
-    <EditForm @ref="form" OnValidSubmit="UserState.SubmitLogin"
-              Model="UserState.LoginRequest"
+    <EditForm OnValidSubmit="UserState.SubmitRegister"
+              Model="UserState.CreateUserRequest"
               Class="w-50">
         <DataAnnotationsValidator />
         <Card Class="p-4">
             <CardHeader Class="bg-white border-bottom-0 text-warning fw-bold h3">
-                Login
+                Register
             </CardHeader>
             <CardBody>
                @if (UserState.ErrorServer != null)
@@ -21,26 +22,32 @@
                    </div>
                }
                 <div class="mb-3">
+                   <label class="form-label"> Name: </label>
+                   <InputText type="text" class="form-control"
+                              @bind-Value="UserState.CreateUserRequest.Firstname"></InputText>
+                   <ValidationMessage For="@(() => UserState.CreateUserRequest.Firstname)"/>
+                </div>
+                <div class="mb-3">
                     <label class="form-label"> Email: </label>
                     <InputText type="email" class="form-control"
-                               @bind-Value="UserState.LoginRequest.Email"></InputText>
-                    <ValidationMessage For="@(() => UserState.LoginRequest.Email)"/>
+                               @bind-Value="UserState.CreateUserRequest.Email"></InputText>
+                    <ValidationMessage For="@(() => UserState.CreateUserRequest.Email)"/>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label"> Password: </label>
                     <InputText type="password" class="form-control"
-                               @bind-Value="UserState.LoginRequest.Password"></InputText>
-                    <ValidationMessage For="@(() => UserState.LoginRequest.Password)"/>
+                               @bind-Value="UserState.CreateUserRequest.Password"></InputText>
+                    <ValidationMessage For="@(() => UserState.CreateUserRequest.Password)"/>
                 </div>
                 <div class="form-group mt-3 d-flex align-items-center">
                     <button type="submit"  class="btn text-white btn-warning">Soumettre</button>
-                    @if (UserState.ErrorServer != null)
-                    {
-                       <div class="ml-4" role="alert">
-                            @UserState.Loading
-                       </div>
-                    }
-                    <div class="pr-3"> @UserState.Loading </div>
+                      @if (UserState.ErrorServer != null)
+                       {
+                           <div class="ml-4" role="alert">
+                                @UserState.Loading
+                           </div>
+                       }
+                        <div class="pr-3"> @UserState.Loading </div>
                 </div>
             </CardBody> 
         </Card>
@@ -48,8 +55,6 @@
 </div>
 
 @code {
-    private EditForm form;
-    
     [CascadingParameter(Name = CascadingConst.CurrentUser)]
     private ApplicationUser applicationUser { get; set; }
 
@@ -62,4 +67,5 @@
 
         return base.OnParametersSetAsync();
     }
+
 }
