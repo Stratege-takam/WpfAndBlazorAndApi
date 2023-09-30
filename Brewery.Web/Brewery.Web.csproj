@@ -32,13 +32,13 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-      <Content Include="Extensions\WebAssemblyHostExtension.cs" />
       <Content Update="wwwroot\Assets\beer1.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Update="wwwroot\Assets\beer2.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Helpers\Extensions\WebAssemblyHostExtension.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -70,6 +70,33 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Resource.resx</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\Breweries\BreweryContent.razor" />
+      <_ContentIncludedByDefault Remove="Components\Breweries\BreweryFooter.razor" />
+      <_ContentIncludedByDefault Remove="Components\Breweries\BreweryHeader.razor" />
+      <_ContentIncludedByDefault Remove="Components\Breweries\BreweryNav.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Components\Breweries\BreweryContent.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Components\Breweries\BreweryFooter.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Components\Breweries\BreweryHeader.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Components\Breweries\BreweryNav.razor" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\FONT-LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\fonts\open-iconic.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\fonts\open-iconic.otf" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\fonts\open-iconic.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\font\fonts\open-iconic.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\ICON-LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\open-iconic\README.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\bootstrap-icons.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\bootstrap-icons.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\bootstrap-icons.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\bootstrap-icons.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\fonts\bootstrap-icons.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\font\fonts\bootstrap-icons.woff2" />
     </ItemGroup>
 
 </Project>

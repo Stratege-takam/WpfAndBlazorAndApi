@@ -1,0 +1,42 @@
+﻿@using Brewery.Contract.Contracts.Requests.Beers
+<Tabs EnableFadeEffect="true">
+    @if (Beers != null)
+    {
+        for (int i = 0; i < Beers.Count; i++)
+        {
+            var index = i;
+            var beer = Beers.ElementAt(i);
+            <Tab IsActive="index == 0">
+                <TitleTemplate>
+                  @beer.Name    <i class="bi bi-x ms-2  text-danger"></i>
+                </TitleTemplate>
+                <Content>
+                    <p class="mt-2">
+                        <b>This is some placeholder content the Home tab's associated content.</b> Clicking another tab will toggle the visibility of this one for the next.
+                    </p>
+                </Content>
+            </Tab>
+        }
+    }
+   
+</Tabs>
+
+@code {
+
+    public List<CreateBeerRequest> Beers { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Beers = new List<CreateBeerRequest>()
+        {
+            new CreateBeerRequest(){Name = "Beer 1"},
+            new CreateBeerRequest(){Name = "Beer 2"},
+            new CreateBeerRequest(){Name = "Beer 3"},
+            new CreateBeerRequest(){Name = "Beer 4"},
+            new CreateBeerRequest(){Name = "Beer 5"},
+            new CreateBeerRequest(){Name = "Beer 6"},
+        };
+        base.OnInitialized();
+    }
+
+}

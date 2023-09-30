@@ -1,3 +1,5 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -89,23 +91,55 @@ a, .btn-link {
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
 
-    .h-80{
-        height: 80vh;
-    }
+.h-80{
+    height: 80vh;
+}
 
-    .page{
-        margin-top: 4em;
-    }
-    .title{
-        font-weight: bold;
-        color: orange;
-    }
+.page{
+    margin-top: 4em;
+}
+.title{
+    font-weight: bold;
+    color: orange;
+}
+
+.maxh-90{
+    max-height: 90vh;
+}
+
+.minh-90{
+    min-height: 90vh;
+}
+.overflow-y{
+    overflow-y: auto;
+}
 .form-control:focus {
     border-color: #e5ba6a;
     outline: 0;
     box-shadow: 0 0 0 .25rem orange;
+}
+
+.w-200px{
+    width: 200px;
+}
+
+.w-50px{
+    width: 50px;
+}
+
+.multiselect{
+    border: 1px solid #ced4da !important;
+}
+
+.nav-tabs .nav-link{
+    color: black !important;
+}
+
+.accordion-button{
+    background-color: white !important;
+    color: black !important;
 }

@@ -1,5 +1,31 @@
 ﻿@page "/Brewery"
-<h3>BreweryPage</h3>
+@using Brewery.Web.Components.Breweries
+
+@using Microsoft.AspNetCore.Authorization
+@inject IStringLocalizer<Resource> localizer
+@attribute [Authorize]
+<PageTitle> @localizer["HeaderBrewery"]</PageTitle>
+
+
+<div class="page">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 maxh-90 overflow-y">
+            <BreweryNav />
+        </div>
+        <div class="col minh-90 d-flex flex-column">
+            <div class="mb-3">
+                <BreweryHeader />
+            </div>
+            <div class="mb-3">
+                <BreweryContent />
+            </div>
+            <div class="mb-3 mt-auto">
+                <BreweryFooter />
+            </div>
+            
+        </div>
+    </div>
+</div>
 
 @code {
     
