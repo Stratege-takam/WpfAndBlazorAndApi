@@ -18,7 +18,7 @@ public abstract class FormatResult
     
     #region Properties (Public)
 
-    public static string Token { get; set; }
+    protected static string Token { get; set; }
     protected  string BaseUrl { get; set; }
   
     /// <summary>
@@ -38,13 +38,23 @@ public abstract class FormatResult
     public FormatResult(ServerRestService http, AppSettings.Server server)
     {
         Http = http;
-        http.Token = Token;
+        Http.Token = Token;
         BaseUrl = server.BaseUrlApi;
         _appSettingsServer = server;
     }
 
     #endregion
     
+    public void SetToken(string token)
+    {
+        Token = token;
+        Http.Token = token;
+    }
+    
+    public string GetToken()
+    {
+        return Token;
+    }
         /// <summary>
         /// Execute some business logic asynchronously and returns a consistent HttpResponseDto wich own the data to be returned along with some status.
         /// </summary>

@@ -1,16 +1,16 @@
 ﻿@using Brewery.Web.States
-@using Brewery.Web.ViewModels
 @using Elia.Core.Extensions
 @using Brewery.Web.Helpers.States
+@using Brewery.Web.Helpers.ViewModels
 @inject IStringLocalizer<Resource> localizer
 @inject CultureState CultureState
-@implements IDisposable
+@inject AuthSateProvider AuthSateProvider
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
   <div class="container-fluid">
-    <NavLink class="navbar-brand" href="">
-      G-brewery @CultureState.Increment
+    <NavLink class="navbar-brand" href="" Match="NavLinkMatch.All">
+      G-brewery
     </NavLink>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" 
@@ -21,20 +21,20 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        @if (CurrentUser != null)
+        @if (CurrentUserViewModel != null)
         {
           <li class="nav-item">
-            <NavLink class="nav-link active" aria-current="page" href="@AppRoutingEnum.Home">
+            <NavLink class="nav-link active" aria-current="page" Match="NavLinkMatch.All" href="@AppRoutingEnum.Home">
               @localizer["HeaderHome"]
             </NavLink>
           </li>
           <li class="nav-item">
-            <NavLink class="nav-link" href="@AppRoutingEnum.Brewery">
+            <NavLink class="nav-link" Match="NavLinkMatch.All" href="@AppRoutingEnum.Brewery">
               @localizer["HeaderBrewery"]
             </NavLink>
           </li>
           <li class="nav-item">
-            <NavLink class="nav-link" href="@AppRoutingEnum.Wholesaler">
+            <NavLink class="nav-link" Match="NavLinkMatch.All" href="@AppRoutingEnum.Wholesaler">
               @localizer["HeaderWholesaler"]
             </NavLink>
           </li>
@@ -42,31 +42,31 @@
       </ul>
       
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-        @if (CurrentUser == null)
+        @if (CurrentUserViewModel == null)
         {
           <li class="nav-item">
-            <NavLink class="nav-link" href="@AppRoutingEnum.Login">
+            <NavLink class="nav-link" Match="NavLinkMatch.All" href="@AppRoutingEnum.Login">
               @localizer["HeaderLogin"]
             </NavLink>
           </li>
           
           <li class="nav-item">
-            <NavLink class="nav-link" href="@AppRoutingEnum.Register">
+            <NavLink class="nav-link" Match="NavLinkMatch.All" href="@AppRoutingEnum.Register">
               @localizer["HeaderNewUser"]
             </NavLink>
           </li>
         }
           
-         @if (CurrentUser != null)
+         @if (CurrentUserViewModel != null)
           {
             <li class="nav-item">
-              <NavLink class="nav-link" href="@AppRoutingEnum.User">
-                @CurrentUser.User.Firstname
+              <NavLink class="nav-link" Match="NavLinkMatch.All" href="@AppRoutingEnum.User">
+                @CurrentUserViewModel.User.Firstname
               </NavLink>
             </li>
             
             <li class="nav-item">
-              <NavLink class="nav-link" href="#" @onclick="OnLogout">
+              <NavLink class="nav-link" href="#" @onclick="AuthSateProvider.Logout">
                 @localizer["HeaderLogout"]
               </NavLink>
             </li>
@@ -83,24 +83,5 @@
 @code
 {
   [CascadingParameter(Name =  CascadingConst.CurrentUser)]
-  public ApplicationUser CurrentUser { get; set; }
-
-  public void OnLogout(EventArgs eventArgs)
-  {
-  }
-
-  #region Listener state change
-
-  protected override void OnInitialized()
-  {
-    CultureState.Mont(async () => await InvokeAsync(StateHasChanged));
-  }
-
-  public void Dispose()
-  {
-    CultureState.Dispose(async () => await InvokeAsync(StateHasChanged)); 
-  }
-
-  #endregion
-  
+  public ApplicationUserViewModel CurrentUserViewModel { get; set; }
 }

@@ -1,0 +1,43 @@
+﻿tmddocs.belgrid.net
+Devbox
+software center  (for all app)
+poget -> nuget.org
+
+DML -> sql server, Mongo db, noetj
+SA -> rest api, file, FTP
+DM -> POCO
+
+F = fasade and Interface (I) => API 
+Interface = versionning
+Facade => not versionning 
+
+Frontend
+Yerp = Microsoft nugate package (expose, provide data, healthchecks-ui,  authentification, RP) every time to communicate about Microservixe  MS => yerp => MS
+NGINX
+
+RabbitMQ
+kubeMQ and kafka
+
+Nservice bus => replace by depR
+
+github.com/Gflisch/arc4u
+
+visual studio marketplace (arc4u)
+
+install instension => arc4u
+
+for access to application (authorize + operation) -> authorizationviewer
+for register apps in adfs (copy the file in oauth2 / development and paste in  share directory (O:/pub/Exploit and less to sign it. Copy the applicationKey in project yarp.host/config/appsettings.Development (section openId.settingsClientSecret)
+
+after install visual studio, uncheck nuget.org and add elia.nuget in  toos/options/nugate package manager, next, install extension arc4u in package nugate -> extension/manage extension -> arc4u. restart visual studio, create new project
+
+1- create new project
+2- add default project guidance
+3- change clientSecret
+4- click tp Be and add Microservce project
+5- in microservice add entity audi to domain
+6- add
+
+seq => localhost:5341 (have all informations about  health check ui)
+
+docs.dapr.io

@@ -1,0 +1,43 @@
+﻿@using Brewery.Web.Helpers.ViewModels
+
+@if (BeerDetail != null)
+{
+    <div class="">
+        <p class="my-2">
+           @BeerDetail.Description
+        </p>
+        
+        <div class="row">
+            
+            <div class="col-sm-12 col-md-4 d-flex align-items-center align-items-center justify-content-center">
+                <Card Class="" Style="width:18rem;">
+                    <img class="rounded-top" src="Assets/beer.png" alt="placeholder" />
+                </Card>
+
+            </div>
+            
+            <div class="col">
+                <div class="">
+                    <strong>Propriétaire de la bière: </strong>  @BeerDetail.Owner.Name
+                </div>
+                <div class="">
+                    <strong>Nom de la bière: </strong> @BeerDetail.Name
+                </div>
+                <div class="">
+                    <strong>Prix de la bière : </strong> @BeerDetail.Price EUR
+                </div>
+                <div class="">
+                    <strong>Dégré de la bière : </strong> @BeerDetail.Degree %
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public BeerDetailViewModel BeerDetail { get; set; }
+}

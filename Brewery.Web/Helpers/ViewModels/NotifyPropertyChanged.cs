@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Brewery.Web.ViewModels;
+namespace Brewery.Web.Helpers.ViewModels;
 
 public class NotifyPropertyChanged {
         public event Action OnChange;
@@ -16,7 +16,12 @@ public class NotifyPropertyChanged {
         }
        
         public void RaisePropertyChanged(string propertyName) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	        
+	        if (propertyName != null)
+	        {
+		        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+	        }
+           
             OnChange?.Invoke();
         }
 
@@ -36,10 +41,11 @@ public class NotifyPropertyChanged {
 	        [CallerMemberName] string propertyName = null) {
             if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
 
-            storage = value;
-            //Validate();
-            RaisePropertyChanged(propertyName);
-
+            if ((storage as object) != (value as object))
+            {
+	            storage = value;
+	            RaisePropertyChanged(propertyName);
+            }
             return true;
         }
 

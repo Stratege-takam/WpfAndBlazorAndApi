@@ -48,7 +48,7 @@ public class RegisterViewModel : LoginViewModel
                 // register success. Set token
                 if (response.ResultStatus == BaseResultStatus.Success)
                 {
-                    FormatResult.Token = response.Data.Token;
+                    _bl.SetToken(response.Data.Token);
                     NotifyColleagues(MessageEnum.MsgDisplayBrewery, response.Data);
                    
                     Loading = null;

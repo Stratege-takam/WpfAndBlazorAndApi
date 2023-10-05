@@ -1,42 +1,74 @@
-﻿@using Brewery.Contract.Contracts.Requests.Beers
-<Tabs EnableFadeEffect="true">
-    @if (Beers != null)
-    {
-        for (int i = 0; i < Beers.Count; i++)
-        {
-            var index = i;
-            var beer = Beers.ElementAt(i);
-            <Tab IsActive="index == 0">
-                <TitleTemplate>
-                  @beer.Name    <i class="bi bi-x ms-2  text-danger"></i>
-                </TitleTemplate>
-                <Content>
-                    <p class="mt-2">
-                        <b>This is some placeholder content the Home tab's associated content.</b> Clicking another tab will toggle the visibility of this one for the next.
-                    </p>
-                </Content>
-            </Tab>
-        }
-    }
-   
-</Tabs>
+﻿@using Brewery.Web.Helpers.States
+@using Brewery.Web.Helpers.ViewModels
+@using Elia.Core.Extensions
+@inject NavigationManager NavigationManager
+@if (State != null && State.Details != null)
+{
+    <Tabs EnableFadeEffect="true">
+       @for (int i = 0; i < State.Details.Count; i++)
+       {
+           var index = i;
+           var beer = State.Details.ElementAt(i);
+           <Tab IsActive="index == 0">
+               <TitleTemplate>
+                   @beer.Name   
+                   <button class="btn-link border-0 bg-white ms-2" @onclick="() => RemoveItem(beer)">
+                       <i class="bi bi-x  text-danger"></i>
+                   </button>
+               </TitleTemplate>
+               <Content>
+                   <p class="mt-2">
+                       <BeerItem BeerDetail="beer" />
+                   </p>
+               </Content>
+           </Tab>
+       }
+    </Tabs>
+}
+else
+{
+    <Tabs EnableFadeEffect="true">
+        <Tab>
+           <TitleTemplate>
+              Détail de la bière
+           </TitleTemplate>
+           <Content>
+               <div class="mt-2">
+                   <h4>Pour consulter le détail d'une bière cliquer sur un élement à votre gauche</h4>
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias amet architecto asperiores exercitationem
+                   in incidunt ipsam, magni minima nobis nostrum numquam, perferendis quam quasi rerum ullam vitae voluptas, voluptatum?
+               </div>
+           </Content>
+       </Tab>
+    </Tabs>
+}
+
 
 @code {
 
-    public List<CreateBeerRequest> Beers { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Beers = new List<CreateBeerRequest>()
+    private BreweryState _state;
+    
+    [Parameter]
+    public BreweryState State { 
+        get => _state;
+        set
         {
-            new CreateBeerRequest(){Name = "Beer 1"},
-            new CreateBeerRequest(){Name = "Beer 2"},
-            new CreateBeerRequest(){Name = "Beer 3"},
-            new CreateBeerRequest(){Name = "Beer 4"},
-            new CreateBeerRequest(){Name = "Beer 5"},
-            new CreateBeerRequest(){Name = "Beer 6"},
-        };
-        base.OnInitialized();
+            if (_state != value)
+            {
+                _state = value;
+                StateChanged.InvokeAsync(value);
+            }
+        } 
     }
+    
+    [Parameter]
+    public EventCallback<BreweryState> StateChanged { get; set; }
 
+    public void RemoveItem(BeerDetailViewModel beerDetail)
+    {
+        State.RemoveDetail(beerDetail);
+        StateHasChanged();//Refresh the component using updated data
+      //  NavigationManager.NavigateTo(AppRoutingEnum.Brewery.GetEnumDescription(), true);
+    }
+    
 }
