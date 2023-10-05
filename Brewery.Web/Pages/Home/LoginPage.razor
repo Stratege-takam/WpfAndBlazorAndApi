@@ -1,6 +1,6 @@
 ﻿@page "/Login"
 @using Brewery.Web.States
-@using Brewery.Web.ViewModels
+@using Brewery.Web.Helpers.ViewModels
 @inject UserState UserState
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<Resource> localizer
@@ -54,11 +54,11 @@
     private EditForm form;
     
     [CascadingParameter(Name = CascadingConst.CurrentUser)]
-    private ApplicationUser applicationUser { get; set; }
+    private ApplicationUserViewModel ApplicationUserViewModel { get; set; }
 
     protected override Task OnParametersSetAsync()
     {
-        if (applicationUser !=null)
+        if (ApplicationUserViewModel !=null)
         {
             NavigationManager.NavigateTo("");
         }

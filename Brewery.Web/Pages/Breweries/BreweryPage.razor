@@ -1,32 +1,63 @@
 ﻿@page "/Brewery"
-@using Brewery.Web.Components.Breweries
+@using Brewery.Web.Helpers.States
 
 @using Microsoft.AspNetCore.Authorization
-@inject IStringLocalizer<Resource> localizer
 @attribute [Authorize]
-<PageTitle> @localizer["HeaderBrewery"]</PageTitle>
+@using Brewery.Web.Components.Breweries
+@inject IStringLocalizer<Resource> Localizer
+@inject BreweryState BreweryState
+@implements IDisposable
 
 
-<div class="page">
-    <div class="row">
-        <div class="col-sm-12 col-md-3 maxh-90 overflow-y">
-            <BreweryNav />
-        </div>
-        <div class="col minh-90 d-flex flex-column">
-            <div class="mb-3">
-                <BreweryHeader />
+<PageTitle> @Localizer["HeaderBrewery"]</PageTitle>
+
+
+@if (BreweryState != null)
+{
+    <div class="page">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 maxh-90 overflow-y">
+                <BreweryNav  @bind-State="BreweryState" />
             </div>
-            <div class="mb-3">
-                <BreweryContent />
-            </div>
-            <div class="mb-3 mt-auto">
-                <BreweryFooter />
-            </div>
+            <div class="col minh-90 d-flex flex-column">
+                <div class="mb-3">
+                    <BreweryHeader @bind-State="BreweryState" />
+                </div>
+                <div class="mb-3">
+                    <BreweryContent  @bind-State="BreweryState" />
+                </div>
+                <div class="mb-3 mt-auto">
+                    <BreweryFooter  @bind-State="BreweryState"  />
+                </div>
             
+            </div>
         </div>
     </div>
-</div>
+}
 
 @code {
+    
+    protected override async Task OnInitializedAsync()
+    {
+        if (!BreweryState.IsAlreadyInitialize)
+        {
+            await BreweryState.InitDataAsync();
+        }
+    }
+    
+    #region Listener state change
+
+   
+    protected override void OnInitialized()
+    {
+        BreweryState.Mont(async () => await InvokeAsync(StateHasChanged));
+    }
+
+    public void Dispose()
+    {
+        BreweryState.Dispose(async () => await InvokeAsync(StateHasChanged)); 
+    }
+
+    #endregion
     
 }

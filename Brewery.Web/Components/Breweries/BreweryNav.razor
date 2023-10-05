@@ -1,59 +1,54 @@
 ﻿@using Brewery.Contract.Contracts.Responses.Beers
+@using Brewery.Web.Helpers.States
 
-<Accordion Flush="true" AlwaysOpen="true">
-    @foreach (var item  in List)
-    {
-        var id = item.Item1;
-        var list = item.Item2;
-        <AccordionItem IsActive="true" Class="bg-white text-dark">
-            <TitleTemplate>
-                <i class="bi bi-building me-1"></i> Accordion Item #@id
-            </TitleTemplate>
-            <Content>
-                <div class="list-group border-0">
-                    <a href="#" class="list-group-item list-group-item-action border-0">
-                        <i class="bi bi-cup-straw me-1"></i> 
-                        A second link item
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0">
-                        <i class="bi bi-cup-straw me-1"></i>  
-                        A third link item
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0">
-                        <i class="bi bi-cup-straw me-1"></i> 
-                        A fourth link item
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-0" tabindex="-1" aria-disabled="true">
-                        <i class="bi bi-cup-straw me-1"></i> 
-                        A disabled link item
-                    </a>
-                </div>
-            </Content>
-        </AccordionItem>
-    }
-</Accordion>
+@if (State != null && State.Trees != null)
+{
+    <Accordion Flush="true" AlwaysOpen="true">
+        @foreach (var item  in State.Trees)
+        {
+            var name = item.Name;
+            var beers = item.Beers;
+            <AccordionItem IsActive="true" Class="bg-white text-dark">
+                <TitleTemplate>
+                    <i class="bi bi-building me-1"></i> @name
+                </TitleTemplate>
+                <Content>
+                    <div class="list-group border-0">
+                        @foreach (var beer in beers)
+                        {
+                            <button @onclick="() => State.AddDetail(beer)"
+                                    class="btn-link  text-dark list-group-item list-group-item-action border-0">
+                                <i class="bi bi-cup-straw me-1"></i>
+                                @beer.Name
+                            </button>
+                        }
+                    </div>
+                </Content>
+            </AccordionItem>
+        }
+    </Accordion>
+}
+
 
 
 @code {
-
-    public List<Tuple<string, List<CreateBeerResponse>>> List { get; set; }
     
-
-    protected override void OnInitialized()
-    {
-        List = new List<Tuple<string, List<CreateBeerResponse>>>()
+    private BreweryState _state;
+    
+    [Parameter]
+    public BreweryState State { 
+        get => _state;
+        set
         {
-            new Tuple<string, List<CreateBeerResponse>>("collapse1", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse2", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse3", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse4", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse5", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse6", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse7", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse8", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse9", new List<CreateBeerResponse>()),
-            new Tuple<string, List<CreateBeerResponse>>("collapse10", new List<CreateBeerResponse>()),
-        };
+            if (_state != value)
+            {
+                _state = value;
+                StateChanged.InvokeAsync(value);
+            }
+        } 
     }
+    
+    [Parameter]
+    public EventCallback<BreweryState> StateChanged { get; set; }
 
 }

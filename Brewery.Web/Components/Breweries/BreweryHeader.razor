@@ -1,103 +1,58 @@
 ﻿@using Brewery.Web.Helpers.ViewModels
-<div  class="d-flex align-items-center justify-content-between w-000">
-    <form class="d-flex align-items-center">
-        <div class="d-flex align-items-center me-2">
-            <label class="form-label me-2">Breweries: </label>
-            <MultiSelect  @bind-Item="Brewery" Items="Breweries" />
-        </div>
-            
-        <div class="d-flex align-items-center me-2">
-            <label class="form-label me-2">Wholersalers: </label>
-             <MultiSelect  @bind-Item="Wholesaler" Items="Wholesalers" />
-        </div>
-        <div class="">
-            <button type="submit" class="btn btn-warning text-white">
-                <i class="bi bi-search me-1"></i>
-                Rechercher
+@using Brewery.Web.Helpers.States
+
+@if (State != null)
+{
+    <div   class="d-flex align-items-center justify-content-between w-000">
+        <EditForm Model="State" OnSubmit="State.FillTreview" class="d-flex align-items-center">
+            <DataAnnotationsValidator/>
+            <div class="d-flex align-items-center me-2">
+                <label class="form-label me-2">Breweries: </label>
+                <MultiSelect @bind-Item="State.BrewerySearch" Items="State.Breweries"/>
+            </div>
+
+            <div class="d-flex align-items-center me-2">
+                <label class="form-label me-2">Wholersalers: </label>
+                <MultiSelect @bind-Item="State.WholesalerSearch" Items="State.Wholesalers"/>
+            </div>
+            <div class="">
+                <button type="submit" class="btn btn-warning text-white">
+                    <i class="bi bi-search me-1"></i>
+                    Rechercher
+                </button>
+            </div>
+        </EditForm>
+    
+        <div class="ml-auto d-flex align-items-center ms-2">
+            <button type="button" class="btn btn-warning text-white">
+                <i class="bi bi-plus me-1"></i>
+                Créer une bière
             </button>
         </div>
-    </form>
-    
-    <div class="ml-auto d-flex align-items-center ms-2">
-        <button type="button" class="btn btn-warning text-white">
-            <i class="bi bi-plus me-1"></i>
-            Créer une bière
-        </button>
     </div>
-</div>
-
-
+}
 
 
 @code {
-
-    public List<KeyValue> Breweries { get; set; }
-    public List<KeyValue> Wholesalers { get; set; }
-
-    public string Brewery { get; set; } = "1,2";
-    public string Wholesaler { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Breweries = new List<KeyValue>()
+    
+    private BreweryState _state;
+    
+    [Parameter]
+    public BreweryState State { 
+        get => _state;
+        set
         {
-            new KeyValue()
+            if (_state != value)
             {
-                Value = "brewery 1",
-                Key = "1"
-            },
-            new KeyValue()
-            {
-                Value = "brewery 2",
-                Key = "2"
-            },
-            new KeyValue()
-            {
-                Value = "brewery 3",
-                Key = "3"
-            },
-            new KeyValue()
-            {
-                Value = "brewery 4",
-                Key = "4"
-            },
-            new KeyValue()
-            {
-                Value = "brewery 5",
-                Key = "5"
+                _state = value;
+                StateChanged.InvokeAsync(value);
             }
-        };
-
-        Wholesalers = new List<KeyValue>()
-        {
-            new KeyValue()
-            {
-                Value = "Wholesaler 1",
-                Key = "1"
-            },
-            new KeyValue()
-            {
-                Value = "Wholesaler 2",
-                Key = "2"
-            },
-            new KeyValue()
-            {
-                Value = "Wholesaler 3",
-                Key = "3"
-            },
-            new KeyValue()
-            {
-                Value = "Wholesaler 4",
-                Key = "4"
-            },
-            new KeyValue()
-            {
-                Value = "Wholesaler 5",
-                Key = "5"
-            }
-        };
-
+        } 
     }
-
+    
+    [Parameter]
+    public EventCallback<BreweryState> StateChanged { get; set; }
+    
+     
 }
 

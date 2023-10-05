@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using Brewery.Web.Helpers.ViewModels;
-using Brewery.Web.ViewModels;
 using Elia.Core.Attributes;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -11,33 +10,26 @@ namespace Brewery.Web.Helpers.States;
 public class CultureState: NotifyPropertyChanged
 {
     // [Inject] private NavigationManager NavManager { get; set; }
-    private NavigationManager _navManager;
-    private IJSRuntime _jSRuntime;
+    private readonly NavigationManager _navManager;
+    private readonly IJSRuntime _jSRuntime;
 
-   
-      private int _increment;
-      public int Increment
-      {
-        get => _increment ;
-        set => SetProperty(ref _increment, value );
-      } 
     
-     private List<KeyValue> Languages = new List<KeyValue>()
+     private List<KeyValueViewModel> Languages = new List<KeyValueViewModel>()
       {
-        new KeyValue()
+        new KeyValueViewModel()
         {
           Key = "fr",
           Value = "HeaderFr"
         },
-        new KeyValue(){
+        new KeyValueViewModel(){
           Key = "en",
           Value = "HeaderEn"
         },
-        new KeyValue(){
+        new KeyValueViewModel(){
           Key = "nl",
           Value = "HeaderNl"
         },
-        new KeyValue() {
+        new KeyValueViewModel() {
           Key = "ar",
           Value = "HeaderAr"
         }
@@ -45,14 +37,14 @@ public class CultureState: NotifyPropertyChanged
       
       public  void SetCurrentCulture()
       {
-        CurrentCulture = Languages.FirstOrDefault(c => c.Key == CultureInfo.CurrentCulture?.Name) ??  new KeyValue()
+        CurrentCulture = Languages.FirstOrDefault(c => c.Key == CultureInfo.CurrentCulture?.Name) ??  new KeyValueViewModel()
         {
           Key = "fr",
           Value = "HeaderFr"
         };
       }
     
-      public KeyValue CurrentCulture { get; set; }
+      public KeyValueViewModel CurrentCulture { get; set; }
 
 
       /// <summary>
@@ -78,18 +70,11 @@ public class CultureState: NotifyPropertyChanged
         }
       }
 
-      public List<KeyValue> GetDisplayLanguage()
+      public List<KeyValueViewModel> GetDisplayLanguage()
       {
          var languages =  this.CurrentCulture != null ? Languages.Where(c => c.Key != CurrentCulture.Key).ToList() : Languages;
 
          return languages;
       }
 
-      public void SetIncrement()
-      {
-        Increment++;
-      }
-      
-      
-  
 }

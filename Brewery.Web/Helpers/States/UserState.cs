@@ -2,8 +2,8 @@
 using Brewery.Contract.Contracts.Responses.Users;
 using Brewery.Services.Services.Users;
 using Brewery.Web.Helpers.States;
+using Brewery.Web.Helpers.ViewModels;
 using Brewery.Web.Shared.Enums;
-using Brewery.Web.ViewModels;
 using Elia.Core.Attributes;
 using Elia.Core.Extensions;
 using Elia.Core.Utils;
@@ -16,10 +16,10 @@ public class UserState: NotifyPropertyChanged
 {
     #region Private properties
 
-    private UserService _service;
+    private readonly UserService _service;
     private const string  DefaultTextLoad = "Loading...";
-    private NavigationManager _navigationManager;
-    private AuthSateProvider _authSateProvider;
+    private readonly NavigationManager _navigationManager;
+    private readonly AuthSateProvider _authSateProvider;
 
     #endregion
     
@@ -73,10 +73,10 @@ public class UserState: NotifyPropertyChanged
         // Operation is success. Set token
         if (response.ResultStatus == BaseResultStatus.Success)
         {
-            FormatResult.Token = response.Data.Token;
+            _service.SetToken(response.Data.Token);
             
             // Save user section 
-            _authSateProvider.CurrentUser = new ApplicationUser()
+            _authSateProvider.CurrentUserViewModel = new ApplicationUserViewModel()
             {
                 IsAuthenticated = true,
                 User = response.Data
@@ -85,7 +85,7 @@ public class UserState: NotifyPropertyChanged
             
             _authSateProvider.NotifyStateChanged();
             
-            _navigationManager.NavigateTo(AppRoutingEnum.Brewery.GetEnumDescription());
+            _navigationManager.NavigateTo(AppRoutingEnum.Brewery.GetEnumDescription(), true);
             return;
         }
 

@@ -1,7 +1,7 @@
 ﻿@using Brewery.Web.States
-@using Brewery.Web.ViewModels
 @using Elia.Core.Extensions
 @using Brewery.Web.Helpers.States
+@using Brewery.Web.Helpers.ViewModels
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject AuthSateProvider AuthSateProvider
@@ -9,7 +9,7 @@
 <div class="main">
     
 
-    <CascadingValue Value="CurrentUser" Name="@CascadingConst.CurrentUser">
+    <CascadingValue Value="CurrentUserViewModel" Name="@CascadingConst.CurrentUser">
         <NavMenu/>
         <article class="content px-4">
             @Body
@@ -20,7 +20,7 @@
 
 @code
 {
-    public ApplicationUser CurrentUser { get; set; }
+    public ApplicationUserViewModel CurrentUserViewModel { get; set; }
  
     
     [CascadingParameter]
@@ -28,6 +28,9 @@
     
     protected override async Task OnParametersSetAsync()
     {
+
+      
+        
         var userIdentity = (await AuthenticationState)?.User.Identity;
         
         if (userIdentity != null && !userIdentity.IsAuthenticated)
@@ -38,7 +41,12 @@
         }
         else
         {
-            CurrentUser = AuthSateProvider.CurrentUser;
+            CurrentUserViewModel = AuthSateProvider.CurrentUserViewModel;
         }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthSateProvider.SetToken();
     }
 }

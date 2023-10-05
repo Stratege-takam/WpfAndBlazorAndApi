@@ -1,8 +1,11 @@
 ﻿using System.Security.Claims;
+using Blazored.LocalStorage;
 using Blazored.SessionStorage;
 using Brewery.Contract.Contracts.Responses.Users;
-using Brewery.Web.ViewModels;
+using Brewery.Services.Services.Users;
+using Brewery.Web.Helpers.ViewModels;
 using Elia.Core.Attributes;
+using Elia.Core.Utils;
 using Microsoft.AspNetCore.Components.Authorization;
 using Newtonsoft.Json;
 
@@ -13,20 +16,23 @@ public class AuthSateProvider: AuthenticationStateProvider
 {
     #region Privates Attributes
 
-    private ISessionStorageService _sessionStorage;
+    private readonly ISessionStorageService _sessionStorage;
+
+    private readonly UserService _userService;
 
     #region Constructor
 
     #region Properties
-    public ApplicationUser CurrentUser {
+    public ApplicationUserViewModel CurrentUserViewModel {
         get;
         set;
     }
     #endregion
 
-    public AuthSateProvider(ISessionStorageService sessionStorage)
+    public AuthSateProvider(ISessionStorageService sessionStorage, UserService userService)
     {
         _sessionStorage = sessionStorage;
+        _userService = userService;
     }
 
     #endregion
@@ -38,32 +44,23 @@ public class AuthSateProvider: AuthenticationStateProvider
     {
         var identity = new ClaimsIdentity();
 
-        if (CurrentUser!= null)
+        if (CurrentUserViewModel!= null)
         {
-            var json = JsonConvert.SerializeObject(CurrentUser.User);
-           await _sessionStorage.SetItemAsync("brewery", json); // bad pratice hash
+            var json = JsonConvert.SerializeObject(CurrentUserViewModel.User);
+           await _sessionStorage.SetItemAsStringAsync("brewery", json); // bad pratice hash
         }
         else
         {
-            var json = await _sessionStorage.GetItemAsync<string>("brewery");
-            if (json != null)
-            {
-                var user = JsonConvert.DeserializeObject<CreateUserResponse>(json);
-                CurrentUser = new ApplicationUser()
-                {
-                    IsAuthenticated = true,
-                    User = user
-                };
-            }
+            await SetToken();
         }
         
-        if (CurrentUser!= null  && CurrentUser.IsAuthenticated)
+        if (CurrentUserViewModel!= null  && CurrentUserViewModel.IsAuthenticated)
         {
-            var currentClaims = CurrentUser.Claims == null ? null : CurrentUser.Claims.Select(c => new Claim(c.Key, c.Value));
+            var currentClaims = CurrentUserViewModel.Claims == null ? null : CurrentUserViewModel.Claims.Select(c => new Claim(c.Key, c.Value));
 
             var claims = currentClaims is null
-                ? new[] { new Claim(ClaimTypes.Name, CurrentUser.User.Email) }
-                : new[] { new Claim(ClaimTypes.Name, CurrentUser.User.Email) }.Concat(currentClaims);
+                ? new[] { new Claim(ClaimTypes.Name, CurrentUserViewModel.User.Email) }
+                : new[] { new Claim(ClaimTypes.Name, CurrentUserViewModel.User.Email) }.Concat(currentClaims);
             
             identity = new ClaimsIdentity(claims, "Server authentication");
         }
@@ -71,10 +68,37 @@ public class AuthSateProvider: AuthenticationStateProvider
         return  new AuthenticationState(new ClaimsPrincipal(identity));
     }
     
-    public async Task Logout()
+    public void Logout()
     {
-        CurrentUser = null;
+        CurrentUserViewModel = null;
         NotifyStateChanged();
+    }
+
+    public async Task SetToken()
+    {
+        if (CurrentUserViewModel == null)
+        {
+            try
+            {
+                var json = await _sessionStorage.GetItemAsStringAsync("brewery");
+                if (json != null)
+                {
+                    var user = JsonConvert.DeserializeObject<CreateUserResponse>(json);
+                    CurrentUserViewModel = new ApplicationUserViewModel()
+                    {
+                        IsAuthenticated = true,
+                        User = user
+                    };
+                    _userService.SetToken(CurrentUserViewModel.User.Token);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+           
+        }
+      
     }
 
     public void NotifyStateChanged()
