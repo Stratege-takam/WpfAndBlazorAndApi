@@ -1,0 +1,85 @@
+﻿@using Brewery.Web.Helpers.ViewModels
+
+<Dropdown Class="multiselect">
+    <DropdownToggleButton Color="ButtonColor.None"
+                          Class="text-wrap">
+         @Display
+    </DropdownToggleButton>
+    <DropdownMenu>
+        @if (Items != null)
+        {
+            foreach (var item in Items)
+            {
+                var elt = item;
+                <DropdownItem Type="ButtonType.Link">
+                    <Switch Value="elt.Checked"
+                            ValueExpression="() => elt.Checked" 
+                            ValueChanged=" (b) =>  UpdateDisplay(elt, b)" 
+                            Label="@elt.Value"/>
+                </DropdownItem>
+            }
+        }
+    </DropdownMenu>
+</Dropdown>
+
+@code {
+
+    private string _item;
+    
+    [Parameter]
+    public string Item { 
+        get => _item;
+        set
+        {
+            _item = value;
+            ItemChanged.InvokeAsync(value);
+        } 
+    }
+    
+    [Parameter]
+    public EventCallback<string> ItemChanged { get; set; }
+
+
+    private List<KeyValue> _items;
+    
+    [Parameter]
+    public List<KeyValue> Items { 
+        get => _items;
+        set
+        {
+            _items = value;
+            Display = string.Join(",", _items.Where(item => item.Checked).Select(item => item.Value.ToString()));
+            Item = string.Join(",", _items.Where(item => item.Checked).Select(item => item.Key.ToString()));
+        } 
+    }
+
+    private string Display { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (Item != null && Items != null)
+        {
+            var items = Item.Split(",");
+            Items = Items.Select(item =>
+            {
+                if (items.Any(i => i == (string)item.Key))
+                {
+                    item.Checked = true;
+                }
+                return item;
+            }).ToList();
+        }
+    }
+
+    private void UpdateDisplay(KeyValue keyValue, bool currentValue)
+    {
+        Items = Items.Select(item =>
+        {
+            if (item.Key == keyValue.Key)
+            {
+                item.Checked = currentValue;
+            }
+            return item;
+        }).ToList();
+    }
+}

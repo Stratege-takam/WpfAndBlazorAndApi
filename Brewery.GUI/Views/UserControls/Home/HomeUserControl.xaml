@@ -132,10 +132,10 @@
                     
                         <StackPanel>
                             <TextBlock  Style ="{StaticResource TextBlockHeader}"
-                                        Text="{DynamicResource Text14}" />
+                                        Text="{DynamicResource Text16}" />
                         
                             <TextBlock  
-                                        Text="{DynamicResource Text15}" />
+                                        Text="{DynamicResource Text17}" />
                         </StackPanel>
                     </StackPanel>
                 </Border>

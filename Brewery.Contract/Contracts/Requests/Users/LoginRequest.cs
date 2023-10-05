@@ -17,6 +17,6 @@ public class LoginRequest
     /// <summary>
     /// 
     /// </summary>
-    [Required]
+    [Required, MinLength(4)]
     public string Password { get; set; }
 }
